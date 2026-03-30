@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Genuine Optimum | Digital Solutions & Growth Systems",
   description: "Genuine Optimum is a digital engineering and growth systems company that builds scalable technology infrastructure for modern businesses.",
+  icons: {
+    icon: '/gologo.webp',
+  },
 };
 
 export default function RootLayout({
