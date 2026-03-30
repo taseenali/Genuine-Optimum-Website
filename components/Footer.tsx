@@ -10,7 +10,7 @@ export default function Footer() {
                     <div className="flex flex-col space-y-4">
                         <span className="text-white text-lg font-bold tracking-tighter">GENUINE OPTIMUM</span>
                         <p className="text-sm leading-relaxed max-w-xs">
-                            Where technology meets real business : result
+                            Where technology meets real business : results
                         </p>
 
                     </div>
