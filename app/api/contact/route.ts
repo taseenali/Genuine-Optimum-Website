@@ -34,8 +34,8 @@ export async function POST(request: Request) {
     // Initialize the Nodemailer Hostinger SMTP Transporter
     const transporter = nodemailer.createTransport({
       host: 'smtp.hostinger.com',
-      port: 465,
-      secure: true, // true for 465, false for other ports
+      port: 587,
+      secure: false, // true for 465, false for other ports
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -77,13 +77,18 @@ ${safeMessage}
       { message: 'Message sent successfully.' },
       { status: 200 }
     );
-  } catch (error) {
-    // Only log safe errors to server console to avoid exposing SMTP to the client
-    console.error('Email API Error:', error);
+  } catch (error: any) {
+    // Only log explicit failure details to server console to avoid exposing SMTP to the client
+    console.error("SMTP ERROR:", {
+      message: error.message,
+      code: error.code,
+      response: error.response,
+      command: error.command
+    });
 
     // Provide a generic, graceful error to the frontend
     return NextResponse.json(
-      { error: 'Internal Server Error. Please try again later.' },
+      { error: "Internal Server Error. Please try again later." },
       { status: 500 }
     );
   }
