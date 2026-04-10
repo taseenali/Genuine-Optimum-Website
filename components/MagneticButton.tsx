@@ -1,20 +1,19 @@
 "use client";
 
-import { useRef, useState, MouseEvent } from "react";
-import { motion } from "framer-motion";
+import { useRef, useState, MouseEvent, ButtonHTMLAttributes } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-interface MagneticButtonProps {
+interface MagneticButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode;
     className?: string;
-    onClick?: () => void;
 }
 
-export default function MagneticButton({ children, className = "", onClick }: MagneticButtonProps) {
+export default function MagneticButton({ children, className = "", disabled, ...props }: MagneticButtonProps) {
     const ref = useRef<HTMLButtonElement>(null);
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const handleMouse = (e: MouseEvent<HTMLButtonElement>) => {
-        if (!ref.current) return;
+        if (!ref.current || disabled) return;
         const { clientX, clientY } = e;
         const { height, width, left, top } = ref.current.getBoundingClientRect();
         const middleX = clientX - (left + width / 2);
@@ -39,12 +38,13 @@ export default function MagneticButton({ children, className = "", onClick }: Ma
             ref={ref}
             onMouseMove={handleMouse}
             onMouseLeave={reset}
-            animate={{ x, y }}
+            animate={{ x: disabled ? 0 : x, y: disabled ? 0 : y }}
             transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.97 }}
-            className={className}
-            onClick={onClick}
+            whileHover={disabled ? {} : { scale: 1.05 }}
+            whileTap={disabled ? {} : { scale: 0.97 }}
+            className={`${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+            disabled={disabled}
+            {...(props as HTMLMotionProps<"button">)}
         >
             {children}
         </motion.button>
