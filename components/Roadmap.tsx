@@ -13,16 +13,32 @@ export default function Roadmap() {
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start 0.65", "end 0.25"],
+    // Safely expands the offset bounds so scrolling to the bottom of 
+    // a short page guarantees we reach 1.0 safely inside the viewport.
+    offset: ["start 0.6", "end 0.9"],
   });
 
-  useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    const step = Math.floor(latest * 6) - 1;
-    setActiveStep(Math.min(Math.max(step, -1), 4));
+  // Clamp raw progress robustly to prevent overscroll/bounce issues on mobile
+  const clampedProgress = useTransform(scrollYProgress, (v) => Math.min(Math.max(v, 0), 1));
+
+  useMotionValueEvent(clampedProgress, "change", (latest) => {
+    // Explicit discrete locking based on solid percentage brackets, 
+    // replacing drift-prone mathematical multiplications.
+    let step = -1;
+    if (latest >= 0.05) step = 0;
+    if (latest >= 0.25) step = 1;
+    if (latest >= 0.45) step = 2;
+    if (latest >= 0.65) step = 3;
+    if (latest >= 0.85) step = 4; // Safely catches final step well before 1.0!
+    
+    setActiveStep(step);
   });
 
-  const progressHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
-  const markerTop = useTransform(scrollYProgress, [0, 0.95], ["2%", "90%"]);
+  const progressHeight = useTransform(clampedProgress, [0, 1], ["0%", "100%"]);
+  
+  // Exact 112px final offset calculation anchors the car accurately 
+  // into the horizontal center of Step 05 factoring padding and node size.
+  const markerTop = useTransform(clampedProgress, (val) => `calc(${val * 100}% - ${val * 112}px)`);
 
   const nodes = [
     {
