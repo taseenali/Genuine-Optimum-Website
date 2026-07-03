@@ -1,8 +1,9 @@
 "use client";
 
 import { useState, useCallback, useEffect, useRef } from 'react';
-import { motion, useMotionValue, useAnimationFrame, useTransform } from 'motion/react';
+import { motion, useMotionValue, useAnimationFrame, useTransform, useReducedMotion } from 'motion/react';
 import './ShinyText.css';
+import type { ShinyTextProps } from './shinyTypes';
 
 const ShinyText = ({
     text,
@@ -16,18 +17,19 @@ const ShinyText = ({
     pauseOnHover = false,
     direction = 'left',
     delay = 0
-}: any) => {
+}: ShinyTextProps) => {
     const [isPaused, setIsPaused] = useState(false);
     const progress = useMotionValue(0);
     const elapsedRef = useRef(0);
     const lastTimeRef = useRef<number | null>(null);
     const directionRef = useRef(direction === 'left' ? 1 : -1);
+    const prefersReducedMotion = useReducedMotion();
 
     const animationDuration = speed * 1000;
     const delayDuration = delay * 1000;
 
     useAnimationFrame(time => {
-        if (disabled || isPaused) {
+        if (disabled || prefersReducedMotion || isPaused) {
             lastTimeRef.current = null;
             return;
         }

@@ -89,7 +89,7 @@ export default function Navbar() {
                 Home
               </Link>
               <div className="relative group">
-                <Link href="#" className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 px-5 py-2 rounded-full text-sm font-medium flex items-center gap-1">
+                <Link href="/services" className="text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300 px-5 py-2 rounded-full text-sm font-medium flex items-center gap-1">
                   Services
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />

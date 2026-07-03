@@ -155,7 +155,7 @@ const Particles = ({
         };
 
         if (moveParticlesOnHover) {
-            window.addEventListener('mousemove', handleMouseMove as any);
+            window.addEventListener('mousemove', handleMouseMove);
         }
 
         const count = particleCount;
@@ -199,7 +199,7 @@ const Particles = ({
             depthTest: false
         });
 
-        const particles = new Mesh(gl, { mode: gl.POINTS as any, geometry, program });
+        const particles = new Mesh(gl, { mode: gl.POINTS, geometry, program });
 
         let animationFrameId: number;
         let lastTime = performance.now();
@@ -235,7 +235,7 @@ const Particles = ({
         return () => {
             window.removeEventListener('resize', resize);
             if (moveParticlesOnHover) {
-                window.removeEventListener('mousemove', handleMouseMove as any);
+                window.removeEventListener('mousemove', handleMouseMove);
             }
             cancelAnimationFrame(animationFrameId);
             if (container.contains(gl.canvas)) {

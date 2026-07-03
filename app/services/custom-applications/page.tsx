@@ -4,8 +4,10 @@ import { motion, Variants } from "framer-motion";
 import { Black_Ops_One, Quantico } from "next/font/google";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import Particles from "../../../components/Particles";
+import ParticlesBackground from "../../../components/ParticlesBackground";
 import MagneticButton from "../../../components/MagneticButton";
+import RelatedServices from "../../../components/RelatedServices";
+import Breadcrumbs from "../../../components/Breadcrumbs";
 import { useRouter } from "next/navigation";
 
 const blackOpsOne = Black_Ops_One({
@@ -64,25 +66,14 @@ export default function CustomAppsPage() {
 
     return (
         <div className="relative min-h-screen bg-black text-white font-sans selection:bg-purple-500/30 w-full overflow-hidden">
-            {/* Background Particles */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <Particles
-                    particleColors={["#ffffff"]}
-                    particleCount={300}
-                    particleSpread={10}
-                    speed={0.1}
-                    particleBaseSize={100}
-                    moveParticlesOnHover={true}
-                    alphaParticles={false}
-                    disableRotation={false}
-                    pixelRatio={2}
-                />
-            </div>
+            <ParticlesBackground particleCount={300} />
 
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
                 <main className="flex-grow pt-32 pb-20">
+                    <Breadcrumbs items={[{ label: "Services", href: "/services" }, { label: "Custom Applications", href: "/services/custom-applications" }]} />
+
                     {/* Hero Section */}
                     <section className="px-6 mb-24 max-w-7xl mx-auto">
                         <motion.div
@@ -163,11 +154,13 @@ export default function CustomAppsPage() {
                         </motion.div>
                     </section>
 
+                    <RelatedServices currentSlug="custom-applications" />
+
                     {/* Closing Section */}
                     <section className="px-6 mb-20 max-w-5xl mx-auto text-center relative z-20">
                         {/* Background glow drop */}
                         <div className="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full -z-10 pointer-events-none transition-opacity duration-700"></div>
-                        
+
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -177,12 +170,12 @@ export default function CustomAppsPage() {
                         >
                             {/* Animated gradient border */}
                             <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 via-transparent to-blue-600 opacity-40 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem]"></span>
-                            
+
                             <div className="relative p-8 md:p-12 rounded-[2.5rem] bg-black/90 backdrop-blur-3xl overflow-hidden flex flex-col items-center justify-center border border-white/5">
                                 {/* Subtle decorative top/bottom lines */}
                                 <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent opacity-50"></div>
                                 <div className="absolute right-0 bottom-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-50"></div>
-                                
+
                                 {/* Inner animated glow */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-[80px] -z-10 group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-all duration-700"></div>
 
@@ -199,7 +192,7 @@ export default function CustomAppsPage() {
                                     <div className="mt-8 flex justify-center">
                                         <MagneticButton
                                             className="relative overflow-hidden group/btn bg-white text-black px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]"
-                                            onClick={() => router.push('/contact')}
+                                            onClick={() => router.push('/contact?service=custom-applications')}
                                         >
                                             <span className="relative z-10 flex items-center justify-center gap-2">
                                                 Start Your Application

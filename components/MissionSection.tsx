@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Quantico } from "next/font/google";
+import Image from "next/image";
 import Carousel from "./Carousel";
 import { FiEyeOff, FiLayout, FiSettings, FiDatabase, FiServer, FiTrendingUp, FiZap, FiLayers, FiCpu, FiCode, FiTarget } from "react-icons/fi";
 
@@ -54,32 +55,24 @@ export default function MissionSection() {
             title: "Grow Online Visibility",
             description: "Strategic SEO, content marketing, and digital campaigns that put your brand in front of the right audience — consistently.",
             icon: <FiTrendingUp className="w-7 h-7" />,
-            stat: "3x",
-            statLabel: "avg. traffic growth",
             bgImage: '/Grow-Online-Visibility.webp'
         },
         {
             title: "Automate Operations",
             description: "Replace repetitive tasks with intelligent workflows. From invoicing to customer onboarding — we build systems that run while you sleep.",
             icon: <FiZap className="w-7 h-7" />,
-            stat: "60%",
-            statLabel: "time saved on ops",
             bgImage: '/Automate-Operations.webp'
         },
         {
             title: "Build Scalable Platforms",
             description: "Cloud-native web apps, SaaS platforms, and internal tools engineered to handle growth without breaking.",
             icon: <FiLayers className="w-7 h-7" />,
-            stat: "99.9%",
-            statLabel: "uptime guaranteed",
             bgImage: '/Scalable-platforms.webp'
         },
         {
             title: "Leverage Data & AI",
             description: "Turn raw data into competitive advantage. Custom dashboards, predictive models, and AI copilots tailored to your business.",
             icon: <FiCpu className="w-7 h-7" />,
-            stat: "10x",
-            statLabel: "faster insights",
             bgImage: '/Data-Systems-AI.webp'
         }
     ];
@@ -146,12 +139,13 @@ export default function MissionSection() {
                             scale: { duration: 1 }
                         }}
                         viewport={{ once: true }}
-                        className="w-24 h-24 mx-auto mb-6 block sm:hidden pointer-events-none"
+                        className="relative w-24 h-24 mx-auto mb-6 block sm:hidden pointer-events-none"
                     >
-                        <img 
-                            src="/problem-solving.webp" 
-                            alt="Problem Solving Accent" 
-                            className="w-full h-auto object-contain opacity-90"
+                        <Image
+                            src="/problem-solving.webp"
+                            alt="Problem Solving Accent"
+                            fill
+                            className="object-contain opacity-90"
                         />
                     </motion.div>
 
@@ -183,10 +177,11 @@ export default function MissionSection() {
                             viewport={{ once: true }}
                             className="absolute -right-24 md:-right-36 -top-4 md:-top-10 w-24 md:w-36 h-24 md:h-36 pointer-events-none z-0 hidden sm:block"
                         >
-                            <img 
-                                src="/problem-solving.webp" 
-                                alt="Problem Solving Accent" 
-                                className="w-full h-auto object-contain opacity-80"
+                            <Image
+                                src="/problem-solving.webp"
+                                alt="Problem Solving Accent"
+                                fill
+                                className="object-contain opacity-80"
                             />
                         </motion.div>
                     </div>

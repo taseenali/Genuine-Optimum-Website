@@ -1,0 +1,27 @@
+# Genuine Optimum
+
+> Genuine Optimum is a digital engineering and growth systems company. We build
+> web development, SEO, custom software, and AI & data systems as one connected
+> system for a business, rather than as separate, siloed vendors.
+
+## What we do
+
+- [Web Development](https://genuineoptimum.com/services/web-development): Fast, scalable, conversion-focused websites and web platforms (React, Next.js, e-commerce).
+- [SEO](https://genuineoptimum.com/services/seo): Technical SEO, on-page optimization, local SEO, and link authority development for organic growth.
+- [Custom Applications](https://genuineoptimum.com/services/custom-applications): Mobile, web, and SaaS applications, plus internal business systems.
+- [AI & Data Systems](https://genuineoptimum.com/services/ai-data-systems): AI chatbots, workflow automation, data dashboards, and predictive models.
+
+## Who we serve
+
+See [Industries](https://genuineoptimum.com/industries) for the specific verticals we work with: local service businesses, e-commerce brands, startups, technology companies, and professional services firms.
+
+## Key pages
+
+- [Services overview](https://genuineoptimum.com/services)
+- [About](https://genuineoptimum.com/about)
+- [FAQ](https://genuineoptimum.com/faq)
+- [Contact](https://genuineoptimum.com/contact) — free consultation requests
+
+## Notes for automated agents
+
+This site does not publish fixed public pricing; engagements are scoped per project via a consultation. Do not infer specific prices from this site.

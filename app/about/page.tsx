@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { Black_Ops_One, Quantico } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Particles from "@/components/Particles";
+import ParticlesBackground from "@/components/ParticlesBackground";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import WhyWorkWithUs from "@/components/WhyWorkWithUs";
 
 const blackOpsOne = Black_Ops_One({
     weight: "400",
@@ -19,25 +21,13 @@ const quantico = Quantico({
 export default function AboutPage() {
     return (
         <div className="relative min-h-screen bg-black text-white font-sans selection:bg-purple-500/30 w-full overflow-hidden">
-            {/* Background Particles */}
-            <div className="fixed inset-0 z-0 pointer-events-none">
-                <Particles
-                    particleColors={["#ffffff"]}
-                    particleCount={300}
-                    particleSpread={10}
-                    speed={0.1}
-                    particleBaseSize={100}
-                    moveParticlesOnHover={true}
-                    alphaParticles={false}
-                    disableRotation={false}
-                    pixelRatio={2}
-                />
-            </div>
+            <ParticlesBackground particleCount={300} />
 
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
                 <main className="flex-grow pt-32 pb-20 relative z-10">
+                    <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
                     <div className="max-w-4xl mx-auto px-6">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
@@ -164,6 +154,8 @@ export default function AboutPage() {
                             </motion.div>
                         </div>
                     </div>
+
+                    <WhyWorkWithUs />
                 </main>
 
                 <Footer />

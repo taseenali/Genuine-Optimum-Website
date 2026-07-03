@@ -1,11 +1,29 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { motion, useMotionValue, useTransform } from 'motion/react';
+import { motion, useMotionValue, useTransform, useReducedMotion, type MotionValue, type PanInfo, type Transition } from 'motion/react';
 // replace icons with your own if needed
 import { FiCircle, FiCode, FiFileText, FiLayers, FiLayout } from 'react-icons/fi';
 
 import './Carousel.css';
 
-const DEFAULT_ITEMS = [
+interface CarouselItemData {
+  id: number | string;
+  title: string;
+  description: string;
+  icon?: React.ReactNode;
+  bgImage?: string;
+}
+
+interface CarouselProps {
+  items?: CarouselItemData[];
+  baseWidth?: number;
+  autoplay?: boolean;
+  autoplayDelay?: number;
+  pauseOnHover?: boolean;
+  loop?: boolean;
+  round?: boolean;
+}
+
+const DEFAULT_ITEMS: CarouselItemData[] = [
   {
     title: 'Text Animations',
     description: 'Cool text animations for your projects.',
@@ -43,8 +61,17 @@ const VELOCITY_THRESHOLD = 500;
 const GAP = 16;
 const SPRING_OPTIONS = { type: 'spring' as const, stiffness: 300, damping: 30 };
 
-// @ts-ignore
-function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, transition }) {
+interface CarouselItemProps {
+  item: CarouselItemData;
+  index: number;
+  itemWidth: number;
+  round: boolean;
+  trackItemOffset: number;
+  x: MotionValue<number>;
+  transition: Transition;
+}
+
+function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, transition }: CarouselItemProps) {
   const range = [-(index + 1) * trackItemOffset, -index * trackItemOffset, -(index - 1) * trackItemOffset];
   const outputRange = [90, 0, -90];
   const rotateY = useTransform(x, range, outputRange, { clamp: false });
@@ -82,7 +109,6 @@ function CarouselItem({ item, index, itemWidth, round, trackItemOffset, x, trans
   );
 }
 
-// @ts-ignore
 export default function Carousel({
   items = DEFAULT_ITEMS,
   baseWidth = 300,
@@ -91,7 +117,7 @@ export default function Carousel({
   pauseOnHover = false,
   loop = false,
   round = false
-}) {
+}: CarouselProps) {
   const containerPadding = 16;
   const itemWidth = baseWidth - containerPadding * 2;
   const trackItemOffset = itemWidth + GAP;
@@ -106,6 +132,7 @@ export default function Carousel({
   const [isHovered, setIsHovered] = useState(false);
   const [isJumping, setIsJumping] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -124,7 +151,7 @@ export default function Carousel({
   }, [pauseOnHover]);
 
   useEffect(() => {
-    if (!autoplay || itemsForRender.length <= 1) return undefined;
+    if (!autoplay || prefersReducedMotion || itemsForRender.length <= 1) return undefined;
     if (pauseOnHover && isHovered) return undefined;
 
     const timer = setInterval(() => {
@@ -132,16 +159,22 @@ export default function Carousel({
     }, autoplayDelay);
 
     return () => clearInterval(timer);
-  }, [autoplay, autoplayDelay, isHovered, pauseOnHover, itemsForRender.length]);
+  }, [autoplay, autoplayDelay, isHovered, pauseOnHover, itemsForRender.length, prefersReducedMotion]);
 
   useEffect(() => {
+    // Resets carousel position when the item set or loop mode identity changes,
+    // syncing both React state and the external `x` motion value together.
     const startingPosition = loop ? 1 : 0;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPosition(startingPosition);
     x.set(-startingPosition * trackItemOffset);
   }, [items.length, loop, trackItemOffset, x]);
 
   useEffect(() => {
+    // Defensive clamp: keeps `position` in range if the item count shrinks
+    // out from under an already-rendered position.
     if (!loop && position > itemsForRender.length - 1) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setPosition(Math.max(0, itemsForRender.length - 1));
     }
   }, [itemsForRender.length, loop, position]);
@@ -186,8 +219,7 @@ export default function Carousel({
     setIsAnimating(false);
   };
 
-  // @ts-ignore
-  const handleDragEnd = (_, info) => {
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
     const { offset, velocity } = info;
     const direction =
       offset.x < -DRAG_BUFFER || velocity.x < -VELOCITY_THRESHOLD
@@ -217,6 +249,16 @@ export default function Carousel({
   const activeIndex =
     items.length === 0 ? 0 : loop ? (position - 1 + items.length) % items.length : Math.min(position, items.length - 1);
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      setPosition(prev => Math.min(prev + 1, itemsForRender.length - 1));
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      setPosition(prev => Math.max(prev - 1, 0));
+    }
+  };
+
   return (
     <div
       ref={containerRef}
@@ -225,6 +267,11 @@ export default function Carousel({
         width: `${baseWidth}px`,
         ...(round && { height: `${baseWidth}px`, borderRadius: '50%' })
       }}
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Carousel"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
     >
       <motion.div
         className="carousel-track"
@@ -259,14 +306,17 @@ export default function Carousel({
       <div className={`carousel-indicators-container ${round ? 'round' : ''}`}>
         <div className="carousel-indicators">
           {items.map((_, index) => (
-            <motion.div
+            <motion.button
               key={index}
+              type="button"
               className={`carousel-indicator ${activeIndex === index ? 'active' : 'inactive'}`}
               animate={{
                 scale: activeIndex === index ? 1.2 : 1
               }}
               onClick={() => setPosition(loop ? index + 1 : index)}
               transition={{ duration: 0.15 }}
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={activeIndex === index}
             />
           ))}
         </div>

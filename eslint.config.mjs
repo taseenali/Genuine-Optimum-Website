@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Scratch copy for external design-tool uploads, not part of the deployed app:
+    "Claude Design Uploads/**",
   ]),
 ]);
 

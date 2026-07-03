@@ -2,7 +2,8 @@
 
 import { motion, Variants } from "framer-motion";
 import { Black_Ops_One, Quantico } from "next/font/google";
-import { FiMapPin, FiShoppingCart, FiSend, FiCpu, FiBriefcase } from "react-icons/fi";
+import Link from "next/link";
+import { INDUSTRIES } from "@/lib/industries";
 
 const blackOpsOne = Black_Ops_One({
     weight: "400",
@@ -32,34 +33,6 @@ const itemVariants: Variants = {
 };
 
 export default function Industries() {
-    const industries = [
-        {
-            title: "Local Service Businesses",
-            description: "Plumbers, clinics, law firms, and agencies that need to dominate local search and convert nearby customers.",
-            icon: <FiMapPin className="w-7 h-7" />,
-        },
-        {
-            title: "E-Commerce Brands",
-            description: "Online stores looking to scale with optimized storefronts, automated fulfillment, and data-driven marketing.",
-            icon: <FiShoppingCart className="w-7 h-7" />,
-        },
-        {
-            title: "Startups",
-            description: "Early-stage companies that need to move fast — from MVP development to growth infrastructure.",
-            icon: <FiSend className="w-7 h-7" />,
-        },
-        {
-            title: "Technology Companies",
-            description: "SaaS platforms, dev tools, and tech firms needing scalable architecture, AI integration, and technical SEO.",
-            icon: <FiCpu className="w-7 h-7" />,
-        },
-        {
-            title: "Professional Services",
-            description: "Consulting firms, financial advisors, and B2B companies that need credibility online and efficient client systems.",
-            icon: <FiBriefcase className="w-7 h-7" />,
-        }
-    ];
-
     return (
         <section className="relative py-24 px-6 overflow-hidden">
             {/* Backdrop Blur layer */}
@@ -93,21 +66,22 @@ export default function Industries() {
                     viewport={{ once: true, margin: "-80px" }}
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 max-w-5xl mx-auto"
                 >
-                    {industries.slice(0, 3).map((item, i) => (
-                        <motion.div
-                            key={i}
-                            variants={itemVariants}
-                            className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-7 text-left backdrop-blur-xl overflow-hidden"
-                        >
-                            <div className="relative z-10">
-                                <div className="mb-5">
-                                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                                        {item.icon}
+                    {INDUSTRIES.slice(0, 3).map((item) => (
+                        <motion.div key={item.slug} variants={itemVariants}>
+                            <Link
+                                href={`/industries#${item.slug}`}
+                                className="group relative block h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7 text-left backdrop-blur-xl overflow-hidden transition-colors duration-300 hover:border-purple-500/40 hover:bg-white/[0.06]"
+                            >
+                                <div className="relative z-10">
+                                    <div className="mb-5">
+                                        <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                                            {item.icon}
+                                        </div>
                                     </div>
+                                    <h4 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">{item.title}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
                                 </div>
-                                <h4 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">{item.title}</h4>
-                                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
-                            </div>
+                            </Link>
                         </motion.div>
                     ))}
                 </motion.div>
@@ -120,26 +94,44 @@ export default function Industries() {
                     viewport={{ once: true, margin: "-80px" }}
                     className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl md:max-w-[calc(66.666%+0.75rem)] mx-auto"
                 >
-                    {industries.slice(3).map((item, i) => (
-                        <motion.div
-                            key={i + 3}
-                            variants={itemVariants}
-                            className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-7 text-left backdrop-blur-xl overflow-hidden"
-                        >
-                            <div className="relative z-10">
-                                <div className="mb-5">
-                                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                                        {item.icon}
+                    {INDUSTRIES.slice(3).map((item) => (
+                        <motion.div key={item.slug} variants={itemVariants}>
+                            <Link
+                                href={`/industries#${item.slug}`}
+                                className="group relative block h-full rounded-2xl border border-white/10 bg-white/[0.03] p-7 text-left backdrop-blur-xl overflow-hidden transition-colors duration-300 hover:border-purple-500/40 hover:bg-white/[0.06]"
+                            >
+                                <div className="relative z-10">
+                                    <div className="mb-5">
+                                        <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                                            {item.icon}
+                                        </div>
                                     </div>
+                                    <h4 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">{item.title}</h4>
+                                    <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
                                 </div>
-                                <h4 className="text-lg font-bold text-white mb-2 uppercase tracking-wide">{item.title}</h4>
-                                <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
-                            </div>
+                            </Link>
                         </motion.div>
                     ))}
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                    className="text-center mt-12"
+                >
+                    <Link
+                        href="/industries"
+                        className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 font-medium text-sm transition-colors"
+                    >
+                        See all industries
+                        <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                    </Link>
                 </motion.div>
             </div>
         </section>
     );
 }
-

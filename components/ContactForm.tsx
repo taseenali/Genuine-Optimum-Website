@@ -1,11 +1,23 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, useEffect, FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import ShinyText from "./reactbits/ShinyText";
 import MagneticButton from "./MagneticButton";
 
+// Maps a service page's URL slug (?service=seo) to the matching chip label,
+// so a visitor arriving via a specific service page's CTA lands with that
+// service pre-selected instead of the founder losing the referral signal.
+const SERVICE_SLUG_TO_LABEL: Record<string, string> = {
+  "web-development": "Web Development",
+  "seo": "SEO Optimization",
+  "custom-applications": "Custom Software",
+  "ai-data-systems": "AI & Data Systems",
+};
+
 export default function ContactForm() {
+  const searchParams = useSearchParams();
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '', website: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -18,7 +30,16 @@ export default function ContactForm() {
     "AI & Data Systems",
     "Not Sure Yet"
   ];
- 
+
+  useEffect(() => {
+    const slug = searchParams.get('service');
+    const label = slug ? SERVICE_SLUG_TO_LABEL[slug] : undefined;
+    if (label) {
+      setSelectedServices([label]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const toggleService = (service: string) => {
     setSelectedServices(prev => 
       prev.includes(service) 
@@ -58,9 +79,9 @@ export default function ContactForm() {
 
       // Reset success state after a few seconds
       setTimeout(() => setStatus('idle'), 5000);
-    } catch (error: any) {
+    } catch (error) {
       setStatus('error');
-      setErrorMessage(error.message || 'Failed to send message. Please try again.');
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
     }
   };
 
@@ -84,7 +105,7 @@ export default function ContactForm() {
           </h2>
         </div>
         <p className="text-gray-400 text-lg">
-          Have a project in mind? Let's build something extraordinary together.
+          Have a project in mind? Let&apos;s build something extraordinary together.
         </p>
       </div>
 
@@ -196,7 +217,7 @@ export default function ContactForm() {
               exit={{ opacity: 0, height: 0 }}
               className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm text-center"
             >
-              Message sent successfully! We'll get back to you soon.
+              Message sent successfully! We&apos;ll get back to you soon.
             </motion.div>
           )}
 

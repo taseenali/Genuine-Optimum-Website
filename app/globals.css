@@ -10,10 +10,93 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* Brand tokens. #a855f7 (Tailwind purple-500) is the real brand
+     primary — used 15+ times across every page. #6600ff is a one-off
+     shimmer-effect accent (Navbar logo shine only) — not a foundation
+     color, kept as a literal prop value rather than a token. */
+  --color-brand-primary: #a855f7;
+  --color-brand-primary-dim: #a855f733;
+  --color-surface: #0a0a0a;
+  --color-surface-raised: rgba(255, 255, 255, 0.05);
+  --color-border-subtle: rgba(255, 255, 255, 0.1);
+
+  /* Motion scale, matching durations already used across components */
+  --duration-fast: 0.3s;
+  --duration-base: 0.6s;
+  --duration-slow: 0.8s;
+  --ease-out-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Radius scale, matching the 2xl/3xl/full sizes already in use */
+  --radius-card: 1.5rem;
+  --radius-panel: 2rem;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Minimal MDX blog-post typography (no @tailwindcss/typography dependency) */
+.blog-article {
+  color: #d1d5db;
+  line-height: 1.75;
+}
+.blog-article h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.blog-article h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.blog-article h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.blog-article p {
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.blog-article a {
+  color: var(--color-brand-primary);
+  text-decoration: underline;
+}
+.blog-article ul,
+.blog-article ol {
+  margin: 1.25rem 0;
+  padding-left: 1.5rem;
+}
+.blog-article li {
+  margin: 0.5rem 0;
+}
+.blog-article code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.9em;
+}
+.blog-article pre {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+.blog-article blockquote {
+  border-left: 2px solid var(--color-brand-primary);
+  padding-left: 1rem;
+  color: #9ca3af;
+  font-style: italic;
+  margin: 1.5rem 0;
 }
