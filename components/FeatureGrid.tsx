@@ -12,7 +12,7 @@ const features = [
     },
     {
         title: "Custom Web Development",
-        description: "Fast, scalable, and modern websites built with cutting-edge technologies.",
+        description: "Fast, scalable, modern websites built with current frameworks and tooling.",
         link: "/services/web-development",
     },
 
@@ -23,7 +23,7 @@ const features = [
     },
     {
         title: "AI & Data Systems",
-        description: "Intelligent systems that automate operations and unlock data-driven insights.",
+        description: "Intelligent systems that automate operations and surface insights hidden in your data.",
         link: "/services/ai-data-systems",
     },
 ]

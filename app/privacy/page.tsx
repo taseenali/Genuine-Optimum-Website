@@ -36,12 +36,12 @@ export default function PrivacyPage() {
                                 <p className="mb-3">We collect information in the following ways:</p>
                                 <ul className="list-disc list-inside space-y-2 text-gray-400">
                                     <li>
-                                        <span className="text-gray-300">Information you provide directly</span> — when you
+                                        <span className="text-gray-300">Information you provide directly:</span> when you
                                         submit our contact form, we collect your name, email address, phone number
                                         (optional), the service(s) you&apos;re interested in, and any message you write.
                                     </li>
                                     <li>
-                                        <span className="text-gray-300">Automatically collected information</span> — like
+                                        <span className="text-gray-300">Automatically collected information:</span> like
                                         most websites, our hosting and analytics providers may collect standard technical
                                         data such as IP address, browser type, device type, and pages visited, used only
                                         in aggregate to understand site performance.

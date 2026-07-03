@@ -43,8 +43,8 @@ export default function TermsPage() {
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-3">3. No Public Pricing / No Binding Offer</h2>
                                 <p>
-                                    Content on the Site — including service descriptions, process overviews, and any
-                                    illustrative examples — is provided for general informational purposes only and
+                                    Content on the Site (including service descriptions, process overviews, and any
+                                    illustrative examples) is provided for general informational purposes only and
                                     does not constitute a binding quote, offer, or guarantee of results. Actual project
                                     scope, pricing, and deliverables are established separately in a written agreement
                                     between Genuine Optimum and the client.
@@ -54,7 +54,7 @@ export default function TermsPage() {
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-3">4. Intellectual Property</h2>
                                 <p>
-                                    All content on the Site — including text, graphics, logos, and design — is the
+                                    All content on the Site (including text, graphics, logos, and design) is the
                                     property of Genuine Optimum or its licensors and is protected by applicable
                                     intellectual property laws. You may not reproduce, distribute, or create derivative
                                     works from Site content without our prior written consent.

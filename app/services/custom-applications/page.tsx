@@ -27,7 +27,7 @@ const systems = [
     },
     {
         title: "Web Applications",
-        description: "Advanced browser-based platforms tailored to business workflows.",
+        description: "Advanced browser-based platforms built around how your business actually works.",
     },
     {
         title: "SaaS Platforms",
@@ -186,7 +186,7 @@ export default function CustomAppsPage() {
                                     className="relative z-10"
                                 >
                                     <h2 className="text-lg md:text-xl font-light mb-6 leading-relaxed tracking-wide text-white">
-                                        Our engineering team designs software that integrates seamlessly with your business processes and future growth plans.
+                                        Our engineering team designs software that fits your existing business processes and holds up as you grow.
                                     </h2>
                                     
                                     <div className="mt-8 flex justify-center">

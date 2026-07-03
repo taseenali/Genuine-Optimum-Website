@@ -26,7 +26,7 @@ export const INDUSTRIES: IndustrySummary[] = [
         slug: "startups",
         title: "Startups",
         description:
-            "Early-stage companies that need to move fast — from MVP development to growth infrastructure.",
+            "Early-stage companies that need to move fast, from MVP development to growth infrastructure.",
         icon: <FiSend className="w-7 h-7" />,
     },
     {

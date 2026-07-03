@@ -42,7 +42,7 @@ export default function BlogIndexPage() {
                         {posts.length === 0 ? (
                             <div className="text-center py-20 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl">
                                 <p className="text-gray-400 text-lg">
-                                    No posts published yet — check back soon for insights on web development, SEO, and connected digital systems.
+                                    No posts published yet. Check back soon for insights on web development, SEO, and connected digital systems.
                                 </p>
                             </div>
                         ) : (

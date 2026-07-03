@@ -107,7 +107,7 @@ export default function AIDataPage() {
                                 transition={{ duration: 1 }}
                                 className="text-lg md:text-xl text-gray-400 leading-relaxed"
                             >
-                                We integrate artificial intelligence and data systems into business operations to unlock automation, insights, and intelligent workflows.
+                                We integrate artificial intelligence and data systems into business operations, giving you automation, real insight, and workflows that actually think.
                             </motion.p>
                         </div>
                     </section>

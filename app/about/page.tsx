@@ -43,7 +43,7 @@ export default function AboutPage() {
                                     At Genuine Optimum, we build digital systems that help businesses grow with clarity and efficiency.
                                 </p>
                                 <p>
-                                    We specialize in web development, SEO, and custom software solutions — not as separate services, but as a connected approach to solving real business problems. Every project we take on is designed to improve performance, simplify operations, and create long-term value.
+                                    We specialize in web development, SEO, and custom software. Rather than treating these as separate services, we treat them as one connected approach to a business problem. Every project is judged on whether it actually improves performance, simplifies operations, and holds up long-term.
                                 </p>
                             </div>
                         </motion.div>

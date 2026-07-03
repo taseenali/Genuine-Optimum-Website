@@ -63,7 +63,7 @@ export default function ServicesPage() {
                                 OUR SERVICES
                             </h1>
                             <p className={`text-xl md:text-2xl text-gray-300 font-medium tracking-wide max-w-3xl mx-auto ${quantico.className}`}>
-                                Engineering, marketing, data, and AI — as one connected system, not siloed vendors.
+                                Engineering, marketing, data, and AI, running as one system instead of separate vendors.
                             </p>
                         </motion.div>
                     </section>

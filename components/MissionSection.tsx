@@ -53,13 +53,13 @@ export default function MissionSection() {
     const helpItems = [
         {
             title: "Grow Online Visibility",
-            description: "Strategic SEO, content marketing, and digital campaigns that put your brand in front of the right audience — consistently.",
+            description: "Strategic SEO, content marketing, and digital campaigns that consistently put your brand in front of the right audience.",
             icon: <FiTrendingUp className="w-7 h-7" />,
             bgImage: '/Grow-Online-Visibility.webp'
         },
         {
             title: "Automate Operations",
-            description: "Replace repetitive tasks with intelligent workflows. From invoicing to customer onboarding — we build systems that run while you sleep.",
+            description: "Replace repetitive tasks with intelligent workflows. From invoicing to customer onboarding, we build systems that run while you sleep.",
             icon: <FiZap className="w-7 h-7" />,
             bgImage: '/Automate-Operations.webp'
         },
@@ -70,8 +70,8 @@ export default function MissionSection() {
             bgImage: '/Scalable-platforms.webp'
         },
         {
-            title: "Leverage Data & AI",
-            description: "Turn raw data into competitive advantage. Custom dashboards, predictive models, and AI copilots tailored to your business.",
+            title: "Apply Data & AI",
+            description: "Turn raw data into competitive advantage with custom dashboards, predictive models, and AI copilots built around how your business actually runs.",
             icon: <FiCpu className="w-7 h-7" />,
             bgImage: '/Data-Systems-AI.webp'
         }

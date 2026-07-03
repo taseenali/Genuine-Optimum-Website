@@ -53,7 +53,7 @@ export default function IndustriesPage() {
                                 INDUSTRIES WE WORK WITH
                             </h1>
                             <p className={`text-xl md:text-2xl text-gray-300 font-medium tracking-wide max-w-3xl mx-auto ${quantico.className}`}>
-                                The same connected approach — engineering, SEO, and AI — applied to what matters in your specific vertical.
+                                The same connected approach (engineering, SEO, and AI) applied to what matters in your specific vertical.
                             </p>
                         </motion.div>
                     </section>

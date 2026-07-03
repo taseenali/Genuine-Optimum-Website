@@ -36,7 +36,7 @@ export default function WorkPage() {
 
                         <div className="py-20 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl mb-10">
                             <p className="text-gray-400 text-lg max-w-xl mx-auto">
-                                We&apos;re putting together detailed write-ups of recent engagements — check back soon,
+                                We&apos;re putting together detailed write-ups of recent engagements. Check back soon,
                                 or get in touch and we&apos;ll walk you through relevant examples directly.
                             </p>
                         </div>

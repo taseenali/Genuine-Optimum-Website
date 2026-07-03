@@ -5,7 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 
 const TITLE = "Frequently Asked Questions | Genuine Optimum";
 const DESCRIPTION =
-    "Answers to common questions about working with Genuine Optimum — process, timelines, industries served, and how engagements start.";
+    "Answers to common questions about working with Genuine Optimum: process, timelines, industries served, and how engagements start.";
 const SITE_URL = "https://genuineoptimum.com";
 
 export const metadata: Metadata = {
@@ -25,22 +25,22 @@ const faqs = [
     {
         question: "What does Genuine Optimum actually do?",
         answer:
-            "We build digital systems for businesses — combining web development, SEO, custom software, and AI & data systems into one connected approach, rather than treating them as separate, disconnected services.",
+            "We build digital systems for businesses. Web development, SEO, custom software, and AI & data systems are handled as one connected approach, not as separate, disconnected services.",
     },
     {
         question: "How does an engagement start?",
         answer:
-            "It starts with a free consultation. You tell us about your business and what's not working, and we map out which service (or combination of services) actually fits — before any scope or agreement is discussed.",
+            "It starts with a free consultation. You tell us about your business and what's not working, and we map out which service (or combination of services) actually fits, before any scope or agreement is discussed.",
     },
     {
         question: "Do you work with businesses my size?",
         answer:
-            "We work with local service businesses, e-commerce brands, startups, technology companies, and professional services firms. Project scope is tailored to where your business actually is, not a one-size-fits-all package.",
+            "We work with local service businesses, e-commerce brands, startups, technology companies, and professional services firms. Project scope reflects where your business actually is, not a one-size-fits-all package.",
     },
     {
         question: "How long does a typical project take?",
         answer:
-            "It depends on scope — a landing page moves faster than a custom platform. During the consultation we walk through our execution process (Discovery, Strategy, Development, Testing, Deployment) and give you a realistic timeline before any work begins.",
+            "It depends on scope. A landing page moves faster than a custom platform, and during the consultation we walk through our execution process (Discovery, Strategy, Development, Testing, Deployment) so you get a realistic timeline before any work begins.",
     },
     {
         question: "Do I need to commit to a long-term contract?",
@@ -50,7 +50,7 @@ const faqs = [
     {
         question: "Can I hire you for just one service, like SEO or a website?",
         answer:
-            "Yes. While our services are designed to work well together, each one — SEO, web development, custom applications, and AI & data systems — stands on its own and can be engaged independently.",
+            "Yes. Our services are designed to work well together, but each one (SEO, web development, custom applications, AI & data systems) stands on its own and can be engaged independently.",
     },
     {
         question: "What happens after I submit the contact form?",
@@ -60,7 +60,7 @@ const faqs = [
     {
         question: "Do you offer ongoing support after launch?",
         answer:
-            "Yes — our execution process includes deployment and long-term support as the final step, covering monitoring and optimization after a project goes live.",
+            "Yes. Our execution process includes deployment and long-term support as the final step, covering monitoring and optimization after a project goes live.",
     },
 ];
 

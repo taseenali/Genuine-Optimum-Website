@@ -49,7 +49,7 @@ export default function Roadmap() {
     },
     {
       title: "Strategy & System Architecture",
-      desc: "We design a scalable system architecture tailored to your technical requirements and business needs.",
+      desc: "We design a scalable system architecture that fits your technical requirements and business needs.",
       number: "02",
       icon: <FiCpu className="w-5 h-5" />,
     },
