@@ -1,8 +1,8 @@
 import { Metadata } from "next";
 
-const TITLE = "Services | Genuine Optimum";
+const TITLE = "About Us | Genuine Optimum";
 const DESCRIPTION =
-    "Web development, SEO, custom software, and AI & data systems, engineered as one connected system rather than siloed vendors.";
+    "How Genuine Optimum works: an engineering-first approach that treats web development, SEO, and custom software as one connected system, judged on real business outcomes rather than vanity metrics.";
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -10,15 +10,15 @@ export const metadata: Metadata = {
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
-        url: "https://genuineoptimum.com/services",
+        url: "https://genuineoptimum.com/about",
         siteName: "Genuine Optimum",
         type: "website",
     },
     twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
-    alternates: { canonical: "/services" },
+    alternates: { canonical: "/about" },
 };
 
-export default function ServicesLayout({
+export default function AboutLayout({
     children,
 }: {
     children: React.ReactNode;

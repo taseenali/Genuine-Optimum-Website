@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
     title: "Terms of Service | Genuine Optimum",
     description: "The terms governing your use of the Genuine Optimum website.",
+    alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

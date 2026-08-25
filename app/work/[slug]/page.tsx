@@ -33,6 +33,7 @@ export async function generateMetadata({
             type: "article",
         },
         twitter: { card: "summary_large_image", title, description: study.meta.summary },
+        alternates: { canonical: `/work/${slug}` },
     };
 }
 
@@ -108,7 +109,7 @@ export default async function CaseStudyPage({
                             <blockquote className="mt-12 border-l-2 border-purple-500 pl-6 py-2">
                                 <p className="text-xl text-gray-200 italic leading-relaxed">&ldquo;{meta.testimonial.quote}&rdquo;</p>
                                 {meta.testimonial.author && (
-                                    <footer className="mt-3 text-sm text-gray-500">— {meta.testimonial.author}</footer>
+                                    <footer className="mt-3 text-sm text-gray-500">{meta.testimonial.author}</footer>
                                 )}
                             </blockquote>
                         )}

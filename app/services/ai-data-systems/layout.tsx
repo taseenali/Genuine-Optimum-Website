@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     description: DESCRIPTION,
     openGraph: serviceOpenGraph(TITLE, DESCRIPTION, SLUG),
     twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
+    alternates: { canonical: `/services/${SLUG}` },
 };
 
 const jsonLd = serviceJsonLd("AI & Data Systems", DESCRIPTION, SLUG);

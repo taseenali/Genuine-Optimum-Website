@@ -20,11 +20,9 @@ const SITE_DESCRIPTION =
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: SITE_TITLE,
-    template: "%s | Genuine Optimum",
-  },
+  title: SITE_TITLE,
   description: SITE_DESCRIPTION,
+  alternates: { canonical: "/" },
   openGraph: {
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,

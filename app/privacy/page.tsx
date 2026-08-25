@@ -6,6 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 export const metadata: Metadata = {
     title: "Privacy Policy | Genuine Optimum",
     description: "How Genuine Optimum collects, uses, and protects information submitted through this website.",
+    alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
