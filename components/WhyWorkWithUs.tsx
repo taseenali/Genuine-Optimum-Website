@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Quantico } from "next/font/google";
 
 const quantico = Quantico({
@@ -49,6 +49,8 @@ const itemVariants = {
 };
 
 export default function WhyWorkWithUs() {
+    const prefersReducedMotion = useReducedMotion();
+
     return (
         <section className="px-6 py-24 max-w-7xl mx-auto">
             <div className="mb-16 inline-block">
@@ -56,13 +58,13 @@ export default function WhyWorkWithUs() {
                     Why Work With Us
                 </h2>
                 <div className="w-full h-1 bg-white/20 relative rounded-full overflow-hidden">
-                    <motion.div 
+                    <motion.div
                         className="absolute top-0 bottom-0 w-20 bg-purple-600 rounded-full"
-                        animate={{ 
+                        animate={prefersReducedMotion ? { left: "0%", x: "0%" } : {
                             left: ["0%", "100%"],
                             x: ["0%", "-100%"]
                         }}
-                        transition={{
+                        transition={prefersReducedMotion ? undefined : {
                             duration: 3,
                             repeat: Infinity,
                             repeatType: "reverse",

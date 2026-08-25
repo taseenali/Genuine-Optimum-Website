@@ -35,10 +35,6 @@ export default function Roadmap() {
   });
 
   const progressHeight = useTransform(clampedProgress, [0, 1], ["0%", "100%"]);
-  
-  // Exact 112px final offset calculation anchors the car accurately 
-  // into the horizontal center of Step 05 factoring padding and node size.
-  const markerTop = useTransform(clampedProgress, (val) => `calc(${val * 100}% - ${val * 112}px)`);
 
   const nodes = [
     {
@@ -101,122 +97,16 @@ export default function Roadmap() {
           </h2>
         </motion.div>
 
-        {/* ═══════════════ 2.5D ROAD LAYOUT ═══════════════ */}
+        {/* ═══════════════ TIMELINE LAYOUT ═══════════════ */}
         <div className="relative">
 
-          {/* ── THE ROAD ── */}
-          <div className="absolute left-8 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-20 md:w-24 z-0">
-            {/* Road surface with 3D inset shadow */}
-            <div
-              className="absolute inset-0 rounded-[40px] bg-gradient-to-b from-neutral-800/30 via-neutral-800/50 to-neutral-800/30"
-              style={{
-                boxShadow: 'inset -6px 0 12px rgba(0,0,0,0.4), inset 6px 0 12px rgba(0,0,0,0.4), 0 0 60px rgba(0,0,0,0.3)'
-              }}
-            />
-            {/* Road edge lines */}
-            <div className="absolute left-1 top-4 bottom-4 w-[1px] bg-white/[0.06] rounded-full" />
-            <div className="absolute right-1 top-4 bottom-4 w-[1px] bg-white/[0.06] rounded-full" />
-            {/* Road center dashed line */}
-            <div
-              className="absolute left-1/2 -translate-x-[0.5px] top-6 bottom-6 w-[2px] rounded-full"
-              style={{
-                backgroundImage: 'repeating-linear-gradient(to bottom, rgba(255,255,255,0.12) 0px, rgba(255,255,255,0.12) 14px, transparent 14px, transparent 32px)'
-              }}
-            />
-            {/* Animated progress glow overlay */}
+          {/* ── TIMELINE TRACK ── */}
+          <div className="absolute left-8 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-[2px] z-0 bg-white/10 rounded-full overflow-hidden">
             <motion.div
-              className="absolute inset-x-1 top-0 rounded-[40px] overflow-hidden"
+              className="absolute inset-x-0 top-0 bg-purple-400 rounded-full"
               style={{ height: progressHeight }}
-            >
-              <div className="w-full h-full bg-gradient-to-b from-purple-500/25 via-purple-400/15 to-purple-500/25 rounded-[40px]" />
-              {/* Glow edge */}
-              <div className="absolute inset-0 rounded-[40px]" style={{ boxShadow: '0 0 40px rgba(168,85,247,0.2)' }} />
-            </motion.div>
+            />
           </div>
-
-          {/* ── 3D CAR MARKER ── */}
-          <motion.div
-            className="absolute left-8 md:left-1/2 -translate-x-1/2 z-40 pointer-events-none"
-            style={{ top: markerTop }}
-          >
-            <div className="relative flex flex-col items-center" style={{ transform: 'rotate(180deg) translateY(20px)' }}>
-              {/* Car body container */}
-              <div className="relative" style={{ width: '34px', height: '70px' }}>
-
-                {/* Wheels */}
-                <div className="absolute top-[12px] -left-[2px] w-[4px] h-[14px] bg-black rounded-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-                <div className="absolute top-[12px] -right-[2px] w-[4px] h-[14px] bg-black rounded-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-                <div className="absolute bottom-[12px] -left-[2px] w-[4px] h-[14px] bg-black rounded-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-                <div className="absolute bottom-[12px] -right-[2px] w-[4px] h-[14px] bg-black rounded-sm shadow-[0_2px_4px_rgba(0,0,0,0.5)]" />
-
-                {/* Main Body */}
-                <div
-                  className="absolute inset-0 rounded-[14px_14px_12px_12px] bg-gradient-to-b from-purple-400 via-purple-600 to-purple-900 overflow-hidden"
-                  style={{
-                    boxShadow: '0 10px 20px rgba(0,0,0,0.6), inset 0 2px 5px rgba(255,255,255,0.5), inset 0 -2px 5px rgba(0,0,0,0.5), 0 0 20px rgba(168,85,247,0.4)'
-                  }}
-                >
-                  {/* Metallic highlight down the center */}
-                  <div className="absolute inset-x-[25%] top-0 bottom-0 bg-gradient-to-r from-transparent via-white/30 to-transparent blur-[1px]" />
-                </div>
-
-                {/* Hood details (creases) */}
-                <div className="absolute top-[8px] left-[8px] w-[1px] h-[16px] bg-white/20 shadow-[1px_0_0_rgba(0,0,0,0.2)]" style={{ transform: 'rotate(10deg)' }} />
-                <div className="absolute top-[8px] right-[8px] w-[1px] h-[16px] bg-white/20 shadow-[-1px_0_0_rgba(0,0,0,0.2)]" style={{ transform: 'rotate(-10deg)' }} />
-
-                {/* Front Windshield */}
-                <div
-                  className="absolute top-[24px] left-[3px] right-[3px] h-[14px] rounded-[6px_6px_2px_2px] bg-gradient-to-b from-cyan-900 to-black overflow-hidden"
-                  style={{ boxShadow: 'inset 0 2px 4px rgba(255,255,255,0.3)' }}
-                >
-                  {/* Reflection */}
-                  <div className="absolute top-0 right-0 bottom-0 w-1/2 bg-white/10 skew-x-[25deg]" />
-                </div>
-
-                {/* Cabin / Roof */}
-                <div
-                  className="absolute top-[38px] left-[5px] right-[5px] h-[16px] rounded-[3px] bg-gradient-to-b from-purple-500 to-purple-800"
-                  style={{ boxShadow: '0 4px 8px rgba(0,0,0,0.4), inset 0 1px 2px rgba(255,255,255,0.3)' }}
-                >
-                  <div className="absolute inset-x-[20%] top-0 bottom-0 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                </div>
-
-                {/* Rear Window */}
-                <div
-                  className="absolute top-[54px] left-[4px] right-[4px] h-[6px] rounded-[1px_1px_4px_4px] bg-gradient-to-t from-cyan-900 to-black overflow-hidden"
-                  style={{ boxShadow: 'inset 0 -1px 2px rgba(255,255,255,0.2)' }}
-                >
-                  {/* Reflection */}
-                  <div className="absolute top-0 left-0 bottom-0 w-1/3 bg-white/10 skew-x-[-20deg]" />
-                </div>
-
-                {/* Headlights */}
-                <div className="absolute top-[3px] left-[4px] w-[6px] h-[4px] bg-white rounded-full" style={{ boxShadow: '0 0 10px rgba(255,255,255,0.9), 0 -5px 15px rgba(168,255,255,0.8)', transform: 'rotate(-10deg)' }} />
-                <div className="absolute top-[3px] right-[4px] w-[6px] h-[4px] bg-white rounded-full" style={{ boxShadow: '0 0 10px rgba(255,255,255,0.9), 0 -5px 15px rgba(168,255,255,0.8)', transform: 'rotate(10deg)' }} />
-                
-                {/* Headlight Beams */}
-                <div className="absolute -top-[30px] left-[2px] right-[2px] h-[34px] bg-gradient-to-t from-white/30 via-cyan-100/10 to-transparent blur-[4px] rounded-t-[20px] pointer-events-none" />
-
-                {/* Taillights */}
-                <div className="absolute bottom-[2px] left-[4px] w-[6px] h-[3px] bg-red-500 rounded-full" style={{ boxShadow: '0 2px 8px rgba(239,68,68,0.9)' }} />
-                <div className="absolute bottom-[2px] right-[4px] w-[6px] h-[3px] bg-red-500 rounded-full" style={{ boxShadow: '0 2px 8px rgba(239,68,68,0.9)' }} />
-
-                {/* Mirrors */}
-                <div className="absolute top-[26px] -left-[3px] w-[4px] h-[6px] rounded-l-[3px] bg-gradient-to-b from-purple-400 to-purple-600" style={{ transform: 'skewY(-30deg)', boxShadow: '0 2px 4px rgba(0,0,0,0.5)' }} />
-                <div className="absolute top-[26px] -right-[3px] w-[4px] h-[6px] rounded-r-[3px] bg-gradient-to-b from-purple-400 to-purple-600" style={{ transform: 'skewY(30deg)', boxShadow: '0 2px 4px rgba(0,0,0,0.5)' }} />
-
-              </div>
-
-              {/* Ground shadow beneath car */}
-              <div
-                className="w-8 h-3 rounded-[50%] bg-purple-500/30 blur-md mt-1"
-              />
-              {/* Glow trail behind car */}
-              <div
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-8 bg-gradient-to-b from-transparent via-purple-500/20 to-purple-500/5 blur-sm"
-              />
-            </div>
-          </motion.div>
 
           {/* ── PROCESS NODES ── */}
           <div className="relative z-10 flex flex-col gap-16 md:gap-24 py-8">

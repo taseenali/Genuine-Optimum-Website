@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Quantico } from "next/font/google";
 import Image from "next/image";
 import Carousel from "./Carousel";
@@ -12,6 +12,8 @@ const quantico = Quantico({
 });
 
 export default function MissionSection() {
+    const prefersReducedMotion = useReducedMotion();
+
     const problemItems = [
         {
             title: "Low Online Visibility",
@@ -128,11 +130,14 @@ export default function MissionSection() {
                             rotate: 0,
                             transition: { duration: 1, ease: "easeOut" }
                         }}
-                        animate={{
+                        animate={prefersReducedMotion ? undefined : {
                             y: [0, -10, 0],
                             rotate: [0, 3, 0]
                         }}
-                        transition={{
+                        transition={prefersReducedMotion ? {
+                            opacity: { duration: 1 },
+                            scale: { duration: 1 }
+                        } : {
                             y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                             rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                             opacity: { duration: 1 },
@@ -163,11 +168,15 @@ export default function MissionSection() {
                                 rotate: 0,
                                 transition: { duration: 1, ease: "easeOut" }
                             }}
-                            animate={{
+                            animate={prefersReducedMotion ? undefined : {
                                 y: [0, -15, 0],
                                 rotate: [0, 5, 0]
                             }}
-                            transition={{
+                            transition={prefersReducedMotion ? {
+                                opacity: { duration: 1 },
+                                x: { duration: 1 },
+                                scale: { duration: 1 }
+                            } : {
                                 y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
                                 rotate: { duration: 5, repeat: Infinity, ease: "easeInOut" },
                                 opacity: { duration: 1 },
@@ -341,8 +350,8 @@ export default function MissionSection() {
                     >
                         {/* Pulsing glow behind text */}
                         <motion.div
-                            animate={{ opacity: [0.3, 0.6, 0.3], scale: [0.95, 1.05, 0.95] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            animate={prefersReducedMotion ? { opacity: 0.45 } : { opacity: [0.3, 0.6, 0.3], scale: [0.95, 1.05, 0.95] }}
+                            transition={prefersReducedMotion ? undefined : { duration: 4, repeat: Infinity, ease: "easeInOut" }}
                             className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-cyan-500/10 blur-3xl pointer-events-none"
                         ></motion.div>
 

@@ -17,6 +17,8 @@ import type { NextConfig } from "next";
 // object-src none) — this still blocks arbitrary third-party/injected
 // <script src="..."> loading, which is real, meaningful protection even
 // without full inline-script XSS coverage.
+const isDev = process.env.NODE_ENV !== "production";
+
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
@@ -27,7 +29,10 @@ const securityHeaders = [
       // empirically; Vercel's platform proxies analytics through /_vercel/*
       // on the deployed domain, but the client script itself still loads
       // from these origins directly rather than being fully same-origin).
-      "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://cdn.vercel-insights.com",
+      // 'unsafe-eval' is added only in dev: Next.js/React's dev-mode
+      // debugging (HMR, stack reconstruction) requires eval(); production
+      // builds never use it, so it's dropped from the prod CSP below.
+      `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com https://cdn.vercel-insights.com`,
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data:",
       "font-src 'self'",
