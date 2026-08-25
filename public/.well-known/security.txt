@@ -1,4 +1,4 @@
-# This file needs annual renewal — update the Expires date each year or
+# This file needs annual renewal: update the Expires date each year or
 # it becomes technically non-compliant with RFC 9116.
 Contact: mailto:security@genuineoptimum.com
 Expires: 2027-07-04T00:00:00.000Z

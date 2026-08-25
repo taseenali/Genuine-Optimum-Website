@@ -12,8 +12,8 @@
   --font-mono: var(--font-geist-mono);
 
   /* Brand tokens. #a855f7 (Tailwind purple-500) is the real brand
-     primary — used 15+ times across every page. #6600ff is a one-off
-     shimmer-effect accent (Navbar logo shine only) — not a foundation
+     primary, used 15+ times across every page. #6600ff is a one-off
+     shimmer-effect accent (Navbar logo shine only), not a foundation
      color, kept as a literal prop value rather than a token. */
   --color-brand-primary: #a855f7;
   --color-brand-primary-dim: #a855f733;

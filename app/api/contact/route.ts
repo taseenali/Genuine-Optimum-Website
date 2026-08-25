@@ -7,8 +7,8 @@ import { isRateLimited } from '@/lib/rateLimit';
 // content in this file today. If any future feature (an auto-drafted
 // reply, a CRM auto-summarizer, an LLM-based lead-triage tool) ever
 // pipes these fields into an LLM, they MUST be passed as clearly
-// delimited untrusted data — never string-concatenated into a
-// system/instruction prompt — since a submitter can embed text like
+// delimited untrusted data, never string-concatenated into a
+// system/instruction prompt, since a submitter can embed text like
 // "ignore previous instructions and..." aimed at hijacking that
 // downstream model call (indirect prompt injection).
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -153,7 +153,7 @@ async function notifyDeliveryFailure(smtpError: { message?: string; code?: strin
     await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      // Slack expects `text`, Discord expects `content` — sending both
+      // Slack expects `text`, Discord expects `content`. Sending both
       // keys works for either provider without needing to know which one
       // is configured.
       body: JSON.stringify({ text, content: text }),

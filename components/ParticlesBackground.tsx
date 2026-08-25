@@ -20,7 +20,7 @@ export default function ParticlesBackground({ particleCount = 300 }: { particleC
 
     useEffect(() => {
         // matchMedia doesn't exist during SSR, so the initial value can't be
-        // computed at render time — this effect is the sync point with that
+        // computed at render time. This effect is the sync point with that
         // browser-only API, not a derivable-during-render value.
         const query = window.matchMedia("(max-width: 767px)");
         // eslint-disable-next-line react-hooks/set-state-in-effect

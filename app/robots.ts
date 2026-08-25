@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
         // Allow-all by default, including AI training crawlers (GPTBot,
         // ClaudeBot, CCBot, etc.) as well as AI search/answer-engine
         // crawlers (OAI-SearchBot, Claude-SearchBot, PerplexityBot,
-        // Google-Extended, etc.) — this is intentional, not an oversight.
+        // Google-Extended, etc.). This is intentional, not an oversight.
         //
         // The 2026 industry-common posture is "block training, allow
         // search" (opt out of training while staying eligible for

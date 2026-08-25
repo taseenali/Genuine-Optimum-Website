@@ -14,7 +14,7 @@ export interface CaseStudyTestimonial {
 export interface CaseStudyMeta {
     slug: string;
     title: string;
-    /** How the client may be referenced — drives what's actually rendered. */
+    /** How the client may be referenced: drives what's actually rendered. */
     clientDisplay: ClientDisplay;
     /** Real client name. Only read/rendered when clientDisplay is "named". */
     client?: string;

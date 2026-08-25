@@ -242,7 +242,7 @@ export default function MissionSection() {
                         </h3>
                     </motion.div>
 
-                    {/* Help Items — Premium Icon Cards with Stats */}
+                    {/* Help Items: Premium Icon Cards with Stats */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-28 max-w-5xl mx-auto">
                         {helpItems.map((item, i) => (
                             <motion.div

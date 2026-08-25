@@ -20,7 +20,7 @@ See [Industries](https://genuineoptimum.com/industries) for the specific vertica
 - [Services overview](https://genuineoptimum.com/services)
 - [About](https://genuineoptimum.com/about)
 - [FAQ](https://genuineoptimum.com/faq)
-- [Contact](https://genuineoptimum.com/contact) — free consultation requests
+- [Contact](https://genuineoptimum.com/contact): free consultation requests
 
 ## Notes for automated agents
 

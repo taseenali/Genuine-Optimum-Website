@@ -42,7 +42,7 @@ export function caseStudyJsonLd(
         url,
         datePublished,
         dateModified: dateModified ?? datePublished,
-        // Attributed to the organization, not an invented individual —
+        // Attributed to the organization, not an invented individual:
         // same convention as blogPostingJsonLd below.
         author: {
             "@type": "Organization",
@@ -79,7 +79,7 @@ export function blogPostingJsonLd(
         url,
         datePublished,
         dateModified: dateModified ?? datePublished,
-        // Attributed to the organization, not an invented individual —
+        // Attributed to the organization, not an invented individual:
         // this project doesn't publish fabricated author identities.
         author: {
             "@type": "Organization",
