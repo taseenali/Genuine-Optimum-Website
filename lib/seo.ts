@@ -26,6 +26,43 @@ export function serviceOpenGraph(title: string, description: string, slug: strin
     };
 }
 
+export function caseStudyJsonLd(
+    title: string,
+    description: string,
+    slug: string,
+    datePublished: string,
+    dateModified?: string
+) {
+    const url = `${SITE_URL}/work/${slug}`;
+    return {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: title,
+        description,
+        url,
+        datePublished,
+        dateModified: dateModified ?? datePublished,
+        // Attributed to the organization, not an invented individual —
+        // same convention as blogPostingJsonLd below.
+        author: {
+            "@type": "Organization",
+            name: SITE_NAME,
+        },
+        publisher: {
+            "@type": "Organization",
+            name: SITE_NAME,
+            logo: {
+                "@type": "ImageObject",
+                url: `${SITE_URL}/gologo.webp`,
+            },
+        },
+        mainEntityOfPage: {
+            "@type": "WebPage",
+            "@id": url,
+        },
+    };
+}
+
 export function blogPostingJsonLd(
     title: string,
     description: string,

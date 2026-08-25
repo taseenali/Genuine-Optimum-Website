@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { getAllCaseStudies } from "@/lib/caseStudies";
 
 const BASE_URL = "https://genuineoptimum.com";
 
@@ -37,5 +38,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.6,
     }));
 
-    return [...staticEntries, ...blogEntries];
+    const caseStudyEntries: MetadataRoute.Sitemap = getAllCaseStudies().map((study) => ({
+        url: `${BASE_URL}/work/${study.slug}`,
+        lastModified: new Date(study.date),
+        changeFrequency: "monthly",
+        priority: 0.7,
+    }));
+
+    return [...staticEntries, ...blogEntries, ...caseStudyEntries];
 }
