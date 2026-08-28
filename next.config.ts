@@ -33,9 +33,13 @@ const securityHeaders = [
       // debugging (HMR, stack reconstruction) requires eval(); production
       // builds never use it, so it's dropped from the prod CSP below.
       `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://va.vercel-scripts.com https://cdn.vercel-insights.com`,
-      "style-src 'self' 'unsafe-inline'",
+      // fonts.googleapis.com/fonts.gstatic.com: the /work case-study embeds
+      // (public/case-study-html/*.html, framed via iframe) each carry their
+      // own Google Fonts link to preserve that portfolio's real typography
+      // rather than falling back to the site's own fonts.
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "img-src 'self' data:",
-      "font-src 'self'",
+      "font-src 'self' https://fonts.gstatic.com",
       "connect-src 'self' https://vitals.vercel-insights.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
@@ -56,11 +60,47 @@ const securityHeaders = [
   // here (a conflicting/duplicate header is worse than none).
 ];
 
+// The case-study embeds (public/case-study-html/*.html) are framed via
+// <iframe> from our own /work pages. The blanket policy above sets
+// frame-ancestors 'none' and X-Frame-Options: DENY, which would block that
+// same-origin framing too - Next.js applies header rules additively per
+// path, so a same-key override on a second matching rule doesn't replace
+// the first, it stacks (and CSP/X-Frame-Options enforce the union, i.e.
+// the most restrictive result). The catch-all below excludes this path so
+// only the same-origin-permissive block underneath applies to it.
+// The General Contracting case study is a different export shape than the
+// other embeds (a self-executing "bundler" that reconstructs its DOM at
+// runtime: it loads its own scripts from blob: URLs it creates itself, and
+// its embedded fonts are inlined as data: URIs) - both schemes need
+// allowing on script-src/font-src for that one to run, scoped to this path.
+const caseStudyEmbedHeaders = securityHeaders.map((header) => {
+  if (header.key === "Content-Security-Policy") {
+    return {
+      ...header,
+      value: header.value
+        .replace("frame-ancestors 'none'", "frame-ancestors 'self'")
+        .replace(/script-src ([^;]+)/, (_match, rest) => `script-src ${rest} blob:`)
+        .replace(
+          "font-src 'self' https://fonts.gstatic.com",
+          "font-src 'self' https://fonts.gstatic.com data: blob:"
+        ),
+    };
+  }
+  if (header.key === "X-Frame-Options") {
+    return { ...header, value: "SAMEORIGIN" };
+  }
+  return header;
+});
+
 const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/case-study-html/:path*",
+        headers: caseStudyEmbedHeaders,
+      },
+      {
+        source: "/((?!case-study-html/).*)",
         headers: securityHeaders,
       },
     ];

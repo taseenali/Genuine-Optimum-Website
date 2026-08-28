@@ -1,0 +1,556 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 12px;
+  }
+  .cs-page {
+    width: 100%;
+    max-width: 1180px;
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .cs-page section.page {
+    width: 100%;
+    aspect-ratio: 11 / 8.5;
+    display: flex;
+  }
+  .cs-page section.page > div {
+    width: 100%;
+  }
+  
+  body { margin: 0; }
+  doc-page:not(:defined) { visibility: hidden; }
+  a { color: #E5352B; text-decoration: none; }
+  a:hover { color: #0D0D0D; }
+
+</style>
+</head>
+<body>
+<div class="cs-page"><section class="page" data-screen-label="01 Cover" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; padding-bottom: 12px; border-bottom: 1px solid #0D0D0D;">
+    <span>Case study — anonymised</span>
+    <span style="color: #E5352B;">Direct-to-consumer storefront</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1.35fr 1fr; gap: 0.5in; align-content: center; padding: 0.22in 0; min-height: 0;">
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #E5352B;">Design &amp; build</div>
+      <h1 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 54px; line-height: 0.9; letter-spacing: -0.01em; text-transform: uppercase; margin: 0; text-wrap: balance;">A storefront<br>for an independent<br>fashion label</h1>
+      <p style="font-size: 14.5px; line-height: 1.5; max-width: 30em; margin: 0; text-wrap: pretty;">An editorial commerce surface built around one idea: the product photography is the interface. Everything else — navigation, labels, price, structure — recedes into a monospace utility layer, so the imagery carries the brand and the shopper never loses the thread from hero to cart.</p>
+      <p style="font-size: 14.5px; line-height: 1.5; max-width: 30em; margin: 0; text-wrap: pretty;">This document reconstructs the delivered interface as abstracted compositions. Client name, logotype, domain and photography are withheld; the visual system, structure and setup are shown as built.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; align-self: stretch; justify-content: center; min-height: 0;">
+      <div style="flex: 1; min-height: 1.2in; display: block;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Hero editorial — full bleed</span></div><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; height: 0.8in;">
+        <div style="position: relative; min-width: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Category tile</span></div></div>
+        <div style="position: relative; min-width: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product plate</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.3in; border-top: 1px solid #0D0D0D; padding-top: 14px;">
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Region served</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px;">Pakistan</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Industry</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px;">Clothing brand, DTC</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Scope</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px;">Website — design &amp; build</span>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 6px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Delivery</span>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 13px;">Git deploys · custom domain</span>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="02 Landing surface" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #0D0D0D; padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">Landing surface</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.55);">Home, above the fold — reconstruction</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1fr 2.6in; gap: 0.35in; padding-top: 0.22in; min-height: 0;">
+    <div style="display: flex; flex-direction: column; border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; min-height: 0;">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-bottom: 1px solid rgba(13,13,13,0.12); font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;">
+        <div style="display: flex; gap: 14px;">
+          <span>Home</span>
+          <span style="font-weight: 700;">Women</span>
+          <span>Men</span>
+        </div>
+        <div style="width: 54px; height: 9px; background: #0D0D0D;"></div>
+        <div style="display: flex; gap: 8px;">
+          <span style="width: 9px; height: 9px; border: 1px solid #0D0D0D; border-radius: 50%;"></span>
+          <span style="width: 9px; height: 9px; border: 1px solid #0D0D0D;"></span>
+          <span style="width: 9px; height: 9px; border: 1px solid #0D0D0D;"></span>
+          <span style="width: 9px; height: 9px; background: #0D0D0D;"></span>
+        </div>
+      </div>
+      <div style="flex: 1; display: grid; grid-template-columns: 0.5in 1fr 1.6fr 0.4in; min-height: 0;">
+        <div style="display: flex; align-items: center; justify-content: center; border-right: 1px solid rgba(13,13,13,0.08);">
+          <span style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: Anton, Impact, sans-serif; font-size: 34px; color: #E5352B; letter-spacing: 0.02em;">WOMEN</span>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(180deg, #F3F1EE, #E4E4E4);">
+          <div style="width: 10px; height: 200px; background: rgba(13,13,13,0.22);"></div>
+          <div style="width: 10px; height: 140px; background: rgba(13,13,13,0.22);"></div>
+          <div style="width: 10px; height: 200px; background: rgba(13,13,13,0.22);"></div>
+          <div style="width: 10px; height: 200px; border-radius: 5px; border: 3px solid rgba(13,13,13,0.22);"></div>
+        </div>
+        <div style="position: relative; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; padding: 16px; overflow: hidden;">
+          <div style="position: absolute; inset: 0; z-index: 0; display: block;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Model editorial — full bleed, 2-slide rotator</span></div><div style="position: relative; z-index: 1; text-align: right; font-family: Archivo, sans-serif; font-weight: 700; font-size: 17px; line-height: 1.15; text-transform: uppercase; background: rgba(250,246,240,0.85); padding: 4px 8px;">Wear your<br>obsession</div>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center; border-left: 1px solid rgba(13,13,13,0.08);">
+          <span style="writing-mode: vertical-rl; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;">Shop men</span>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-top: 1px solid rgba(13,13,13,0.12);">
+        <div style="display: flex; flex-direction: column; gap: 5px;">
+          <div style="width: 130px; height: 7px; background: rgba(13,13,13,0.75);"></div>
+          <div style="width: 96px; height: 7px; background: rgba(13,13,13,0.28);"></div>
+        </div>
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span style="width: 11px; height: 11px; border-radius: 50%; background: #0D0D0D;"></span>
+          <span style="width: 11px; height: 11px; border-radius: 50%; border: 1px solid #0D0D0D;"></span>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">01 — Split entry</span>
+        <p style="margin: 0; font-size: 14px; line-height: 1.45;">The fold is a fork, not a pitch. Two gendered entry points sit at the outer edges as vertical labels, so the first decision a shopper makes is the only one the hero asks for.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">02 — Wordmark as structure</span>
+        <p style="margin: 0; font-size: 14px; line-height: 1.45;">The logotype is set vertically at display scale behind the image edge, doing the work of a divider. It brands the fold without occupying the reading line.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">03 — One utility bar</span>
+        <p style="margin: 0; font-size: 14px; line-height: 1.45;">Search, account, wishlist and bag are a single icon cluster, right-aligned, on every surface. Nothing else competes with the imagery for persistent screen space.</p>
+      </div>
+      <div style="margin-top: auto; border-top: 1px solid rgba(13,13,13,0.2); padding-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 9px; line-height: 1.7; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(13,13,13,0.6);">Mock — no client photography,<br>logotype or domain reproduced.</div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="03 Visual system" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #0D0D0D; padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">The visual system</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.55);">Palette · type · components</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto 1fr; gap: 0.3in 0.4in; padding-top: 0.2in; min-height: 0;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Palette</span>
+      <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="height: 0.62in; background: #0D0D0D;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.08em;">INK</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="height: 0.62in; background: #FAF6F0; border: 1px solid rgba(13,13,13,0.2);"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.08em;">BONE</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="height: 0.62in; background: #E5352B;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.08em;">SIGNAL</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="height: 0.62in; background: #3F8DD1;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.08em;">STEEL</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="height: 0.62in; background: #B99C86;"></div>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.08em;">CLAY</span>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 13.5px; line-height: 1.45;">Two neutrals carry every surface; the three chromatics are rationed. Signal red marks section openers and the active state only, steel blue marks anything new or incoming, clay comes from the photography rather than the brand.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Type pairing</span>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.14); padding-bottom: 6px;">
+          <span style="font-family: Anton, Impact, sans-serif; font-size: 34px; line-height: 1; text-transform: uppercase;">Subscribe</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.1em; color: rgba(13,13,13,0.55);">DISPLAY / CONDENSED CAPS</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.14); padding-bottom: 6px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; letter-spacing: 0.12em; text-transform: uppercase;">Shop the edit</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.1em; color: rgba(13,13,13,0.55);">MONO / LABELS &amp; NAV</span>
+        </div>
+        <div style="display: flex; align-items: baseline; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.14); padding-bottom: 6px;">
+          <span style="font-family: Archivo, sans-serif; font-weight: 400; font-size: 15px;">Get early access to new products.</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.1em; color: rgba(13,13,13,0.55);">GROTESQUE / BODY</span>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 13.5px; line-height: 1.45;">Three roles, no overlap: condensed caps shout, mono narrates the interface, the grotesque handles anything a customer has to read at length. Letterspacing does most of the hierarchy work, so the type ramp stays short.</p>
+    </div>
+    <div style="grid-column: 1 / -1; display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Component inventory</span>
+      <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 10px; min-height: 0;">
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Utility nav</span>
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 5px;">
+              <span style="width: 16px; height: 5px; background: #0D0D0D;"></span>
+              <span style="width: 20px; height: 5px; background: rgba(13,13,13,0.3);"></span>
+            </div>
+            <span style="width: 26px; height: 6px; background: #0D0D0D;"></span>
+            <div style="display: flex; gap: 4px;">
+              <span style="width: 6px; height: 6px; border: 1px solid #0D0D0D; border-radius: 50%;"></span>
+              <span style="width: 6px; height: 6px; background: #0D0D0D;"></span>
+            </div>
+          </div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 6px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Product plate</span>
+          <div style="flex: 1; background: #FAF6F0; background-image: repeating-linear-gradient(135deg, rgba(13,13,13,0.07) 0 5px, transparent 5px 12px); min-height: 0.35in;"></div>
+          <div style="width: 62%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 34%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Section opener</span>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: #E5352B;">Featured edit</span>
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;">See all</span>
+          </div>
+          <div style="width: 100%; height: 1px; background: rgba(13,13,13,0.15);"></div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Filter row</span>
+          <div style="display: flex; gap: 10px; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span style="border-bottom: 2px solid #0D0D0D; padding-bottom: 2px;">Tops</span>
+            <span style="color: rgba(13,13,13,0.45);">Bottoms</span>
+            <span style="color: #3F8DD1;">New in</span>
+          </div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Footer &amp; subscribe</span>
+          <div style="text-align: center; font-family: Anton, Impact, sans-serif; font-size: 18px; text-transform: uppercase;">Subscribe</div>
+          <div style="display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #0D0D0D; padding-bottom: 5px;">
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; color: rgba(13,13,13,0.4); letter-spacing: 0.06em;">YOUR EMAIL</span>
+            <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.1em;">SIGN UP</span>
+          </div>
+          <div style="display: flex; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 7px; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(13,13,13,0.5); border-top: 1px solid rgba(13,13,13,0.12); padding-top: 5px;">
+            <span>Shop</span><span>Help</span><span>About</span>
+          </div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Category tile</span>
+          <div style="flex: 1; background: #FAF6F0; background-image: repeating-linear-gradient(135deg, rgba(13,13,13,0.07) 0 5px, transparent 5px 12px); display: flex; align-items: flex-end; padding: 6px; min-height: 0.35in; box-sizing: border-box;">
+            <span style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: Anton, Impact, sans-serif; font-size: 13px; color: #E5352B;">SHOP</span>
+          </div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Cart drawer</span>
+          <div style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;">
+            <div style="width: 58%; height: 6px; background: #0D0D0D;"></div>
+            <div style="width: 40%; height: 5px; background: rgba(13,13,13,0.28);"></div>
+            <div style="margin-top: 4px; padding: 5px 14px; background: #0D0D0D; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 8px; color: #FFFFFF; letter-spacing: 0.1em;">CONTINUE</div>
+          </div>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 10px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Search overlay</span>
+          <div style="flex: 1; display: flex; flex-direction: column; gap: 6px;">
+            <div style="display: flex; gap: 6px; align-items: center; border-bottom: 1px solid rgba(13,13,13,0.2); padding-bottom: 5px;">
+              <span style="width: 8px; height: 8px; border: 1px solid #0D0D0D; border-radius: 50%;"></span>
+              <span style="width: 46%; height: 5px; background: rgba(13,13,13,0.3);"></span>
+              <span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 9px;">×</span>
+            </div>
+            <span style="font-size: 10px; color: rgba(13,13,13,0.5);">Empty and error states designed, not defaulted.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="04 Information architecture" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #0D0D0D; padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">Information architecture</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.55);">URL tree · how it scales</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1.15fr 1fr; gap: 0.45in; padding-top: 0.22in; min-height: 0;">
+    <div style="display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Route map</span>
+      <div style="flex: 1; border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px 16px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.85; box-sizing: border-box;">
+        <div style="font-weight: 700;">/</div>
+        <div style="padding-left: 14px;">├─ /collections/women</div>
+        <div style="padding-left: 30px; color: rgba(13,13,13,0.7);">│  ├─ ?filter=tops · bottoms · jackets · new-in</div>
+        <div style="padding-left: 30px; color: rgba(13,13,13,0.7);">│  └─ /products/&lt;handle&gt;</div>
+        <div style="padding-left: 14px;">├─ /collections/men</div>
+        <div style="padding-left: 30px; color: rgba(13,13,13,0.7);">│  └─ /products/&lt;handle&gt;</div>
+        <div style="padding-left: 14px;">├─ /collections/new-arrivals  <span style="color: #3F8DD1;">← featured edit</span></div>
+        <div style="padding-left: 14px;">├─ /search · /cart · /wishlist · /account</div>
+        <div style="padding-left: 14px;">├─ /pages/about · /pages/stores · /pages/contact</div>
+        <div style="padding-left: 14px;">└─ /pages/shipping-returns · size-guide · faq</div>
+        <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(13,13,13,0.12); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(13,13,13,0.55);">Two shopping trunks · one editorial trunk · one policy trunk</div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">How it scales</span>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.16); padding-bottom: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">New product</span>
+          <span style="font-size: 13.5px; line-height: 1.4;">Drops into an existing collection and inherits its template. No new route, no navigation change.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.16); padding-bottom: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">New category</span>
+          <span style="font-size: 13.5px; line-height: 1.4;">Becomes a filter inside its gendered trunk before it earns its own route — the nav stays at three items.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.16); padding-bottom: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">New season</span>
+          <span style="font-size: 13.5px; line-height: 1.4;">Replaces the featured edit surface. The editorial trunk is one slot deliberately, so there is never a graveyard of old campaigns.</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1.1fr 1.3fr; gap: 12px; border-bottom: 1px solid rgba(13,13,13,0.16); padding-bottom: 8px;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;">New market</span>
+          <span style="font-size: 13.5px; line-height: 1.4;">Currency and shipping policy live in the policy trunk, not in page copy, so a second market touches a handful of pages.</span>
+        </div>
+      </div>
+      <p style="margin: 8px 0 0; font-size: 13.5px; line-height: 1.45;">The rule the tree enforces: depth is capped at three clicks from home to a product, and growth happens sideways into filters rather than downwards into new nesting.</p>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="05 Search and integrity" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #0D0D0D; padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">Search &amp; integrity setup</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.55);">Qualitative — no metrics claimed</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; gap: 12px; padding-top: 0.22in; min-height: 0;">
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">01</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Technical SEO</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">One canonical URL per product, unique titles and descriptions per template rather than per page, and filter parameters kept out of the index.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">02</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Sitemap &amp; robots</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Sitemap submitted and verified in Search Console; cart, account and search routes excluded from crawling so budget goes to products.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">03</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Structured data</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Product, Organization and BreadcrumbList markup so listings can carry price and availability rather than a bare blue link.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">04</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Content architecture</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Collection pages carry the category language, product pages carry the specifics. Each page answers one query intent and links to its neighbours.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">05</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Core Web Vitals</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Hero imagery sized and preloaded, everything below the fold lazy-loaded, image dimensions reserved so nothing shifts as the page settles.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">06</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Analytics</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Storefront analytics plus a measurement property, with the funnel events named the same way in both so the numbers can be reconciled.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">07</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Accessibility</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Contrast held on the bone background, focus visible on every control, icon-only buttons labelled, and the vertical display type never used for real information.</p>
+    </div>
+    <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 14px; display: flex; flex-direction: column; gap: 8px; box-sizing: border-box;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: #E5352B;">08</span>
+      <h3 style="margin: 0; font-family: Archivo, sans-serif; font-weight: 700; font-size: 15px; line-height: 1.2; text-transform: uppercase;">Local &amp; business profile</h3>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Business profile claimed and matched to the storefront — same name, categories, hours and contact route — so local search and the site tell one story.</p>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="06 Build and delivery" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #0D0D0D; padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">Build &amp; delivery</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.55);">Pipeline · handover</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 0.4in; padding-top: 0.22in; min-height: 0;">
+    <div style="display: flex; flex-direction: column; gap: 12px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Pipeline</span>
+      <div style="flex: 1; display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr 1fr; gap: 14px; min-height: 0;">
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 9px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Source</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5;">Theme code in version control, one branch per surface, so a change is reviewable and reversible instead of edited live.</p>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 9px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Review</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5;">Preview environment for the client to walk each surface before it ships. Sign-off happens on the real thing, not a static comp.</p>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 9px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Release</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5;">Deploy on merge to the production theme, custom domain and certificate handled at the same time so launch is one event.</p>
+        </div>
+        <div style="border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 16px; display: flex; flex-direction: column; gap: 9px; box-sizing: border-box;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(13,13,13,0.5);">Handover</span>
+          <p style="margin: 0; font-size: 15px; line-height: 1.5;">Merchandising is editable without touching code: collections, imagery and the featured edit are all content, not markup.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px; align-items: center; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; border-top: 1px solid rgba(13,13,13,0.2); padding-top: 10px;">
+        <span>Stack</span>
+        <span style="flex: 1; border-bottom: 1px solid rgba(13,13,13,0.2); padding-bottom: 3px; line-height: 1.7;">Shopify (Liquid) + custom sections &amp; front end · Git-based theme deploys · Shopify Payments · Klaviyo · Shopify Analytics + GA4 · Meta / Google conversion tracking · custom domain &amp; DNS</span>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Notification format</span>
+      <div style="border: 1px solid rgba(13,13,13,0.18); background: #0D0D0D; color: #FAF6F0; padding: 14px 16px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.85; flex: 1; box-sizing: border-box;">
+        <div style="color: #3F8DD1;">SUBJECT  New order — #0000</div>
+        <div style="height: 1px; background: rgba(250,246,240,0.2); margin: 8px 0;"></div>
+        <div>PLACED    &lt;date, time&gt;</div>
+        <div>CUSTOMER  &lt;name&gt;</div>
+        <div>ITEMS     &lt;title · size · qty&gt;</div>
+        <div>TOTAL     &lt;amount&gt;</div>
+        <div>SHIP TO   &lt;address&gt;</div>
+        <div>SOURCE    &lt;landing page · referrer&gt;</div>
+        <div style="height: 1px; background: rgba(250,246,240,0.2); margin: 8px 0;"></div>
+        <div style="color: rgba(250,246,240,0.6);">Same field order on every notification,<br>so the owner reads one shape, not prose.</div>
+      </div>
+      <p style="margin: 0; font-size: 13px; line-height: 1.45;">Orders and enquiries land in the business inbox in a fixed format, with the source attached. Fulfilment and marketing both start from the same record.</p>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="07 Further surfaces" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #FAF6F0; color: #0D0D0D; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #0D0D0D; padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">Further surfaces</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(13,13,13,0.55);">Category · grid · mobile</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1.1fr 1.1fr 0.72fr; gap: 0.28in; padding-top: 0.22in; min-height: 0;">
+    <div style="display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Category surface</span>
+      <div style="flex: 1; border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; display: flex; flex-direction: column; min-height: 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 12px; border-bottom: 1px solid rgba(13,13,13,0.12); font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.14em; text-transform: uppercase;">
+          <span style="color: #E5352B;">Shop the season</span>
+          <span style="width: 40px; height: 6px; background: #0D0D0D;"></span>
+        </div>
+        <div style="padding: 16px 12px 10px; text-align: center; font-family: Anton, Impact, sans-serif; font-size: 26px; line-height: 1; text-transform: uppercase;">Fashion<br>for women</div>
+        <div style="display: flex; gap: 10px; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; padding-bottom: 12px;">
+          <span style="border-bottom: 2px solid #0D0D0D; padding-bottom: 2px;">Tops</span>
+          <span style="color: rgba(13,13,13,0.45);">Bottoms</span>
+          <span style="color: rgba(13,13,13,0.45);">Jackets</span>
+          <span style="color: #3F8DD1;">New in</span>
+        </div>
+        <div style="flex: 1; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 8px; padding: 0 12px 12px; min-height: 0; position: relative;">
+          <div style="position: relative; min-width: 0; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="position: relative; min-width: 0; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="position: relative; min-width: 0; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.45;">Filters read as a sentence under the title; the carousel keeps a long category browsable without pagination.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Product grid</span>
+      <div style="flex: 1; border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; padding: 12px; display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 1fr; gap: 10px; min-height: 0; box-sizing: border-box;">
+        <div style="display: flex; flex-direction: column; gap: 5px; min-height: 0;">
+          <div style="position: relative; flex: 1; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="width: 74%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 40%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; min-height: 0;">
+          <div style="position: relative; flex: 1; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="width: 66%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 44%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; min-height: 0;">
+          <div style="position: relative; flex: 1; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="width: 80%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 36%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; min-height: 0;">
+          <div style="position: relative; flex: 1; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="width: 70%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 42%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; min-height: 0;">
+          <div style="position: relative; flex: 1; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="width: 60%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 38%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 5px; min-height: 0;">
+          <div style="position: relative; flex: 1; min-height: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="width: 76%; height: 5px; background: #0D0D0D;"></div>
+          <div style="width: 46%; height: 5px; background: rgba(13,13,13,0.3);"></div>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.45;">One plate proportion across the whole catalogue. Title and price sit in mono beneath, so mixed photography still reads as one grid.</p>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 10px; min-height: 0;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Mobile</span>
+      <div style="flex: 1; border: 1px solid rgba(13,13,13,0.18); background: #FFFFFF; display: flex; flex-direction: column; min-height: 0;">
+        <div style="display: flex; align-items: center; justify-content: space-between; padding: 8px 10px; border-bottom: 1px solid rgba(13,13,13,0.12);">
+          <span style="width: 12px; height: 6px; background: #0D0D0D;"></span>
+          <span style="width: 34px; height: 6px; background: #0D0D0D;"></span>
+          <span style="width: 6px; height: 6px; background: #0D0D0D;"></span>
+        </div>
+        <div style="position: relative; flex: 1; display: flex; align-items: flex-end; padding: 10px; min-height: 0; overflow: hidden;">
+          <div style="position: absolute; inset: 0; z-index: 0; display: block;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Hero editorial</span></div><span style="position: relative; z-index: 1; writing-mode: vertical-rl; transform: rotate(180deg); font-family: Anton, Impact, sans-serif; font-size: 20px; color: #E5352B; background: rgba(250,246,240,0.85); padding: 2px 4px;">WOMEN</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; height: 0.5in;">
+          <div style="position: relative; min-width: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+          <div style="position: relative; min-width: 0;"><div style="position: absolute; inset: 0;; background-image: repeating-linear-gradient(135deg, rgba(120,120,130,0.14) 0px, rgba(120,120,130,0.14) 8px, rgba(120,120,130,0.05) 8px, rgba(120,120,130,0.05) 16px); background-color: rgba(120,120,130,0.06); display:flex; align-items:center; justify-content:center; text-align:center;"><span style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; color:rgba(90,90,100,0.9); padding:0 10px;">Product</span></div></div>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12.5px; line-height: 1.45;">The split hero stacks; vertical labels become the section markers. Bag and search stay in the bar at thumb-reachable size.</p>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" data-screen-label="08 Closing" style="display: flex; flex-direction: column; box-sizing: border-box; padding: 0.5in 0.6in; background: #0D0D0D; color: #FAF6F0; font-family: Archivo, 'Helvetica Neue', Helvetica, sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid rgba(250,246,240,0.35); padding-bottom: 10px;">
+    <h2 style="font-family: Anton, Impact, sans-serif; font-weight: 400; font-size: 30px; line-height: 1; text-transform: uppercase; margin: 0;">What carries forward</h2>
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,246,240,0.6);">Reusable · delivered</span>
+  </div>
+  <div style="flex: 1; display: grid; grid-template-columns: 1.3fr 1fr; gap: 0.5in; padding-top: 0.25in; min-height: 0;">
+    <div style="display: flex; flex-direction: column; gap: 18px; justify-content: space-between;">
+      <div style="display: flex; gap: 14px; align-items: flex-start;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E5352B; padding-top: 4px;">01</span>
+        <div>
+          <h3 style="margin: 0 0 7px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: 0.01em; text-transform: uppercase;">The utility layer</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(250,246,240,0.85); max-width: 34em;">Mono for every label, grotesque for every sentence, display for openers only. It lets photography change completely without the interface losing its voice — the most portable part of the system.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 14px; align-items: flex-start;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E5352B; padding-top: 4px;">02</span>
+        <div>
+          <h3 style="margin: 0 0 7px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: 0.01em; text-transform: uppercase;">Sideways growth</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(250,246,240,0.85); max-width: 34em;">Capping navigation at three items and absorbing new categories as filters kept the tree shallow. I'd start any catalogue this way now, and only promote a filter to a route when demand proves it.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 14px; align-items: flex-start;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #E5352B; padding-top: 4px;">03</span>
+        <div>
+          <h3 style="margin: 0 0 7px; font-family: Archivo, sans-serif; font-weight: 700; font-size: 21px; letter-spacing: 0.01em; text-transform: uppercase;">States designed first</h3>
+          <p style="margin: 0; font-size: 17px; line-height: 1.55; color: rgba(250,246,240,0.85); max-width: 34em;">Empty cart, empty wishlist, no results. Designing them alongside the happy path — not after launch — is the cheapest credibility a small storefront can buy.</p>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: #E5352B;">Delivered</span>
+      <div style="display: flex; flex-direction: column; gap: 14px; font-family: 'JetBrains Mono', monospace; font-size: 13px; letter-spacing: 0.04em;">
+        <div style="display: flex; gap: 12px; border-bottom: 1px solid rgba(250,246,240,0.18); padding-bottom: 11px;"><span style="color: #E5352B;">✓</span><span>Home, category, product, cart, wishlist, search</span></div>
+        <div style="display: flex; gap: 12px; border-bottom: 1px solid rgba(250,246,240,0.18); padding-bottom: 11px;"><span style="color: #E5352B;">✓</span><span>Policy and information pages</span></div>
+        <div style="display: flex; gap: 12px; border-bottom: 1px solid rgba(250,246,240,0.18); padding-bottom: 11px;"><span style="color: #E5352B;">✓</span><span>Responsive behaviour, mobile through desktop</span></div>
+        <div style="display: flex; gap: 12px; border-bottom: 1px solid rgba(250,246,240,0.18); padding-bottom: 11px;"><span style="color: #E5352B;">✓</span><span>Component and type documentation</span></div>
+        <div style="display: flex; gap: 12px; border-bottom: 1px solid rgba(250,246,240,0.18); padding-bottom: 11px;"><span style="color: #E5352B;">✓</span><span>Search, analytics and notification setup</span></div>
+        <div style="display: flex; gap: 10px;"><span style="color: #E5352B;">✓</span><span>Merchandising handover to the owner</span></div>
+      </div>
+      <div style="margin-top: auto; font-family: 'JetBrains Mono', monospace; font-size: 9px; line-height: 1.8; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,246,240,0.5);">Anonymised case study.<br>Client name, logotype, domain and<br>photography withheld by agreement.</div>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

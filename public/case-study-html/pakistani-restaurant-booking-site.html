@@ -1,0 +1,606 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 28px 12px;
+  }
+  .cs-page {
+    width: 100%;
+    max-width: 1180px;
+    box-shadow: 0 30px 80px -30px rgba(0,0,0,0.6);
+    overflow: hidden;
+  }
+  .cs-page section.page {
+    width: 100%;
+    aspect-ratio: 11 / 8.5;
+    display: flex;
+  }
+  .cs-page section.page > div {
+    width: 100%;
+  }
+  
+doc-page:not(:defined){visibility:hidden}
+body{margin:0}
+a{color:#C9A15E;text-decoration:none}
+a:hover{color:#E6D3AC}
+
+</style>
+</head>
+<body>
+<div class="cs-page"><section class="page" id="p1" data-screen-label="01 Cover" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:52px 60px 40px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid rgba(240,236,227,0.14);padding-bottom:14px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#8FA3B8">Case study / anonymized</div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#8FA3B8">Website design &amp; front-end build</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:48px;flex:1;align-items:center">
+      <div style="display:flex;flex-direction:column;gap:22px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:#C9A15E">Hospitality · Single venue · UK</div>
+        <h1 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:58px;line-height:1.04;letter-spacing:-0.01em;text-wrap:balance">A restaurant site built to be<br><em style="color:#E6D3AC">found, read and booked</em></h1>
+        <p style="margin:0;font-size:15.5px;line-height:1.65;color:#C4D0DC;max-width:46ch;text-wrap:pretty">A full marketing and reservation site for an independent Pakistani restaurant and event venue. The interface below is reconstructed as abstracted blocks — no client name, logo, address or photography appears in this document.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="flex:1;min-height:200px;border:1px solid rgba(201,161,94,0.35);border-radius:10px;background:repeating-linear-gradient(135deg,#12263C 0 9px,#0F2135 9px 18px);display:flex;align-items:center;justify-content:center;text-align:center">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FA3B8;padding:0 24px">delivered site — home,<br>above the fold</span>
+        </div>
+        <div style="display:flex;gap:12px">
+          <div style="flex:1;height:56px;border-radius:8px;background:#C9A15E"></div>
+          <div style="flex:1;height:56px;border-radius:8px;background:#12263C;border:1px solid rgba(240,236,227,0.16)"></div>
+          <div style="flex:1;height:56px;border-radius:8px;background:#1B3350"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(240,236,227,0.14);border-top:1px solid rgba(240,236,227,0.14)">
+      <div style="background:#0B1A2B;padding:16px 0 0">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:7px">Region served</div>
+        <div style="font-size:14.5px;color:#F0ECE3">Bradford &amp; West Yorkshire</div>
+      </div>
+      <div style="background:#0B1A2B;padding:16px 0 0 18px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:7px">Industry</div>
+        <div style="font-size:14.5px;color:#F0ECE3">Restaurant, buffet &amp; event catering</div>
+      </div>
+      <div style="background:#0B1A2B;padding:16px 0 0 18px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:7px">Scope</div>
+        <div style="font-size:14.5px;color:#F0ECE3">Full site design + build</div>
+      </div>
+      <div style="background:#0B1A2B;padding:16px 0 0 18px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:7px">Delivery</div>
+        <div style="font-size:14.5px;color:#F0ECE3">Version-controlled repo → hosted deploy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p2" data-screen-label="02 Landing surface" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:44px 60px 34px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">Landing surface</h2>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#8FA3B8;max-width:62ch;text-align:right">Above the fold the page carries one promise, one location cue and two exits: read the menu, or book a table. Everything below is abstracted — bars stand in for set copy, striped panels for photography.</p>
+    </div>
+
+    <div style="flex:1;border:1px solid rgba(240,236,227,0.12);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;background:#0E2035">
+      <div style="display:flex;align-items:center;gap:26px;padding:14px 22px;background:#0B1A2B;border-bottom:1px solid rgba(240,236,227,0.08)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:26px;height:26px;border-radius:50%;background:#C9A15E"></div>
+          <div style="width:104px;height:9px;border-radius:2px;background:rgba(230,211,172,0.75)"></div>
+        </div>
+        <div style="display:flex;gap:16px;margin-left:auto">
+          <div style="width:44px;height:7px;border-radius:3px;background:rgba(240,236,227,0.34)"></div>
+          <div style="width:38px;height:7px;border-radius:3px;background:rgba(240,236,227,0.34)"></div>
+          <div style="width:48px;height:7px;border-radius:3px;background:rgba(240,236,227,0.34)"></div>
+          <div style="width:34px;height:7px;border-radius:3px;background:rgba(240,236,227,0.34)"></div>
+          <div style="width:62px;height:7px;border-radius:3px;background:rgba(240,236,227,0.34)"></div>
+          <div style="width:44px;height:7px;border-radius:3px;background:rgba(240,236,227,0.34)"></div>
+        </div>
+        <div style="width:96px;height:26px;border-radius:13px;background:#C9A15E;margin-left:14px"></div>
+      </div>
+
+      <div style="flex:1;position:relative;background:repeating-linear-gradient(135deg,#13273D 0 10px,#101F33 10px 20px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;padding:26px">
+        <div style="position:absolute;top:12px;left:16px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#7C90A6">hero photography — venue interior, evening</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:#C9A15E">Eyebrow · positioning</div>
+        <div style="font-family:'Playfair Display',Georgia,serif;font-size:42px;line-height:1.1;text-align:center;color:#F3EDE0">Regional cuisine,<br>city-centre table</div>
+        <div style="width:280px;height:8px;border-radius:4px;background:rgba(240,236,227,0.28)"></div>
+        <div style="display:flex;gap:14px;margin-top:6px">
+          <div style="width:168px;height:44px;border-radius:22px;background:#C9A15E"></div>
+          <div style="width:168px;height:44px;border-radius:22px;border:1px solid rgba(240,236,227,0.4)"></div>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:18px;padding:12px 22px;background:#12263C;border-top:1px solid rgba(240,236,227,0.08)">
+        <div style="display:flex;flex-direction:column;gap:6px;flex:1">
+          <div style="width:72%;height:7px;border-radius:3px;background:rgba(240,236,227,0.26)"></div>
+          <div style="width:44%;height:7px;border-radius:3px;background:rgba(240,236,227,0.18)"></div>
+        </div>
+        <div style="display:flex;gap:10px">
+          <div style="width:74px;height:28px;border-radius:6px;border:1px solid rgba(240,236,227,0.3)"></div>
+          <div style="width:74px;height:28px;border-radius:6px;background:#C9A15E"></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:26px">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E;margin-bottom:6px">Decision made</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.6;color:#C4D0DC">Photography carries the room; type stays quiet over it, with a dark scrim so headings hold contrast on any frame.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E;margin-bottom:6px">Two exits only</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.6;color:#C4D0DC">A filled primary for booking, an outlined secondary for browsing. The same pair repeats site-wide, never a third variant.</p>
+      </div>
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E;margin-bottom:6px">Consent, handled</div>
+        <p style="margin:0;font-size:12.5px;line-height:1.6;color:#C4D0DC">The cookie bar sits inside the design language rather than on top of it, and links to a real policy page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p3" data-screen-label="03 Visual system" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:44px 60px 34px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">The visual system</h2>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#8FA3B8;max-width:58ch;text-align:right">One dark base, one metallic accent, two typefaces. Everything else is a rule about spacing and radius.</p>
+    </div>
+
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:12px">Palette</div>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:12px">
+        <div>
+          <div style="height:66px;border-radius:8px;background:#0B1A2B;border:1px solid rgba(240,236,227,0.16)"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C4D0DC;margin-top:7px">#0B1A2B</div>
+          <div style="font-size:11px;color:#8FA3B8">Base</div>
+        </div>
+        <div>
+          <div style="height:66px;border-radius:8px;background:#12263C"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C4D0DC;margin-top:7px">#12263C</div>
+          <div style="font-size:11px;color:#8FA3B8">Surface</div>
+        </div>
+        <div>
+          <div style="height:66px;border-radius:8px;background:#1B3350"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C4D0DC;margin-top:7px">#1B3350</div>
+          <div style="font-size:11px;color:#8FA3B8">Raised</div>
+        </div>
+        <div>
+          <div style="height:66px;border-radius:8px;background:#C9A15E"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C4D0DC;margin-top:7px">#C9A15E</div>
+          <div style="font-size:11px;color:#8FA3B8">Accent</div>
+        </div>
+        <div>
+          <div style="height:66px;border-radius:8px;background:#E6D3AC"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C4D0DC;margin-top:7px">#E6D3AC</div>
+          <div style="font-size:11px;color:#8FA3B8">Accent light</div>
+        </div>
+        <div>
+          <div style="height:66px;border-radius:8px;background:#F0ECE3"></div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;color:#C4D0DC;margin-top:7px">#F0ECE3</div>
+          <div style="font-size:11px;color:#8FA3B8">Ink on dark</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:0.9fr 1.1fr;gap:34px;flex:1">
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:12px">Type pairing</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:18px">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-size:44px;line-height:1;color:#E6D3AC">Aa</div>
+            <div>
+              <div style="font-size:13.5px;color:#F0ECE3">High-contrast display serif</div>
+              <div style="font-size:11.5px;color:#8FA3B8;line-height:1.5">Headings and pull quotes. Italic reserved for section titles.</div>
+            </div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:18px">
+            <div style="font-size:40px;line-height:1;font-weight:400;color:#F0ECE3">Aa</div>
+            <div>
+              <div style="font-size:13.5px;color:#F0ECE3">Geometric sans</div>
+              <div style="font-size:11.5px;color:#8FA3B8;line-height:1.5">Body, UI and tracked uppercase labels at small sizes.</div>
+            </div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:12px 18px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.14em;color:#8FA3B8;line-height:1.9">scale · 12 / 14 / 16 / 20 / 28 / 42 / 58<br>radius · 6 / 10 / 22 / pill  ·  grid · 12 col, 24px gutter</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:12px">Component inventory</div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;justify-content:center"><div style="width:100%;height:14px;border-radius:3px;background:rgba(240,236,227,0.2)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">nav bar</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;justify-content:center"><div style="width:74px;height:24px;border-radius:12px;background:#C9A15E"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">primary pill</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;justify-content:center"><div style="width:74px;height:24px;border-radius:12px;border:1px solid rgba(240,236,227,0.4)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">ghost pill</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;justify-content:center;gap:6px"><div style="width:22px;height:22px;border-radius:50%;border:1px solid rgba(240,236,227,0.3)"></div><div style="width:26px;height:22px;border-radius:4px;border:1px solid rgba(201,161,94,0.6)"></div><div style="width:22px;height:22px;border-radius:50%;border:1px solid rgba(240,236,227,0.3)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">stepper</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;flex-direction:column;justify-content:center;gap:5px"><div style="width:40%;height:6px;border-radius:3px;background:#C9A15E"></div><div style="width:100%;height:6px;border-radius:3px;background:rgba(240,236,227,0.2)"></div><div style="width:80%;height:6px;border-radius:3px;background:rgba(240,236,227,0.14)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">price card</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;gap:6px"><div style="width:18px;height:18px;border-radius:50%;background:#1B3350"></div><div style="flex:1;display:flex;flex-direction:column;gap:4px"><div style="width:70%;height:5px;border-radius:3px;background:rgba(240,236,227,0.24)"></div><div style="width:40%;height:5px;border-radius:3px;background:rgba(201,161,94,0.7)"></div></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">review card</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center"><div style="width:100%;height:26px;border-radius:6px;border:1px solid rgba(240,236,227,0.24)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">field</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;justify-content:center"><div style="width:80px;height:20px;border-radius:10px;background:#1B3350;border:1px solid rgba(201,161,94,0.45)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">badge</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;background:repeating-linear-gradient(135deg,#13273D 0 7px,#101F33 7px 14px);border-radius:5px"></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">image frame</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;flex-direction:column;justify-content:center;gap:5px"><div style="display:flex;justify-content:space-between"><div style="width:56%;height:6px;border-radius:3px;background:rgba(240,236,227,0.24)"></div><div style="width:22%;height:6px;border-radius:3px;background:rgba(201,161,94,0.8)"></div></div><div style="width:78%;height:5px;border-radius:3px;background:rgba(240,236,227,0.14)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">menu row</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;align-items:center;gap:5px"><div style="width:22px;height:3px;border-radius:2px;background:#C9A15E"></div><div style="width:22px;height:3px;border-radius:2px;background:rgba(240,236,227,0.2)"></div><div style="width:22px;height:3px;border-radius:2px;background:rgba(240,236,227,0.2)"></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">progress</div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.1);border-radius:8px;padding:10px;background:#0E2035">
+            <div style="height:34px;display:flex;gap:8px"><div style="flex:1;display:flex;flex-direction:column;gap:4px"><div style="height:5px;border-radius:3px;background:rgba(201,161,94,0.8)"></div><div style="height:4px;border-radius:3px;background:rgba(240,236,227,0.16)"></div><div style="height:4px;border-radius:3px;background:rgba(240,236,227,0.16)"></div></div><div style="flex:1;display:flex;flex-direction:column;gap:4px"><div style="height:5px;border-radius:3px;background:rgba(201,161,94,0.8)"></div><div style="height:4px;border-radius:3px;background:rgba(240,236,227,0.16)"></div><div style="height:4px;border-radius:3px;background:rgba(240,236,227,0.16)"></div></div></div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.1em;color:#8FA3B8;text-transform:uppercase;margin-top:8px">footer column</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p4" data-screen-label="04 Information architecture" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:44px 60px 34px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">Information architecture</h2>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#8FA3B8;max-width:58ch;text-align:right">Flat where guests are impatient, nested only where content genuinely divides. Every URL reads as a phrase a guest would say out loud.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:0.95fr 1.05fr;gap:36px;flex:1">
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:20px 22px;background:#0E2035">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:14px">URL tree</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;line-height:2.05;color:#C4D0DC">
+          <div style="color:#E6D3AC">/</div>
+          <div>├─ /about</div>
+          <div>├─ /buffet<span style="color:#6F849A"> — dinner + weekend breakfast</span></div>
+          <div>├─ /menu</div>
+          <div>│   ├─ /menu/takeaway</div>
+          <div>│   └─ /menu/drinks</div>
+          <div>├─ /gallery</div>
+          <div>├─ /events</div>
+          <div>│   ├─ /events/catering</div>
+          <div>│   └─ /events/event-hall</div>
+          <div>├─ /order-online<span style="color:#6F849A"> — outbound handoff</span></div>
+          <div>├─ /book<span style="color:#6F849A"> — 5-step reservation</span></div>
+          <div>├─ /contact</div>
+          <div>└─ /cookie-policy</div>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E;margin-bottom:12px">How it scales</div>
+          <div style="display:flex;flex-direction:column;gap:1px;background:rgba(240,236,227,0.12);border:1px solid rgba(240,236,227,0.12);border-radius:10px;overflow:hidden">
+            <div style="display:grid;grid-template-columns:1.1fr 1fr 0.7fr;gap:14px;background:#12263C;padding:9px 16px;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.16em;text-transform:uppercase;color:#8FA3B8">
+              <div>What changes</div><div>Where it lands</div><div>New page?</div>
+            </div>
+            <div style="display:grid;grid-template-columns:1.1fr 1fr 0.7fr;gap:14px;background:#0E2035;padding:11px 16px;font-size:12px;color:#C4D0DC"><div>New dish or price</div><div>Menu data, one row</div><div style="color:#8FA3B8">No</div></div>
+            <div style="display:grid;grid-template-columns:1.1fr 1fr 0.7fr;gap:14px;background:#0E2035;padding:11px 16px;font-size:12px;color:#C4D0DC"><div>New menu category</div><div>Section on existing menu page</div><div style="color:#8FA3B8">No</div></div>
+            <div style="display:grid;grid-template-columns:1.1fr 1fr 0.7fr;gap:14px;background:#0E2035;padding:11px 16px;font-size:12px;color:#C4D0DC"><div>Seasonal buffet</div><div>Buffet page, second card</div><div style="color:#8FA3B8">No</div></div>
+            <div style="display:grid;grid-template-columns:1.1fr 1fr 0.7fr;gap:14px;background:#0E2035;padding:11px 16px;font-size:12px;color:#C4D0DC"><div>New occasion type</div><div>Events child route</div><div style="color:#E6D3AC">Yes, templated</div></div>
+            <div style="display:grid;grid-template-columns:1.1fr 1fr 0.7fr;gap:14px;background:#0E2035;padding:11px 16px;font-size:12px;color:#C4D0DC"><div>Second location</div><div>Location segment above the tree</div><div style="color:#E6D3AC">Yes, structural</div></div>
+          </div>
+        </div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div style="border-left:2px solid #C9A15E;padding-left:14px">
+            <div style="font-size:13px;color:#F0ECE3;margin-bottom:5px">Booking is a route, not a modal</div>
+            <p style="margin:0;font-size:12px;line-height:1.6;color:#8FA3B8">The reservation flow lives at its own URL, so it can be linked from social, printed on a card, and measured on its own.</p>
+          </div>
+          <div style="border-left:2px solid #C9A15E;padding-left:14px">
+            <div style="font-size:13px;color:#F0ECE3;margin-bottom:5px">Ordering leaves cleanly</div>
+            <p style="margin:0;font-size:12px;line-height:1.6;color:#8FA3B8">Third-party delivery gets one framed handoff page rather than being scattered through the nav.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p5" data-screen-label="05 Search and integrity" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:44px 60px 34px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">Search &amp; integrity setup</h2>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#8FA3B8;max-width:56ch;text-align:right">A local restaurant is found on a phone, near closing time. The setup below is aimed at that moment. Claims here are qualitative by choice — no performance figures are quoted.</p>
+    </div>
+
+    <div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:14px">
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">01</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Technical SEO</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Unique titles and descriptions per route, one H1 per page, canonical tags, descriptive alt text, clean internal linking.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">02</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Sitemap &amp; robots</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Generated sitemap covering every public route, robots directives that keep utility pages out of the index, search console verified.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">03</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Structured data</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Restaurant, menu, opening-hours and breadcrumb schema so hours and cuisine can surface directly in results.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">04</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Local presence</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Business profile aligned with the site: same name, hours, categories and service list, with the map and directions reachable from every page.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">05</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Content architecture</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">One page per intent — buffet, takeaway, drinks, catering, venue — so each can rank for the phrase people actually search.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">06</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Core Web Vitals</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Sized and compressed imagery, reserved layout space to avoid shift, deferred non-critical work, fonts preconnected.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">07</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Measurement</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Analytics behind consent, with reservation completion, enquiry submission and outbound ordering tracked as distinct events.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035;display:flex;flex-direction:column;gap:8px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:10px;color:#C9A15E">08</div>
+        <div style="font-size:14.5px;color:#F0ECE3;font-family:'Playfair Display',Georgia,serif">Accessibility</div>
+        <p style="margin:0;font-size:11.5px;line-height:1.6;color:#8FA3B8">Contrast checked against the dark base, visible focus states, labelled fields, keyboard-completable booking flow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p6" data-screen-label="06 Build and delivery" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:44px 60px 34px;display:flex;flex-direction:column;gap:22px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">Build &amp; delivery</h2>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#8FA3B8;max-width:56ch;text-align:right">Component-built front end, version-controlled, deployed from the repository. No CMS to babysit, no plugin surface to patch.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px">
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A15E;margin-bottom:8px">Author</div>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#C4D0DC">Componentised pages, content held as structured data rather than pasted markup.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A15E;margin-bottom:8px">Commit</div>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#C4D0DC">Every change is a commit in the repository — the full history of the site is recoverable.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A15E;margin-bottom:8px">Preview</div>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#C4D0DC">Each push builds a shareable preview URL, so the owner signs off on the real thing before it goes live.</p>
+      </div>
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;padding:16px 18px;background:#0E2035">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#C9A15E;margin-bottom:8px">Ship</div>
+        <p style="margin:0;font-size:12px;line-height:1.6;color:#C4D0DC">Merge deploys to production on managed hosting with HTTPS and a CDN; rollback is one click.</p>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E">Where submissions go</div>
+        <p style="margin:0;font-size:13px;line-height:1.7;color:#C4D0DC">Reservations and enquiries arrive as formatted email in the business inbox — no dashboard to learn, no second login. Fields are ordered the way front-of-house reads them, so a booking can be actioned from a phone in seconds.</p>
+        <div style="display:flex;flex-direction:column;gap:9px;margin-top:2px">
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="color:#C9A15E;font-size:12px">—</span><span style="font-size:12.5px;color:#C4D0DC">Required fields validated client-side before send</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="color:#C9A15E;font-size:12px">—</span><span style="font-size:12.5px;color:#C4D0DC">Confirmation state on screen, so guests don't double-submit</span></div>
+          <div style="display:flex;gap:10px;align-items:baseline"><span style="color:#C9A15E;font-size:12px">—</span><span style="font-size:12.5px;color:#C4D0DC">Booking rules encoded in the flow, not buried in small print</span></div>
+        </div>
+      </div>
+
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;background:#0E2035;padding:18px 20px;display:flex;flex-direction:column;gap:12px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.16em;text-transform:uppercase;color:#8FA3B8">Inbox format — sample shape</div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;line-height:2;color:#C4D0DC">
+          <div><span style="color:#C9A15E">subject:</span> New reservation — [service]</div>
+          <div><span style="color:#C9A15E">date:</span> ██ / ██ / ████</div>
+          <div><span style="color:#C9A15E">time:</span> ██:██</div>
+          <div><span style="color:#C9A15E">guests:</span> ██</div>
+          <div><span style="color:#C9A15E">name:</span> ████████</div>
+          <div><span style="color:#C9A15E">phone:</span> ███████████</div>
+          <div><span style="color:#C9A15E">email:</span> ████████@████.███</div>
+          <div><span style="color:#C9A15E">notes:</span> ██████████████████</div>
+        </div>
+        <div style="font-size:11px;color:#6F849A;font-style:italic;margin-top:auto">Values redacted for this document.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p7" data-screen-label="07 Further surfaces" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:44px 60px 34px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">Further surfaces</h2>
+      <p style="margin:0;font-size:13px;line-height:1.6;color:#8FA3B8;max-width:56ch;text-align:right">The same components, rearranged. Four reconstructions: a pricing surface, a long menu, the reviews module, and the reservation flow on a phone.</p>
+    </div>
+
+    <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 0.9fr 0.6fr;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E">Pricing surface</div>
+        <div style="flex:1;border:1px solid rgba(240,236,227,0.12);border-radius:10px;background:#0E2035;padding:16px;display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <div style="width:44%;height:12px;border-radius:3px;background:rgba(230,211,172,0.75)"></div>
+            <div style="width:78px;height:20px;border-radius:10px;background:#C9A15E"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            <div style="width:92%;height:6px;border-radius:3px;background:rgba(240,236,227,0.18)"></div>
+            <div style="width:70%;height:6px;border-radius:3px;background:rgba(240,236,227,0.14)"></div>
+          </div>
+          <div style="border:1px solid rgba(240,236,227,0.14);border-radius:8px;padding:14px;display:flex;justify-content:space-around;align-items:flex-end">
+            <div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#E6D3AC">£ ——</div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.14em;color:#8FA3B8;margin-top:4px">ADULTS</div></div>
+            <div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#E6D3AC">£ ——</div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.14em;color:#8FA3B8;margin-top:4px">CHILD</div></div>
+            <div style="text-align:center"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#9FD3AE">Free</div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.14em;color:#8FA3B8;margin-top:4px">INFANT</div></div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:0.14em;text-transform:uppercase;color:#C9A15E;margin-top:2px">Highlights</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 14px">
+            <div style="height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+            <div style="height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+            <div style="height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+            <div style="height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+            <div style="height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+            <div style="height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+          </div>
+          <p style="margin:auto 0 0;font-size:11px;line-height:1.6;color:#8FA3B8">Two services, one template. Price, window and inclusions in a fixed order so guests can compare at a glance.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E">Long menu</div>
+        <div style="flex:1;border:1px solid rgba(240,236,227,0.12);border-radius:10px;background:#0E2035;padding:16px;display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15px;color:#E6D3AC">Category</div>
+            <div style="flex:1;height:1px;background:rgba(240,236,227,0.16)"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;gap:12px"><div style="flex:1;display:flex;flex-direction:column;gap:5px"><div style="width:64%;height:8px;border-radius:3px;background:rgba(240,236,227,0.28)"></div><div style="width:86%;height:5px;border-radius:3px;background:rgba(240,236,227,0.13)"></div></div><div style="width:38px;height:8px;border-radius:3px;background:rgba(201,161,94,0.85)"></div></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><div style="flex:1;display:flex;flex-direction:column;gap:5px"><div style="width:52%;height:8px;border-radius:3px;background:rgba(240,236,227,0.28)"></div><div style="width:74%;height:5px;border-radius:3px;background:rgba(240,236,227,0.13)"></div></div><div style="width:38px;height:8px;border-radius:3px;background:rgba(201,161,94,0.85)"></div></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><div style="flex:1;display:flex;flex-direction:column;gap:5px"><div style="width:70%;height:8px;border-radius:3px;background:rgba(240,236,227,0.28)"></div><div style="width:60%;height:5px;border-radius:3px;background:rgba(240,236,227,0.13)"></div></div><div style="width:38px;height:8px;border-radius:3px;background:rgba(201,161,94,0.85)"></div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;margin-top:4px">
+            <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:15px;color:#E6D3AC">Category</div>
+            <div style="flex:1;height:1px;background:rgba(240,236,227,0.16)"></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;gap:12px"><div style="flex:1;display:flex;flex-direction:column;gap:5px"><div style="width:58%;height:8px;border-radius:3px;background:rgba(240,236,227,0.28)"></div><div style="width:80%;height:5px;border-radius:3px;background:rgba(240,236,227,0.13)"></div></div><div style="width:38px;height:8px;border-radius:3px;background:rgba(201,161,94,0.85)"></div></div>
+            <div style="display:flex;justify-content:space-between;gap:12px"><div style="flex:1;display:flex;flex-direction:column;gap:5px"><div style="width:46%;height:8px;border-radius:3px;background:rgba(240,236,227,0.28)"></div><div style="width:66%;height:5px;border-radius:3px;background:rgba(240,236,227,0.13)"></div></div><div style="width:38px;height:8px;border-radius:3px;background:rgba(201,161,94,0.85)"></div></div>
+          </div>
+          <p style="margin:auto 0 0;font-size:11px;line-height:1.6;color:#8FA3B8">Two columns on desktop, one on mobile; dietary marks inline. Prices sit on a consistent right rail so the eye can scan cost alone.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E">Reviews module</div>
+        <div style="flex:1;border:1px solid rgba(240,236,227,0.12);border-radius:10px;background:#0E2035;padding:16px;display:flex;flex-direction:column;gap:11px">
+          <div style="border:1px solid rgba(240,236,227,0.12);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:9px;background:#12263C">
+            <div style="display:flex;align-items:center;gap:9px">
+              <div style="width:24px;height:24px;border-radius:50%;background:#1B3350"></div>
+              <div style="flex:1;display:flex;flex-direction:column;gap:4px">
+                <div style="width:62%;height:7px;border-radius:3px;background:rgba(240,236,227,0.3)"></div>
+                <div style="width:40%;height:5px;border-radius:3px;background:rgba(201,161,94,0.8)"></div>
+              </div>
+              <div style="display:flex;gap:2px">
+                <div style="width:6px;height:6px;background:#C9A15E"></div>
+                <div style="width:6px;height:6px;background:#C9A15E"></div>
+                <div style="width:6px;height:6px;background:#C9A15E"></div>
+                <div style="width:6px;height:6px;background:#C9A15E"></div>
+                <div style="width:6px;height:6px;background:#C9A15E"></div>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:5px">
+              <div style="width:96%;height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+              <div style="width:74%;height:6px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+            </div>
+            <div style="height:1px;background:rgba(240,236,227,0.12)"></div>
+            <div style="display:flex;flex-direction:column;gap:6px">
+              <div style="display:flex;justify-content:space-between;align-items:center"><div style="width:38%;height:5px;border-radius:3px;background:rgba(240,236,227,0.22)"></div><div style="width:34px;height:5px;border-radius:3px;background:rgba(201,161,94,0.75)"></div></div>
+              <div style="display:flex;justify-content:space-between;align-items:center"><div style="width:46%;height:5px;border-radius:3px;background:rgba(240,236,227,0.22)"></div><div style="width:34px;height:5px;border-radius:3px;background:rgba(201,161,94,0.75)"></div></div>
+              <div style="display:flex;justify-content:space-between;align-items:center"><div style="width:52%;height:5px;border-radius:3px;background:rgba(240,236,227,0.22)"></div><div style="width:34px;height:5px;border-radius:3px;background:rgba(201,161,94,0.75)"></div></div>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:0.14em;text-transform:uppercase;color:#6F849A">source attribution</div>
+          </div>
+          <div style="display:flex;gap:6px;justify-content:center">
+            <div style="width:16px;height:3px;border-radius:2px;background:#C9A15E"></div>
+            <div style="width:16px;height:3px;border-radius:2px;background:rgba(240,236,227,0.2)"></div>
+            <div style="width:16px;height:3px;border-radius:2px;background:rgba(240,236,227,0.2)"></div>
+          </div>
+          <p style="margin:auto 0 0;font-size:11px;line-height:1.6;color:#8FA3B8">Guest reviews carried in from the public profile, with sub-ratings and attribution kept intact — quoted, never rewritten.</p>
+        </div>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:#C9A15E">Booking, mobile</div>
+        <div style="flex:1;border:1px solid rgba(240,236,227,0.12);border-radius:22px;background:#0E2035;padding:16px 14px;display:flex;flex-direction:column;gap:14px;align-items:center">
+          <div style="display:flex;gap:5px;width:100%">
+            <div style="flex:1;height:3px;border-radius:2px;background:#C9A15E"></div>
+            <div style="flex:1;height:3px;border-radius:2px;background:#C9A15E"></div>
+            <div style="flex:1;height:3px;border-radius:2px;background:rgba(240,236,227,0.18)"></div>
+            <div style="flex:1;height:3px;border-radius:2px;background:rgba(240,236,227,0.18)"></div>
+            <div style="flex:1;height:3px;border-radius:2px;background:rgba(240,236,227,0.18)"></div>
+          </div>
+          <div style="width:38px;height:38px;border-radius:50%;background:#1B3350;margin-top:8px"></div>
+          <div style="font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:19px;color:#F0ECE3">Pick a time</div>
+          <div style="width:70%;height:5px;border-radius:3px;background:rgba(240,236,227,0.16)"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px;width:100%;margin-top:4px">
+            <div style="height:26px;border-radius:6px;border:1px solid rgba(240,236,227,0.2)"></div>
+            <div style="height:26px;border-radius:6px;border:1px solid rgba(240,236,227,0.2)"></div>
+            <div style="height:26px;border-radius:6px;border:1px solid rgba(201,161,94,0.8);background:rgba(201,161,94,0.12)"></div>
+            <div style="height:26px;border-radius:6px;border:1px solid rgba(240,236,227,0.2)"></div>
+            <div style="height:26px;border-radius:6px;border:1px solid rgba(240,236,227,0.2)"></div>
+            <div style="height:26px;border-radius:6px;border:1px solid rgba(240,236,227,0.2)"></div>
+          </div>
+          <div style="width:100%;height:38px;border-radius:19px;background:#C9A15E;margin-top:auto"></div>
+          <p style="margin:0;font-size:10.5px;line-height:1.55;color:#8FA3B8;text-align:center">One decision per screen, thumb-reachable targets, progress always visible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><div class="cs-page"><section class="page" id="p8" data-screen-label="08 Closing" style="background:#0B1A2B;color:#F0ECE3;font-family:Jost,Helvetica,sans-serif">
+  <div style="box-sizing:border-box;height:100%;padding:52px 60px 40px;display:flex;flex-direction:column;gap:26px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:40px;border-bottom:1px solid rgba(240,236,227,0.14);padding-bottom:16px">
+      <h2 style="margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:400;font-size:32px;line-height:1.1">What carries to the next project</h2>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:#8FA3B8">Anonymized extract</div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1.15fr 0.85fr;gap:44px;flex:1">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="display:flex;gap:14px"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#C9A15E;line-height:1.2;min-width:26px">01</div><div><div style="font-size:14.5px;color:#F0ECE3;margin-bottom:4px">A booking flow that fits the venue's real rules</div><p style="margin:0;font-size:12.5px;line-height:1.65;color:#8FA3B8">Cut-off times, advance notice and group handling belong in the flow. Encoding them removes the phone calls that exist only to say no.</p></div></div>
+        <div style="display:flex;gap:14px"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#C9A15E;line-height:1.2;min-width:26px">02</div><div><div style="font-size:14.5px;color:#F0ECE3;margin-bottom:4px">One page per searched intent</div><p style="margin:0;font-size:12.5px;line-height:1.65;color:#8FA3B8">Buffet, takeaway, drinks, catering and venue hire each earn their own URL. It is the cheapest structural decision with a search payoff.</p></div></div>
+        <div style="display:flex;gap:14px"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#C9A15E;line-height:1.2;min-width:26px">03</div><div><div style="font-size:14.5px;color:#F0ECE3;margin-bottom:4px">A dark palette that survives real photography</div><p style="margin:0;font-size:12.5px;line-height:1.65;color:#8FA3B8">Owner-supplied photos vary wildly in exposure. A scrim plus a single warm accent keeps every page legible regardless.</p></div></div>
+        <div style="display:flex;gap:14px"><div style="font-family:'Playfair Display',Georgia,serif;font-size:20px;color:#C9A15E;line-height:1.2;min-width:26px">04</div><div><div style="font-size:14.5px;color:#F0ECE3;margin-bottom:4px">Delivery the client can live with alone</div><p style="margin:0;font-size:12.5px;line-height:1.65;color:#8FA3B8">Email-in-the-inbox beats a dashboard nobody opens. Content as data means a price change is a one-line edit, not a redesign.</p></div></div>
+      </div>
+
+      <div style="border:1px solid rgba(240,236,227,0.12);border-radius:10px;background:#0E2035;padding:22px 24px;display:flex;flex-direction:column;gap:14px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:#C9A15E">Delivered</div>
+        <div style="display:flex;flex-direction:column;gap:11px">
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Visual system: palette, type scale, component set</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Responsive build of every public route</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Multi-step reservation flow with validation</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Enquiry and catering forms routed to the business inbox</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Metadata, structured data, sitemap and robots</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Consent banner and policy page</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Analytics with conversion events</span></div>
+          <div style="display:flex;gap:11px;align-items:baseline"><span style="color:#C9A15E;font-size:11px">✓</span><span style="font-size:12.5px;color:#C4D0DC">Repository, deploy pipeline and handover notes</span></div>
+        </div>
+        <p style="margin:auto 0 0;font-size:11px;line-height:1.6;color:#6F849A;font-style:italic">No performance metrics are quoted in this document; every claim above describes work done, not results measured.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

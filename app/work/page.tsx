@@ -3,12 +3,12 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import WorkGrid, { WorkCard } from "@/components/WorkGrid";
 import { getAllCaseStudies, resolveClientLabel } from "@/lib/caseStudies";
-import { SERVICES } from "@/lib/services";
 
 const TITLE = "Our Work | Genuine Optimum";
 const DESCRIPTION =
-    "Case studies from Genuine Optimum's web development, SEO, custom software, and AI & data systems engagements.";
+    "Website templates and products built by Genuine Optimum: web development, SEO, custom software, and AI & data systems engagements.";
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -24,12 +24,22 @@ export const metadata: Metadata = {
     alternates: { canonical: "/work" },
 };
 
-function serviceLabel(slug: string): string {
-    return SERVICES.find((s) => s.slug === slug)?.shortTitle ?? slug;
+function toCard(study: ReturnType<typeof getAllCaseStudies>[number]): WorkCard {
+    return {
+        slug: study.slug,
+        title: study.title,
+        summary: study.summary,
+        services: study.services,
+        clientLabel: resolveClientLabel(study),
+        standaloneHtml: study.standaloneHtml,
+        coverImage: study.coverImage,
+    };
 }
 
 export default function WorkPage() {
     const studies = getAllCaseStudies();
+    const templates = studies.filter((s) => s.kind === "template").map(toCard);
+    const products = studies.filter((s) => s.kind === "product").map(toCard);
 
     return (
         <div className="relative min-h-screen bg-black text-white font-sans w-full">
@@ -41,8 +51,8 @@ export default function WorkPage() {
 
                     <div className="max-w-3xl mx-auto">
                         <div className="text-center mb-16">
-                            <p className="text-sm uppercase tracking-[0.3em] text-purple-400 font-bold mb-4">Case Studies</p>
-                            <h1 className="text-4xl md:text-5xl font-bold text-white">Our Work</h1>
+                            <p className="text-sm uppercase tracking-[0.3em] text-purple-400 font-bold mb-4">Our Work</p>
+                            <h1 className="text-4xl md:text-5xl font-bold text-white">Templates &amp; Products</h1>
                         </div>
 
                         {studies.length === 0 ? (
@@ -53,29 +63,7 @@ export default function WorkPage() {
                                 </p>
                             </div>
                         ) : (
-                            <div className="space-y-6 mb-10">
-                                {studies.map((study) => {
-                                    const clientLabel = resolveClientLabel(study);
-                                    return (
-                                        <Link
-                                            key={study.slug}
-                                            href={`/work/${study.slug}`}
-                                            className="group block rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 transition-colors duration-300 hover:border-purple-500/40 hover:bg-white/10"
-                                        >
-                                            <h2 className="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">
-                                                {study.title}
-                                            </h2>
-                                            <p className="text-gray-400 text-sm leading-relaxed mb-3">{study.summary}</p>
-                                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-gray-600 text-xs">
-                                                {clientLabel && <span>{clientLabel}</span>}
-                                                {study.services.map((slug) => (
-                                                    <span key={slug} className="text-purple-400/70">{serviceLabel(slug)}</span>
-                                                ))}
-                                            </div>
-                                        </Link>
-                                    );
-                                })}
-                            </div>
+                            <WorkGrid products={products} templates={templates} />
                         )}
 
                         <div className="text-center">

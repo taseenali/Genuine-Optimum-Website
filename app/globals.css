@@ -100,3 +100,50 @@ body {
   font-style: italic;
   margin: 1.5rem 0;
 }
+.blog-article h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+.blog-article hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 2.5rem 0;
+}
+.blog-article strong {
+  color: #fff;
+  font-weight: 600;
+}
+.blog-article table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+.blog-article th {
+  text-align: left;
+  font-weight: 600;
+  color: #fff;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  white-space: nowrap;
+}
+.blog-article td {
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: top;
+}
+.blog-article tr:last-child td {
+  border-bottom: none;
+}
+
+/* Case study modal: scrollable but without a visible scrollbar track */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
