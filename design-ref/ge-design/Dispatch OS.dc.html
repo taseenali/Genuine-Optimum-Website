@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #121311; }
+  a { color: #cddb3c; }
+  a:hover { color: #e2ee6b; }
+  ::selection { background: #cddb3c; color: #121311; }
+</style>
+</helmet>
+
+<div style="background: #121311; color: #f2f3ee; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden;">
+
+  <dc-import name="SiteNav" style="position: sticky; top: 0; z-index: 30; display: block;" hint-size="100%,66px"></dc-import>
+
+  <section data-screen-label="Product hero" style="border-bottom: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 0 40px;">
+      <div style="display: flex; gap: 10px; align-items: center; padding: 18px 0; border-bottom: 1px solid #262924; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">
+        <a href="Home.dc.html" style="color: #6f7469; text-decoration: none;">Home</a>
+        <span>/</span>
+        <span>Products</span>
+        <span>/</span>
+        <span style="color: #f2f3ee;">Dispatch OS</span>
+      </div>
+
+      <div style="padding: 64px 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 56px; align-items: end;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #121311; background: #cddb3c; padding: 4px 8px;">Flagship</span>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6f7469;">Logistics &middot; United States</span>
+          </div>
+          <h1 style="margin: 0; font-size: 72px; line-height: 0.98; letter-spacing: -0.04em; font-weight: 500;">Dispatch OS</h1>
+          <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #f2f3ee; max-width: 520px; text-wrap: pretty;">One board for loads, drivers, and paperwork, with the routine coordination handled by agents instead of phone calls.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #9aa093; max-width: 440px;">Built for small and mid-size US carriers and dispatch offices moving 20 to 500 loads a week. Runs alongside your existing TMS or replaces it.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="#demo" style="background: #cddb3c; color: #121311; font-size: 14.5px; font-weight: 500; padding: 15px 26px; text-decoration: none;" style-hover="background: #e2ee6b; color: #121311;">Try the demo</a>
+            <a href="Contact.dc.html" style="border: 1px solid #3a3d37; color: #f2f3ee; font-size: 14.5px; padding: 15px 26px; text-decoration: none;" style-hover="border-color: #6f7469; color: #f2f3ee;">Request a walkthrough</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" data-screen-label="Demo" style="background: #161815; border-bottom: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 72px 40px;">
+      <div style="display: flex; align-items: end; justify-content: space-between; gap: 32px; padding-bottom: 24px; flex-wrap: wrap;">
+        <h2 style="margin: 0; font-size: 32px; letter-spacing: -0.025em; font-weight: 500;">See it running</h2>
+        <div style="display: flex; gap: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+          <span style="color: #cddb3c; border-bottom: 1px solid #cddb3c; padding-bottom: 4px;">interactive</span>
+          <span style="color: #6f7469;">video &middot; 3:40</span>
+        </div>
+      </div>
+
+      <div style="border: 1px solid #2f332e; background: #1a1c19;">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #262924;">
+          <div style="width: 9px; height: 9px; border-radius: 50%; background: #cddb3c;"></div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">app.dispatchos.io &mdash; sandbox account, no signup</div>
+        </div>
+        <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #1a1c19 0 10px, #202320 10px 20px); display: flex; align-items: center; justify-content: center;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6f7469; text-align: center; line-height: 1.8;">[ clickable prototype embed ]<br>live sandbox of the dispatch board<br>iframe or Figma prototype, 1600&times;900</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; padding-top: 20px;">
+        <div style="border: 1px solid #262924; background: #1d1f1c; display: flex; flex-direction: column;">
+          <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #1a1c19 0 9px, #202320 9px 18px); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6f7469;">[ clip: booking a load ]</span>
+            <span style="position: absolute; bottom: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #cddb3c; border: 1px solid #cddb3c; padding: 3px 7px;">&#9654; 0:48</span>
+          </div>
+          <div style="padding: 18px; font-size: 14.5px; color: #9aa093; line-height: 1.5;">Booking a load and assigning a driver</div>
+        </div>
+        <div style="border: 1px solid #262924; background: #1d1f1c; display: flex; flex-direction: column;">
+          <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #1a1c19 0 9px, #202320 9px 18px); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6f7469;">[ clip: document capture ]</span>
+            <span style="position: absolute; bottom: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #cddb3c; border: 1px solid #cddb3c; padding: 3px 7px;">&#9654; 1:05</span>
+          </div>
+          <div style="padding: 18px; font-size: 14.5px; color: #9aa093; line-height: 1.5;">Rate confirmations and BOLs read automatically</div>
+        </div>
+        <div style="border: 1px solid #262924; background: #1d1f1c; display: flex; flex-direction: column;">
+          <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #1a1c19 0 9px, #202320 9px 18px); display: flex; align-items: center; justify-content: center; position: relative;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6f7469;">[ clip: check calls ]</span>
+            <span style="position: absolute; bottom: 12px; left: 12px; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: #cddb3c; border: 1px solid #cddb3c; padding: 3px 7px;">&#9654; 1:12</span>
+          </div>
+          <div style="padding: 18px; font-size: 14.5px; color: #9aa093; line-height: 1.5;">Agent check calls and status updates</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Features" style="max-width: 1320px; margin: 0 auto; padding: 88px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">What's inside</div>
+        <h2 style="margin: 0; font-size: 38px; line-height: 1.06; letter-spacing: -0.03em; font-weight: 500;">The parts a dispatcher touches</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: #262924; border: 1px solid #262924;">
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Load board</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Every load from tender to invoice in one view, with margin visible per lane.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Driver comms</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">SMS and voice threads attached to the load, not scattered across phones.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Document capture</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Rate cons, BOLs, and PODs read on arrival and filed against the right load.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Agent check calls</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Automated status calls to drivers and shippers, logged as structured updates.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Settlements</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Driver pay, accessorials, and deductions calculated from the load record.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Reporting</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Revenue per truck, deadhead, and on-time percentage, refreshed live.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="How it works" style="border-top: 1px solid #262924; background: #161815;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">Under the hood</div>
+        <h2 style="margin: 0; font-size: 38px; line-height: 1.06; letter-spacing: -0.03em; font-weight: 500;">How it works</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #9aa093;">Nothing about the AI is magic, and none of it acts without a record you can audit.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; border-top: 1px solid #262924;">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #262924;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">01</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">Documents in</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">Email, fax, and photo uploads are parsed into structured load data, with low-confidence fields flagged for a human.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #262924;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">02</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">One record per load</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">Calls, messages, documents, and status changes all attach to the same load, so nothing lives only in someone's inbox.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #262924;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">03</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">Agents handle the routine</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">Check calls, ETA confirmations, and document chasing run automatically. Anything unusual escalates to a dispatcher with the context attached.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">04</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">Integrations</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">ELD, load boards, QuickBooks, and factoring providers connect through the API, so Dispatch OS can sit next to what you already run.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Product CTA" style="border-top: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 96px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: end;">
+      <div style="display: flex; flex-direction: column; gap: 22px;">
+        <h2 style="margin: 0; font-size: 46px; line-height: 1.04; letter-spacing: -0.035em; font-weight: 500; max-width: 620px;">Walk your own loads through it.</h2>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9aa093; max-width: 480px;">Send a week of real paperwork and we'll set up a sandbox with your data before you commit to anything.</p>
+        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+          <a href="Contact.dc.html" style="background: #cddb3c; color: #121311; font-size: 14.5px; font-weight: 500; padding: 15px 26px; text-decoration: none;" style-hover="background: #e2ee6b; color: #121311;">Request a walkthrough</a>
+          <a href="AI Voice Agent.dc.html" style="border: 1px solid #3a3d37; color: #f2f3ee; font-size: 14.5px; padding: 15px 26px; text-decoration: none;" style-hover="border-color: #6f7469; color: #f2f3ee;">Next: AI Voice Agent &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #121311; }
+  a { color: #cddb3c; }
+  a:hover { color: #e2ee6b; }
+  ::selection { background: #cddb3c; color: #121311; }
+  input, textarea, select { font-family: 'Space Grotesk', sans-serif; }
+  input::placeholder, textarea::placeholder { color: #575c54; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: #cddb3c; }
+</style>
+</helmet>
+
+<div style="background: #121311; color: #f2f3ee; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden;">
+
+  <dc-import name="SiteNav" style="position: sticky; top: 0; z-index: 30; display: block;" hint-size="100%,66px"></dc-import>
+
+  <section data-screen-label="Contact hero" style="border-bottom: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 72px 40px 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: end;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">Contact</div>
+        <h1 style="margin: 0; font-size: 66px; line-height: 1.0; letter-spacing: -0.04em; font-weight: 500; text-wrap: balance;">Tell us what you're trying to build</h1>
+      </div>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9aa093; max-width: 460px; text-wrap: pretty;">Everything below the first two fields is optional. The more you fill in, the more specific our first reply can be.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Contact form" style="max-width: 1320px; margin: 0 auto; padding: 64px 40px 96px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: start;">
+
+      <div style="display: flex; flex-direction: column; gap: 40px; max-width: 760px;">
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">01</span>
+            <h2 style="margin: 0; font-size: 20px; font-weight: 500;">Who you are</h2>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7469;">Name *</span>
+              <input type="text" placeholder="Your name" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; padding: 14px 16px;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7469;">Email *</span>
+              <input type="email" placeholder="you@company.com" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; padding: 14px 16px;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7469;">Company</span>
+              <input type="text" placeholder="Optional" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; padding: 14px 16px;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7469;">Country</span>
+              <select value="{{ country }}" onChange="{{ onCountry }}" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; padding: 14px 16px; appearance: none;">
+                <sc-for list="{{ countries }}" as="c" hint-placeholder-count="4">
+                  <option value="{{ c }}">{{ c }}</option>
+                </sc-for>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: baseline; gap: 12px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">02</span>
+            <h2 style="margin: 0; font-size: 20px; font-weight: 500;">Interested in one of our products?</h2>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">optional</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <sc-for list="{{ productChips }}" as="chip" hint-placeholder-count="4">
+              <div onClick="{{ chip.onClick }}" style="cursor: pointer; font-size: 14.5px; padding: 12px 18px; border: 1px solid {{ chip.border }}; background: {{ chip.bg }}; color: {{ chip.fg }};">{{ chip.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">03</span>
+            <h2 style="margin: 0; font-size: 20px; font-weight: 500;">What kind of work do you need?</h2>
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">optional &middot; pick any</span>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <sc-for list="{{ serviceChips }}" as="chip" hint-placeholder-count="8">
+              <div onClick="{{ chip.onClick }}" style="cursor: pointer; font-size: 14.5px; padding: 12px 18px; border: 1px solid {{ chip.border }}; background: {{ chip.bg }}; color: {{ chip.fg }};">{{ chip.label }}</div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 18px;">
+          <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">04</span>
+            <h2 style="margin: 0; font-size: 20px; font-weight: 500;">Tell us about the project</h2>
+          </div>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #6f7469; max-width: 560px;">What the system needs to do, what exists today, where the data lives, and any deadline you're working to. Rough notes are fine.</p>
+          <textarea rows="7" placeholder="We run 40 trucks and everything sits in spreadsheets and WhatsApp&#8230;" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; line-height: 1.6; padding: 16px; resize: vertical;"></textarea>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px;">
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7469;">Timeline</span>
+              <input type="text" placeholder="Optional, e.g. live by January" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; padding: 14px 16px;">
+            </label>
+            <label style="display: flex; flex-direction: column; gap: 8px;">
+              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #6f7469;">Budget range</span>
+              <input type="text" placeholder="Optional" style="background: #1a1c19; border: 1px solid #2f332e; color: #f2f3ee; font-size: 15px; padding: 14px 16px;">
+            </label>
+          </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 4px;">
+          <div onClick="{{ submit }}" style="cursor: pointer; background: #cddb3c; color: #121311; font-size: 15px; font-weight: 500; padding: 16px 30px;" style-hover="background: #e2ee6b;">Send it over</div>
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">Thanks &mdash; we reply within one business day.</span>
+          </sc-if>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px; max-width: 380px;">
+        <div style="border: 1px solid #262924; background: #1d1f1c; padding: 28px; display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7469;">Direct</div>
+          <a href="mailto:hello@genuineoptimum.com" style="font-size: 17px; color: #cddb3c; text-decoration: none;">hello@genuineoptimum.com</a>
+          <div style="font-size: 14.5px; line-height: 1.6; color: #9aa093;">Prefer to skip the form? Email us with the same detail and you'll get the same reply.</div>
+        </div>
+
+        <div style="border: 1px solid #262924; padding: 28px; display: flex; flex-direction: column; gap: 16px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7469;">What happens next</div>
+          <div style="display: grid; grid-template-columns: 28px 1fr; gap: 12px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">01</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #9aa093;">A reply within one business day, from an engineer rather than a sales inbox.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 28px 1fr; gap: 12px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">02</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #9aa093;">A 30-minute call to understand the problem and your current systems.</span>
+          </div>
+          <div style="display: grid; grid-template-columns: 28px 1fr; gap: 12px;">
+            <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #cddb3c;">03</span>
+            <span style="font-size: 14.5px; line-height: 1.6; color: #9aa093;">A written scope with cost and timeline, or an honest no if we're the wrong fit.</span>
+          </div>
+        </div>
+
+        <div style="border: 1px solid #262924; padding: 28px; display: flex; flex-direction: column; gap: 10px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #6f7469;">Availability</div>
+          <div style="font-size: 15px; line-height: 1.6; color: #9aa093;">Taking new projects for Q4. We work across US and EU hours.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const PRODUCTS = ["Dispatch OS", "AI Voice Agent", "Construction Finance Suite", "Not sure yet"];
+const SERVICES = ["AI models & agents", "Data systems", "Web development", "App development", "CMS software", "Dashboards & BI", "Automation & integration", "Cloud & DevOps", "SEO", "Something else"];
+const COUNTRIES = ["Select a country", "United States", "Canada", "United Kingdom", "Ireland", "Germany", "France", "Netherlands", "Belgium", "Spain", "Portugal", "Italy", "Switzerland", "Austria", "Sweden", "Norway", "Denmark", "Finland", "Poland", "Czechia", "Romania", "Greece", "Turkey", "United Arab Emirates", "Saudi Arabia", "Qatar", "Kuwait", "Oman", "Bahrain", "Israel", "Egypt", "Morocco", "Nigeria", "Kenya", "Ghana", "South Africa", "Pakistan", "India", "Bangladesh", "Sri Lanka", "Nepal", "China", "Japan", "South Korea", "Singapore", "Malaysia", "Indonesia", "Thailand", "Vietnam", "Philippines", "Hong Kong SAR", "Taiwan", "Australia", "New Zealand", "Mexico", "Brazil", "Argentina", "Chile", "Colombia", "Peru", "Other"];
+
+class Component extends DCLogic {
+  state = { product: null, services: [], country: "Select a country", sent: false };
+
+  chipStyle(on) {
+    return on
+      ? { bg: "#cddb3c", fg: "#121311", border: "#cddb3c" }
+      : { bg: "#1a1c19", fg: "#f2f3ee", border: "#2f332e" };
+  }
+
+  renderVals() {
+    const productChips = PRODUCTS.map(label => {
+      const s = this.chipStyle(this.state.product === label);
+      return { label, ...s, onClick: () => this.setState(st => ({ product: st.product === label ? null : label })) };
+    });
+
+    const serviceChips = SERVICES.map(label => {
+      const s = this.chipStyle(this.state.services.includes(label));
+      return { label, ...s, onClick: () => this.setState(st => ({
+        services: st.services.includes(label) ? st.services.filter(x => x !== label) : st.services.concat(label)
+      })) };
+    });
+
+    return {
+      productChips,
+      serviceChips,
+      countries: COUNTRIES,
+      country: this.state.country,
+      onCountry: e => this.setState({ country: e.target.value }),
+      sent: this.state.sent,
+      submit: () => this.setState({ sent: true })
+    };
+  }
+}
+</script>
+</body>
+</html>

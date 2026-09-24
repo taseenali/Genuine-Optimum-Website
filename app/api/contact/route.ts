@@ -12,7 +12,17 @@ import { isRateLimited } from '@/lib/rateLimit';
 // "ignore previous instructions and..." aimed at hijacking that
 // downstream model call (indirect prompt injection).
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_LENGTHS = { name: 100, email: 254, phone: 30, message: 5000 };
+const MAX_LENGTHS = {
+  name: 100,
+  email: 254,
+  phone: 30,
+  company: 120,
+  country: 60,
+  product: 80,
+  timeline: 120,
+  budget: 120,
+  message: 5000,
+};
 const RATE_LIMIT = { max: 5, windowMs: 10 * 60 * 1000 }; // 5 submissions per 10 minutes per IP
 
 export async function POST(request: Request) {
@@ -26,7 +36,19 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const { name, email, phone, services, message, website } = body;
+    const {
+      name,
+      email,
+      phone,
+      company,
+      country,
+      product,
+      services,
+      timeline,
+      budget,
+      message,
+      website,
+    } = body;
 
     // Spam Protection: Honeypot check
     // If the hidden 'website' field has any content, silently pretend it succeeded.
@@ -52,12 +74,20 @@ export async function POST(request: Request) {
       );
     }
 
-    if (
+    // Every optional field is length-checked too, so a long paste into
+    // any one of them is rejected rather than landing in the email.
+    const overLength =
       name.length > MAX_LENGTHS.name ||
       email.length > MAX_LENGTHS.email ||
+      message.length > MAX_LENGTHS.message ||
       (phone && phone.length > MAX_LENGTHS.phone) ||
-      message.length > MAX_LENGTHS.message
-    ) {
+      (company && company.length > MAX_LENGTHS.company) ||
+      (country && country.length > MAX_LENGTHS.country) ||
+      (product && product.length > MAX_LENGTHS.product) ||
+      (timeline && timeline.length > MAX_LENGTHS.timeline) ||
+      (budget && budget.length > MAX_LENGTHS.budget);
+
+    if (overLength) {
       return NextResponse.json(
         { error: 'One or more fields exceed the maximum allowed length.' },
         { status: 400 }
@@ -66,10 +96,21 @@ export async function POST(request: Request) {
 
     // Basic sanitization
     const sanitize = (str: string) => str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const optional = (value: unknown) =>
+      typeof value === "string" && value.trim() ? sanitize(value) : "Not provided";
+
     const safeName = sanitize(name);
     const safeEmail = sanitize(email);
-    const safePhone = phone ? sanitize(phone) : "Not provided";
-    const safeServices = services && services.length > 0 ? services.join(", ") : "None";
+    const safePhone = optional(phone);
+    const safeCompany = optional(company);
+    const safeCountry = optional(country);
+    const safeProduct = optional(product);
+    const safeTimeline = optional(timeline);
+    const safeBudget = optional(budget);
+    const safeServices =
+      Array.isArray(services) && services.length > 0
+        ? services.filter((s) => typeof s === "string").map(sanitize).join(", ")
+        : "None";
     const safeMessage = sanitize(message);
 
     // Initialize the Nodemailer Hostinger SMTP Transporter
@@ -98,16 +139,24 @@ export async function POST(request: Request) {
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_USER, // Send to the admin
       replyTo: safeEmail,         // Set reply address to the sender
-      subject: `New Contact Form Submission from ${safeName}`,
+      subject: `New enquiry from ${safeName}${safeProduct !== "Not provided" ? ` — ${safeProduct}` : ""}`,
       text: `
 New Contact Form Submission
 
-Name: ${safeName}
-Email: ${safeEmail}
-Phone: ${safePhone}
-Services: ${safeServices}
+CONTACT
+Name:     ${safeName}
+Email:    ${safeEmail}
+Phone:    ${safePhone}
+Company:  ${safeCompany}
+Country:  ${safeCountry}
 
-Message:
+INTEREST
+Product:  ${safeProduct}
+Services: ${safeServices}
+Timeline: ${safeTimeline}
+Budget:   ${safeBudget}
+
+PROJECT
 ${safeMessage}
       `,
     };

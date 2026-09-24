@@ -1,24 +1,12 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { Black_Ops_One, Quantico } from "next/font/google";
 import Navbar from "../../../components/Navbar";
 import Footer from "../../../components/Footer";
-import ParticlesBackground from "../../../components/ParticlesBackground";
 import MagneticButton from "../../../components/MagneticButton";
 import RelatedServices from "../../../components/RelatedServices";
 import Breadcrumbs from "../../../components/Breadcrumbs";
 import { useRouter } from "next/navigation";
-
-const blackOpsOne = Black_Ops_One({
-    weight: "400",
-    subsets: ["latin"],
-});
-
-const quantico = Quantico({
-    weight: ["400", "700"],
-    subsets: ["latin"],
-});
 
 const solutions = [
     {
@@ -42,7 +30,6 @@ const solutions = [
         description: "Custom AI tools designed to support teams and improve productivity.",
     },
 ];
-
 
 const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -70,27 +57,26 @@ export default function AIDataPage() {
     const router = useRouter();
 
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans selection:bg-purple-500/30 w-full overflow-hidden">
-            <ParticlesBackground particleCount={300} />
+        <div className="relative min-h-screen bg-bg text-white font-sans selection:bg-accent/20 w-full overflow-hidden">
 
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-32 pb-20">
+                <main className="flex-grow pt-16 pb-20">
                     <Breadcrumbs items={[{ label: "Services", href: "/services" }, { label: "AI & Data Systems", href: "/services/ai-data-systems" }]} />
 
                     {/* Hero Section */}
-                    <section className="px-6 mb-24 max-w-7xl mx-auto">
+                    <section className="px-6 mb-24 max-w-[1320px] mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8 }}
                             className="text-center"
                         >
-                            <h1 className={`text-4xl md:text-7xl font-extrabold text-[#a855f7] mb-6 ${blackOpsOne.className}`}>
+                            <h1 className={`text-4xl md:text-7xl font-medium text-accent mb-6`}>
                                 AI & DATA SYSTEMS
                             </h1>
-                            <p className={`text-xl md:text-2xl text-gray-300 font-medium tracking-wide max-w-3xl mx-auto ${quantico.className}`}>
+                            <p className={`text-xl md:text-2xl text-muted font-medium tracking-wide max-w-3xl mx-auto`}>
                                 Smarter decision-making powered by intelligent systems.
                             </p>
                         </motion.div>
@@ -98,14 +84,14 @@ export default function AIDataPage() {
 
                     {/* Intro Section */}
                     <section className="px-6 mb-32 relative">
-                        <div className="absolute inset-0 bg-transparent backdrop-blur-3xl border-y border-white/5 pointer-events-none -z-10"></div>
+                        <div className="absolute inset-0 bg-transparent border-y border-line pointer-events-none -z-10"></div>
                         <div className="max-w-4xl mx-auto py-16 text-center">
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 1 }}
-                                className="text-lg md:text-xl text-gray-400 leading-relaxed"
+                                className="text-lg md:text-xl text-muted leading-relaxed"
                             >
                                 We integrate artificial intelligence and data systems into business operations, giving you automation, real insight, and workflows that actually think.
                             </motion.p>
@@ -113,14 +99,14 @@ export default function AIDataPage() {
                     </section>
 
                     {/* Solutions Section */}
-                    <section className="px-6 mb-32 max-w-7xl mx-auto">
+                    <section className="px-6 mb-32 max-w-[1320px] mx-auto">
                         <div className="mb-16 inline-block">
-                            <h2 className={`text-3xl md:text-4xl font-bold text-white mb-3 ${quantico.className}`}>
+                            <h2 className={`text-3xl md:text-4xl font-bold text-white mb-3`}>
                                 Our Solutions
                             </h2>
-                            <div className="w-full h-1 bg-white/20 relative rounded-full overflow-hidden">
+                            <div className="w-full h-1 bg-panel-hover relative rounded-full overflow-hidden">
                                 <motion.div 
-                                    className="absolute top-0 bottom-0 w-20 bg-purple-600 rounded-full"
+                                    className="absolute top-0 bottom-0 w-20 bg-accent rounded-full"
                                     animate={{ 
                                         left: ["0%", "100%"],
                                         x: ["0%", "-100%"]
@@ -146,12 +132,12 @@ export default function AIDataPage() {
                                 <motion.div
                                     key={index}
                                     variants={itemVariants}
-                                    className="relative rounded-2xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl transition-all duration-300 flex flex-col h-full"
+                                    className="relative border border-line bg-panel p-8 transition-all duration-300 flex flex-col h-full"
                                 >
-                                    <h3 className={`text-xl font-bold text-white mb-4 relative z-10 ${quantico.className}`}>
+                                    <h3 className={`text-xl font-bold text-white mb-4 relative z-10`}>
                                         {solution.title}
                                     </h3>
-                                    <p className="text-gray-400 leading-relaxed relative z-10">
+                                    <p className="text-muted leading-relaxed relative z-10">
                                         {solution.description}
                                     </p>
                                 </motion.div>
@@ -159,31 +145,30 @@ export default function AIDataPage() {
                         </motion.div>
                     </section>
 
-
                     <RelatedServices currentSlug="ai-data-systems" />
 
                     {/* Closing Section */}
                     <section className="px-6 mb-20 max-w-5xl mx-auto text-center relative z-20">
                         {/* Background glow drop */}
-                        <div className="absolute inset-0 bg-purple-600/20 blur-[100px] rounded-full -z-10 pointer-events-none transition-opacity duration-700"></div>
+                        <div className="absolute inset-0 bg-accent/20 hidden rounded-full -z-10 pointer-events-none transition-opacity duration-700"></div>
 
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-                            className="relative group p-[1px] rounded-[2.5rem] overflow-hidden"
+                            className="relative group p-[1px] overflow-hidden"
                         >
                             {/* Animated gradient border */}
-                            <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-purple-500 via-transparent to-blue-600 opacity-40 group-hover:opacity-100 transition-opacity duration-700 rounded-[2.5rem]"></span>
+                            <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-accent via-transparent to-accent opacity-40 group-hover:opacity-100 transition-opacity duration-700"></span>
 
-                            <div className="relative p-8 md:p-12 rounded-[2.5rem] bg-black/90 backdrop-blur-3xl overflow-hidden flex flex-col items-center justify-center border border-white/5">
+                            <div className="relative p-8 md:p-12 bg-bg/90 overflow-hidden flex flex-col items-center justify-center border border-line">
                                 {/* Subtle decorative top/bottom lines */}
-                                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-500/50 to-transparent opacity-50"></div>
-                                <div className="absolute right-0 bottom-0 w-full h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent opacity-50"></div>
+                                <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-50"></div>
+                                <div className="absolute right-0 bottom-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent opacity-50"></div>
 
                                 {/* Inner animated glow */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-full blur-[80px] -z-10 group-hover:from-purple-500/20 group-hover:to-blue-500/20 transition-all duration-700"></div>
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-accent/10 to-accent/10 rounded-full hidden -z-10 group-hover:from-accent/20 group-hover:to-accent/20 transition-all duration-700"></div>
 
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.95 }}
@@ -197,17 +182,17 @@ export default function AIDataPage() {
                                     
                                     <div className="mt-8 flex justify-center">
                                         <MagneticButton
-                                            className="relative overflow-hidden group/btn bg-white text-black px-6 py-2.5 rounded-full font-medium text-sm transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(168,85,247,0.4)]"
+                                            className="relative overflow-hidden group/btn rounded-control bg-accent text-on-accent px-6 py-2.5 font-medium text-sm transition-all duration-300 hover:scale-105"
                                             onClick={() => router.push('/contact?service=ai-data-systems')}
                                         >
                                             <span className="relative z-10 flex items-center justify-center gap-2">
                                                 Start Your AI Journey
-                                                <svg className="w-3.5 h-3.5 group-hover/btn:translate-x-1 group-hover/btn:text-purple-600 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <svg className="w-3.5 h-3.5 group-hover/btn:translate-x-1 group-hover/btn:text-accent transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                                 </svg>
                                             </span>
                                             {/* Button hover effect overlay */}
-                                            <div className="absolute inset-0 bg-gradient-to-r from-purple-100 to-indigo-100 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
+                                            <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-hi opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                                         </MagneticButton>
                                     </div>
                                 </motion.div>

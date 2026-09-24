@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import Reveal from "@/components/Reveal";
 import WorkGrid, { WorkCard } from "@/components/WorkGrid";
+import { Container, CtaBand } from "@/components/ui";
 import { getAllCaseStudies, resolveClientLabel } from "@/lib/caseStudies";
+import { SITE_URL } from "@/lib/seo";
 
-const TITLE = "Our Work | Genuine Optimum";
+const TITLE = "Work | Genuine Optimum";
 const DESCRIPTION =
-    "Website templates and products built by Genuine Optimum: web development, SEO, custom software, and AI & data systems engagements.";
+    "Client projects by Genuine Optimum: a 3D sports kit configurator, marketing sites and storefronts, and internal tools, alongside the AI and data work.";
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -16,13 +18,31 @@ export const metadata: Metadata = {
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
-        url: "https://genuineoptimum.com/work",
+        url: `${SITE_URL}/work`,
         siteName: "Genuine Optimum",
         type: "website",
     },
     twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
     alternates: { canonical: "/work" },
 };
+
+/** Facts shown beside the kit builder write-up. */
+const KIT_BUILDER_META = [
+    { label: "Role", value: "Design & build" },
+    { label: "Stack", value: "Three.js, React" },
+    { label: "Output", value: "Print-ready artwork" },
+];
+
+/**
+ * Slots for past work that has no write-up yet. Filling in `title`
+ * and `description` is all it takes to publish one.
+ */
+const ALSO_SHIPPED = [
+    { number: "01", title: "Project slot", description: "Add a title and two lines." },
+    { number: "02", title: "Project slot", description: "Add a title and two lines." },
+    { number: "03", title: "Project slot", description: "Add a title and two lines." },
+    { number: "04", title: "Project slot", description: "Add a title and two lines." },
+];
 
 function toCard(study: ReturnType<typeof getAllCaseStudies>[number]): WorkCard {
     return {
@@ -37,48 +57,195 @@ function toCard(study: ReturnType<typeof getAllCaseStudies>[number]): WorkCard {
 }
 
 export default function WorkPage() {
-    const studies = getAllCaseStudies();
-    const templates = studies.filter((s) => s.kind === "template").map(toCard);
-    const products = studies.filter((s) => s.kind === "product").map(toCard);
+    // Products have their own pages now, so this page carries only the
+    // client engagements.
+    const templates = getAllCaseStudies()
+        .filter((s) => s.kind === "template")
+        .map(toCard);
 
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans w-full">
-            <div className="relative z-10 flex flex-col min-h-screen">
-                <Navbar />
+        <>
+            <Navbar />
 
-                <main className="flex-grow pt-32 pb-24 px-6">
-                    <Breadcrumbs items={[{ label: "Work", href: "/work" }]} />
-
-                    <div className="max-w-3xl mx-auto">
-                        <div className="text-center mb-16">
-                            <p className="text-sm uppercase tracking-[0.3em] text-purple-400 font-bold mb-4">Our Work</p>
-                            <h1 className="text-4xl md:text-5xl font-bold text-white">Templates &amp; Products</h1>
+            <main>
+                {/* ── Hero ─────────────────────────────────────────── */}
+                <section className="border-b border-line">
+                    <Container>
+                        <div className="border-b border-line py-4">
+                            <Breadcrumbs bare items={[{ label: "Work", href: "/work" }]} />
                         </div>
 
-                        {studies.length === 0 ? (
-                            <div className="text-center py-20 rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl mb-10">
-                                <p className="text-gray-400 text-lg max-w-xl mx-auto">
-                                    We&apos;re putting together detailed write-ups of recent engagements. Check back soon,
-                                    or get in touch and we&apos;ll walk you through relevant examples directly.
+                        <div className="grid grid-cols-1 items-end gap-14 py-16 lg:grid-cols-2">
+                            <Reveal className="flex flex-col gap-5">
+                                <div className="eyebrow">Work</div>
+                                <h1 className="text-[clamp(2.25rem,6vw,4.125rem)] leading-[1] tracking-[-0.04em]">
+                                    Things we built for other people
+                                </h1>
+                            </Reveal>
+                            <Reveal delay={0.08}>
+                                <p className="max-w-[48ch] text-[17px] leading-relaxed text-muted">
+                                    Client projects across configurators, storefronts,
+                                    marketing sites, and internal tools. Each entry says
+                                    what the problem was and what we shipped.
+                                </p>
+                            </Reveal>
+                        </div>
+                    </Container>
+                </section>
+
+                {/* ── Kit builder ──────────────────────────────────── */}
+                <section id="kit-builder" className="scroll-mt-[66px] border-b border-line">
+                    <Container className="py-20">
+                        <div className="grid grid-cols-1 items-start gap-11 lg:grid-cols-2">
+                            <Reveal>
+                                <figure className="m-0 border border-line-2 bg-panel">
+                                    <div className="flex items-center gap-2.5 border-b border-line px-4 py-3">
+                                        <span
+                                            aria-hidden
+                                            className="size-2 shrink-0 rounded-full bg-accent"
+                                        />
+                                        <span className="font-mono text-[11px] text-dim">
+                                            kit configurator — live 3D
+                                        </span>
+                                    </div>
+                                    <div className="slot flex aspect-4/3 items-center justify-center p-6">
+                                        <p className="text-center font-mono text-[12.5px] leading-relaxed text-dim">
+                                            [ product shot or short loop ]
+                                            <br />
+                                            3D jersey with colours applied
+                                        </p>
+                                    </div>
+                                </figure>
+                            </Reveal>
+
+                            <Reveal delay={0.08} className="flex flex-col gap-5">
+                                <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] text-dim">
+                                    <span>Sportswear</span>
+                                    <span aria-hidden>·</span>
+                                    <span>Web app &amp; 3D</span>
+                                </div>
+                                <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] leading-[1.05]">
+                                    3D sports kit builder
+                                </h2>
+                                <p className="max-w-[60ch] text-[16.5px] leading-relaxed text-muted">
+                                    A browser configurator for designing team kits on a
+                                    live 3D model. Customers pick a base pattern, set
+                                    colours per panel, add sponsor placements and player
+                                    names, and rotate the garment to check it before
+                                    ordering.
+                                </p>
+                                <p className="max-w-[60ch] text-[16.5px] leading-relaxed text-muted">
+                                    The output is not just a picture: each configuration
+                                    exports as production-ready artwork with the correct
+                                    panel separations, which removed the back-and-forth
+                                    between the sales team and the print floor.
+                                </p>
+
+                                <div className="mt-1 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-3">
+                                    {KIT_BUILDER_META.map((item) => (
+                                        <div
+                                            key={item.label}
+                                            className="flex flex-col gap-1.5 bg-panel p-5"
+                                        >
+                                            <div className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-dim">
+                                                {item.label}
+                                            </div>
+                                            <div className="text-[14.5px]">{item.value}</div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </Reveal>
+                        </div>
+                    </Container>
+                </section>
+
+                {/* ── Websites & storefronts ───────────────────────── */}
+                <section
+                    id="websites"
+                    className="scroll-mt-[66px] border-b border-line bg-bg-alt"
+                >
+                    <Container className="py-20">
+                        <Reveal>
+                            <div className="flex flex-wrap items-end justify-between gap-10 pb-10">
+                                <div className="flex max-w-[46ch] flex-col gap-4">
+                                    <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] text-dim">
+                                        <span>Web</span>
+                                        <span aria-hidden>·</span>
+                                        <span>Multiple clients</span>
+                                    </div>
+                                    <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] leading-[1.05]">
+                                        Websites &amp; storefronts
+                                    </h2>
+                                    <p className="text-[16.5px] leading-relaxed text-muted">
+                                        Marketing sites and small web apps for service
+                                        businesses and technology companies: fast on
+                                        mobile, and handed over with a CMS the client&apos;s
+                                        own team can run. Technical SEO is part of the
+                                        build rather than a later add-on.
+                                    </p>
+                                </div>
+                                <p className="max-w-[30ch] font-mono text-xs leading-relaxed text-dim">
+                                    Open any card to walk through the full build.
                                 </p>
                             </div>
+                        </Reveal>
+
+                        {templates.length > 0 ? (
+                            <Reveal>
+                                <WorkGrid templates={templates} />
+                            </Reveal>
                         ) : (
-                            <WorkGrid products={products} templates={templates} />
+                            <div className="border border-line bg-panel p-16 text-center">
+                                <p className="mx-auto max-w-[52ch] text-muted">
+                                    We&apos;re putting together detailed write-ups of recent
+                                    engagements. Get in touch and we&apos;ll walk you through
+                                    relevant examples directly.
+                                </p>
+                            </div>
                         )}
+                    </Container>
+                </section>
 
-                        <div className="text-center">
-                            <Link
-                                href="/contact"
-                                className="inline-block bg-white text-black px-8 py-3 rounded-full font-medium transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]"
-                            >
-                                Claim Free Consultation
-                            </Link>
+                {/* ── Also shipped ─────────────────────────────────── */}
+                <section className="border-b border-line">
+                    <Container className="py-20">
+                        <Reveal>
+                            <div className="flex flex-wrap items-end justify-between gap-8 pb-8">
+                                <h2 className="text-[clamp(1.5rem,2.8vw,2.125rem)] tracking-[-0.03em]">
+                                    Also shipped
+                                </h2>
+                                <p className="max-w-[34ch] font-mono text-[11.5px] leading-relaxed text-dim">
+                                    Slots ready for the rest of the back catalogue.
+                                </p>
+                            </div>
+                        </Reveal>
+
+                        <div className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 xl:grid-cols-4">
+                            {ALSO_SHIPPED.map((item, i) => (
+                                <Reveal key={item.number} delay={i * 0.04}>
+                                    <div className="flex h-full min-h-[150px] flex-col gap-2.5 bg-panel p-7">
+                                        <div className="font-mono text-[11px] text-accent">
+                                            {item.number}
+                                        </div>
+                                        <div className="text-lg">{item.title}</div>
+                                        <p className="text-[14.5px] leading-relaxed text-dim">
+                                            {item.description}
+                                        </p>
+                                    </div>
+                                </Reveal>
+                            ))}
                         </div>
-                    </div>
-                </main>
+                    </Container>
+                </section>
 
-                <Footer />
-            </div>
-        </div>
+                <CtaBand
+                    heading="Your project could be the next entry."
+                    body="Tell us what you're trying to build and we'll say plainly whether we're the right people for it."
+                    action="Start a conversation"
+                />
+            </main>
+
+            <Footer />
+        </>
     );
 }

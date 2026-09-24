@@ -11,17 +11,17 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans w-full">
+        <div className="relative min-h-screen bg-bg text-white font-sans w-full">
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-32 pb-24 px-6">
+                <main className="flex-grow pt-16 pb-24 px-6">
                     <Breadcrumbs items={[{ label: "Terms of Service", href: "/terms" }]} />
                     <div className="max-w-3xl mx-auto">
                         <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Terms of Service</h1>
-                        <p className="text-gray-500 text-sm mb-12">Last updated: July 2026</p>
+                        <p className="text-dim text-sm mb-12">Last updated: July 2026</p>
 
-                        <div className="space-y-10 text-gray-300 leading-relaxed">
+                        <div className="space-y-10 text-muted leading-relaxed">
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-3">1. Acceptance of Terms</h2>
                                 <p>
@@ -99,7 +99,7 @@ export default function TermsPage() {
                                 <h2 className="text-xl font-bold text-white mb-3">9. Contact Us</h2>
                                 <p>
                                     Questions about these Terms can be sent through our{" "}
-                                    <a href="/contact" className="text-purple-400 hover:text-purple-300 underline">
+                                    <a href="/contact" className="text-accent hover:text-accent-hi underline">
                                         contact page
                                     </a>.
                                 </p>

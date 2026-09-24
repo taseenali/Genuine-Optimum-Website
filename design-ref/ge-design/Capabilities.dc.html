@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #121311; }
+  a { color: #cddb3c; }
+  a:hover { color: #e2ee6b; }
+  ::selection { background: #cddb3c; color: #121311; }
+</style>
+</helmet>
+
+<div style="background: #121311; color: #f2f3ee; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden;">
+
+  <dc-import name="SiteNav" style="position: sticky; top: 0; z-index: 30; display: block;" hint-size="100%,66px"></dc-import>
+
+  <section data-screen-label="Capabilities hero" style="border-bottom: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 72px 40px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 56px; align-items: end;">
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">Capabilities</div>
+        <h1 style="margin: 0; font-size: 66px; line-height: 1.0; letter-spacing: -0.04em; font-weight: 500; text-wrap: balance;">What we can build for you</h1>
+      </div>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9aa093; max-width: 460px; text-wrap: pretty;">Eight things we do regularly. Most projects combine three or four of them, because a model without a pipeline and an interface is not a system anyone can use.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Capability list" style="max-width: 1320px; margin: 0 auto; padding: 0 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1px; background: #262924; border: 1px solid #262924; margin: 64px 0;">
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">01</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">AI models &amp; agents</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Fine-tuning, retrieval systems, voice and chat agents, and evaluation harnesses that catch regressions before your customers do.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">RAG</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">fine-tuning</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">evals</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">speech</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">02</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">Data systems</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Ingestion, pipelines, warehouses, and the modelling layer on top. Getting operational data into one place, then making it answer questions.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">ETL</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">warehousing</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">streaming</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">03</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">Web development</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Marketing sites and web applications on modern frameworks, handed over with the tooling and documentation to keep changing them.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">SSR</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">technical SEO</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">performance</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">04</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">App development</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Cross-platform mobile apps and desktop tools, including offline-first builds for field and site teams who lose signal.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">iOS / Android</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">offline sync</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">05</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">CMS &amp; internal software</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Content systems, admin panels, and back-office tools shaped around how your team actually works instead of a generic template.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">headless CMS</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">roles &amp; permissions</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">06</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">Dashboards &amp; BI</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Operational dashboards and reporting built on your live data, with the metric definitions agreed once rather than argued about monthly.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">real-time</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">forecasting</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">07</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">Automation &amp; integration</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Connecting the tools you already pay for, and replacing the manual steps between them with workflows that run unattended.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">APIs</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">webhooks</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">queues</span>
+        </div>
+      </div>
+
+      <div style="background: #1d1f1c; padding: 36px; display: flex; flex-direction: column; gap: 14px;" style-hover="background: #22251f;">
+        <div style="display: flex; align-items: baseline; gap: 14px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">08</span>
+          <h2 style="margin: 0; font-size: 24px; font-weight: 500; letter-spacing: -0.02em;">Cloud &amp; DevOps</h2>
+        </div>
+        <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093;">Deployment, monitoring, and cost control. Included in the build rather than quoted as an afterthought.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 7px; padding-top: 4px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">CI/CD</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #9aa093; border: 1px solid #3a3d37; padding: 5px 9px;">observability</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section data-screen-label="Stack" style="border-top: 1px solid #262924; background: #161815;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 88px 40px;">
+      <div style="display: flex; align-items: end; justify-content: space-between; gap: 40px; padding-bottom: 40px; flex-wrap: wrap;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">Stack</div>
+          <h2 style="margin: 0; font-size: 38px; line-height: 1.06; letter-spacing: -0.03em; font-weight: 500;">Tools we work in daily</h2>
+        </div>
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6f7469; max-width: 300px; line-height: 1.6;">Shown as wordmarks. Send me the official logo SVGs and I'll swap them in.</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 34px;">
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4e524b;">Languages</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: #262924; border: 1px solid #262924;">
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Python</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">TypeScript</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Go</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">SQL</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Rust</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Kotlin</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4e524b;">AI &amp; data</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: #262924; border: 1px solid #262924;">
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">PyTorch</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Hugging Face</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">LangChain</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">pgvector</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">dbt</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Airflow</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Kafka</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">DuckDB</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #4e524b;">Product &amp; infrastructure</div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1px; background: #262924; border: 1px solid #262924;">
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">React</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Next.js</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">React Native</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Three.js</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">PostgreSQL</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Redis</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Docker</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Kubernetes</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">AWS</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Vercel</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Supabase</div>
+            <div style="background: #1d1f1c; padding: 22px 20px; font-size: 16px; color: #f2f3ee;">Terraform</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="border-top: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 96px 40px; display: flex; flex-direction: column; gap: 24px; align-items: start;">
+      <h2 style="margin: 0; font-size: 48px; line-height: 1.04; letter-spacing: -0.035em; font-weight: 500; max-width: 760px;">Not sure which of these you need?</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9aa093; max-width: 520px;">Describe the problem and we'll tell you what it actually takes, including when the answer is less than you expected.</p>
+      <a href="Contact.dc.html" style="background: #cddb3c; color: #121311; font-size: 14.5px; font-weight: 500; padding: 15px 26px; text-decoration: none;" style-hover="background: #e2ee6b; color: #121311;">Tell us about it</a>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>

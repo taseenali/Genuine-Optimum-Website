@@ -80,7 +80,7 @@ const faqJsonLd = {
 
 export default function FAQPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans w-full">
+        <div className="relative min-h-screen bg-bg text-white font-sans w-full">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
@@ -88,11 +88,11 @@ export default function FAQPage() {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-32 pb-24 px-6">
+                <main className="flex-grow pt-16 pb-24 px-6">
                     <Breadcrumbs items={[{ label: "FAQ", href: "/faq" }]} />
                     <div className="max-w-3xl mx-auto">
                         <div className="text-center mb-16">
-                            <p className="text-sm uppercase tracking-[0.3em] text-purple-400 font-bold mb-4">Questions</p>
+                            <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold mb-4">Questions</p>
                             <h1 className="text-4xl md:text-5xl font-bold text-white">Frequently Asked Questions</h1>
                         </div>
 
@@ -100,12 +100,12 @@ export default function FAQPage() {
                             {faqs.map((faq) => (
                                 <details
                                     key={faq.question}
-                                    className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 open:bg-white/[0.07]"
+                                    className="group border border-line bg-panel p-6 open:bg-panel"
                                 >
                                     <summary className="cursor-pointer list-none flex items-center justify-between gap-4 text-lg font-semibold text-white">
                                         {faq.question}
                                         <svg
-                                            className="w-5 h-5 flex-shrink-0 text-purple-400 transition-transform duration-300 group-open:rotate-180"
+                                            className="w-5 h-5 flex-shrink-0 text-accent transition-transform duration-300 group-open:rotate-180"
                                             fill="none"
                                             viewBox="0 0 24 24"
                                             stroke="currentColor"
@@ -113,7 +113,7 @@ export default function FAQPage() {
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </summary>
-                                    <p className="mt-4 text-gray-400 leading-relaxed">{faq.answer}</p>
+                                    <p className="mt-4 text-muted leading-relaxed">{faq.answer}</p>
                                 </details>
                             ))}
                         </div>

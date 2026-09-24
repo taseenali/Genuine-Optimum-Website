@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #121311; }
+  a { color: #cddb3c; }
+  a:hover { color: #e2ee6b; }
+  ::selection { background: #cddb3c; color: #121311; }
+</style>
+</helmet>
+
+<div style="background: #121311; color: #f2f3ee; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden;">
+
+  <dc-import name="SiteNav" style="position: sticky; top: 0; z-index: 30; display: block;" hint-size="100%,66px"></dc-import>
+
+  <section data-screen-label="Product hero" style="border-bottom: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 0 40px;">
+      <div style="display: flex; gap: 10px; align-items: center; padding: 18px 0; border-bottom: 1px solid #262924; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">
+        <a href="Home.dc.html" style="color: #6f7469; text-decoration: none;">Home</a>
+        <span>/</span>
+        <span>Products</span>
+        <span>/</span>
+        <span style="color: #f2f3ee;">Construction Finance Suite</span>
+      </div>
+
+      <div style="padding: 64px 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 56px; align-items: end;">
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: #6f7469;">Construction &middot; finance &amp; operations</span>
+          <h1 style="margin: 0; font-size: 66px; line-height: 0.98; letter-spacing: -0.04em; font-weight: 500;">Construction Finance Suite</h1>
+          <p style="margin: 0; font-size: 19px; line-height: 1.5; color: #f2f3ee; max-width: 520px; text-wrap: pretty;">Budgets against actuals, expenses, inventory, and approvals across every project, instead of a spreadsheet per site.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #9aa093; max-width: 440px;">Built for contractors and developers running several builds at once, where cost overruns are found weeks after they happen.</p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="#demo" style="background: #cddb3c; color: #121311; font-size: 14.5px; font-weight: 500; padding: 15px 26px; text-decoration: none;" style-hover="background: #e2ee6b; color: #121311;">Open the demo</a>
+            <a href="Contact.dc.html" style="border: 1px solid #3a3d37; color: #f2f3ee; font-size: 14.5px; padding: 15px 26px; text-decoration: none;" style-hover="border-color: #6f7469; color: #f2f3ee;">Request a walkthrough</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="demo" data-screen-label="Demo" style="background: #161815; border-bottom: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 72px 40px;">
+      <div style="display: flex; align-items: end; justify-content: space-between; gap: 32px; padding-bottom: 24px; flex-wrap: wrap;">
+        <h2 style="margin: 0; font-size: 32px; letter-spacing: -0.025em; font-weight: 500;">See it running</h2>
+        <div style="display: flex; gap: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 12px;">
+          <span style="color: #cddb3c; border-bottom: 1px solid #cddb3c; padding-bottom: 4px;">interactive</span>
+          <span style="color: #6f7469;">video &middot; 4:05</span>
+        </div>
+      </div>
+
+      <div style="border: 1px solid #2f332e; background: #1a1c19;">
+        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid #262924;">
+          <div style="width: 9px; height: 9px; border-radius: 50%; background: #cddb3c;"></div>
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">demo project &mdash; Harbour Point, 42 units</div>
+        </div>
+        <div style="aspect-ratio: 16 / 9; background: repeating-linear-gradient(135deg, #1a1c19 0 10px, #202320 10px 20px); display: flex; align-items: center; justify-content: center;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6f7469; text-align: center; line-height: 1.8;">[ clickable prototype embed ]<br>budget vs actuals dashboard with drill-down<br>1600&times;900</div>
+        </div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding-top: 20px;">
+        <div style="border: 1px solid #262924; background: #1d1f1c; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">Screen 01</div>
+          <div style="font-size: 16px; font-weight: 500;">Project cost overview</div>
+          <div style="font-size: 14px; line-height: 1.55; color: #9aa093;">Committed, spent, and remaining per cost code.</div>
+        </div>
+        <div style="border: 1px solid #262924; background: #1d1f1c; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">Screen 02</div>
+          <div style="font-size: 16px; font-weight: 500;">Expense capture</div>
+          <div style="font-size: 14px; line-height: 1.55; color: #9aa093;">Receipt photographed on site, coded and approved same day.</div>
+        </div>
+        <div style="border: 1px solid #262924; background: #1d1f1c; padding: 24px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6f7469;">Screen 03</div>
+          <div style="font-size: 16px; font-weight: 500;">Inventory &amp; transfers</div>
+          <div style="font-size: 14px; line-height: 1.55; color: #9aa093;">Material stock per site, with movements between them logged.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Modules" style="max-width: 1320px; margin: 0 auto; padding: 88px 40px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">Modules</div>
+        <h2 style="margin: 0; font-size: 38px; line-height: 1.06; letter-spacing: -0.03em; font-weight: 500;">What it covers</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: #262924; border: 1px solid #262924;">
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Budgets</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Cost codes, revisions, and variance against the original estimate.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Expenses</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Receipts, petty cash, and card spend captured on site and coded once.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Purchase approvals</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Requests routed by amount and project, with an audit trail per decision.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Inventory</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Material stock per store and site, with transfers and wastage recorded.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Subcontractors</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Contracts, progress claims, retention, and payment status in one place.</p>
+        </div>
+        <div style="background: #1d1f1c; padding: 30px; display: flex; flex-direction: column; gap: 10px;">
+          <h3 style="margin: 0; font-size: 19px; font-weight: 500;">Reporting</h3>
+          <p style="margin: 0; font-size: 14.5px; line-height: 1.6; color: #9aa093;">Cash flow forecast, cost-to-complete, and per-project profitability.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Why" style="border-top: 1px solid #262924; background: #161815;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 88px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 56px; align-items: start;">
+      <div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px;">
+        <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; letter-spacing: 0.18em; text-transform: uppercase; color: #6f7469;">The problem it solves</div>
+        <h2 style="margin: 0; font-size: 38px; line-height: 1.06; letter-spacing: -0.03em; font-weight: 500;">Overruns found late</h2>
+      </div>
+      <div style="display: flex; flex-direction: column; border-top: 1px solid #262924;">
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #262924;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">01</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">Spend recorded where it happens</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">Site staff photograph a receipt and pick a cost code. No month-end pile of paper to reconcile.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid #262924;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">02</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">One number per project</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">Committed costs, actuals, and forecast in the same view, so the remaining budget is never a guess.</p>
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 56px 1fr; gap: 24px; padding: 24px 0;">
+          <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #cddb3c;">03</div>
+          <div style="display: flex; flex-direction: column; gap: 7px;">
+            <h3 style="margin: 0; font-size: 18px; font-weight: 500;">Works offline</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #9aa093; max-width: 620px;">Site app keeps working without signal and syncs when it returns, because basements have no bars.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Product CTA" style="border-top: 1px solid #262924;">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 96px 40px; display: flex; flex-direction: column; gap: 22px; align-items: start;">
+      <h2 style="margin: 0; font-size: 46px; line-height: 1.04; letter-spacing: -0.035em; font-weight: 500; max-width: 640px;">Load one live project and compare.</h2>
+      <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #9aa093; max-width: 480px;">We'll set up a single build with your cost codes so you can check the numbers against your own spreadsheet.</p>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+        <a href="Contact.dc.html" style="background: #cddb3c; color: #121311; font-size: 14.5px; font-weight: 500; padding: 15px 26px; text-decoration: none;" style-hover="background: #e2ee6b; color: #121311;">Request a walkthrough</a>
+        <a href="Dispatch OS.dc.html" style="border: 1px solid #3a3d37; color: #f2f3ee; font-size: 14.5px; padding: 15px 26px; text-decoration: none;" style-hover="border-color: #6f7469; color: #f2f3ee;">Next: Dispatch OS &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="SiteFooter" hint-size="100%,340px"></dc-import>
+
+</div>
+</x-dc>
+</body>
+</html>

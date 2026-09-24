@@ -14,6 +14,9 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
     // Scratch copy for external design-tool uploads, not part of the deployed app:
     "Claude Design Uploads/**",
+    // Exported Claude Design canvas kept as the visual reference for the
+    // redesign. Reference material, never compiled or served.
+    "design-ref/**",
   ]),
 ]);
 

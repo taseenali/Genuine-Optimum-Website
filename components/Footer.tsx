@@ -1,61 +1,87 @@
 import Link from "next/link";
+import { PRODUCTS } from "@/lib/products";
+
+const COMPANY_LINKS = [
+    { href: "/capabilities", label: "Capabilities" },
+    { href: "/work", label: "Work" },
+    { href: "/industries", label: "Industries" },
+    { href: "/about", label: "About" },
+    { href: "/blog", label: "Blog" },
+    { href: "/faq", label: "FAQ" },
+];
+
+const LEGAL_LINKS = [
+    { href: "/privacy", label: "Privacy" },
+    { href: "/terms", label: "Terms" },
+];
+
+function ColumnHeading({ children }: { children: React.ReactNode }) {
+    return (
+        <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-dim">
+            {children}
+        </div>
+    );
+}
+
+function FooterLink({ href, label }: { href: string; label: string }) {
+    return (
+        <Link
+            href={href}
+            className="text-sm text-muted transition-colors hover:text-text"
+        >
+            {label}
+        </Link>
+    );
+}
 
 export default function Footer() {
     return (
-        <footer className="bg-black border-t border-white/10 text-gray-400 py-12">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        <footer className="border-t border-line bg-bg-alt">
+            <div className="mx-auto grid w-full max-w-[1320px] grid-cols-1 gap-12 px-6 py-14 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
 
-                    {/* Column 1 */}
-                    <div className="flex flex-col space-y-4">
-                        <span className="text-white text-lg font-bold tracking-tighter">GENUINE OPTIMUM</span>
-                        <p className="text-sm leading-relaxed max-w-xs">
-                            Where technology meets real business : results
-                        </p>
-
+                <div className="flex flex-col gap-3">
+                    <div className="text-[16.5px] font-bold tracking-[-0.015em] text-text">
+                        Genuine Optimum
                     </div>
-
-                    {/* Column 2 - Services */}
-                    <div className="flex flex-col space-y-4">
-                        <h3 className="text-white text-sm font-semibold uppercase tracking-wider">Services</h3>
-                        <ul className="space-y-3">
-                            <li><Link href="/services/web-development" className="text-sm hover:text-white transition-colors">Web Development</Link></li>
-                            <li><Link href="/services/seo" className="text-sm hover:text-white transition-colors">SEO</Link></li>
-                            <li><Link href="/services/custom-applications" className="text-sm hover:text-white transition-colors">Custom Applications</Link></li>
-                            <li><Link href="/services/ai-data-systems" className="text-sm hover:text-white transition-colors">AI & Data Systems</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Column 3 - Resources */}
-                    <div className="flex flex-col space-y-4">
-                        <h3 className="text-white text-sm font-semibold uppercase tracking-wider">Resources</h3>
-                        <ul className="space-y-3">
-                            <li><Link href="/work" className="text-sm hover:text-white transition-colors">Our Work</Link></li>
-                            <li><Link href="/industries" className="text-sm hover:text-white transition-colors">Industries</Link></li>
-                            <li><Link href="/faq" className="text-sm hover:text-white transition-colors">FAQ</Link></li>
-                            <li><Link href="/blog" className="text-sm hover:text-white transition-colors">Blog</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Column 3 */}
-                    <div className="flex flex-col space-y-4">
-                        <h3 className="text-white text-sm font-semibold uppercase tracking-wider">Company</h3>
-                        <ul className="space-y-3">
-                            <li><Link href="/about" className="text-sm hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="/terms" className="text-sm hover:text-white transition-colors">Terms of Service</Link></li>
-                        </ul>
-                    </div>
-
+                    <p className="max-w-[30ch] text-sm leading-relaxed text-dim">
+                        Applied AI and data systems, with the software built around them.
+                    </p>
+                    <a
+                        href="mailto:hello@genuineoptimum.com"
+                        className="pt-1 font-mono text-[12.5px] text-accent transition-colors hover:text-accent-hi"
+                    >
+                        hello@genuineoptimum.com
+                    </a>
                 </div>
 
-                <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-xs">
-                    <p>&copy; {new Date().getFullYear()} Genuine Optimum. All rights reserved.</p>
-                    <div className="mt-4 md:mt-0 space-x-4">
-                        <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-                        <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-                    </div>
+                <div className="flex flex-col gap-3">
+                    <ColumnHeading>Products</ColumnHeading>
+                    {PRODUCTS.map((product) => (
+                        <FooterLink
+                            key={product.slug}
+                            href={`/products/${product.slug}`}
+                            label={product.name}
+                        />
+                    ))}
                 </div>
+
+                <div className="flex flex-col gap-3">
+                    <ColumnHeading>Company</ColumnHeading>
+                    {COMPANY_LINKS.map((link) => (
+                        <FooterLink key={link.href} {...link} />
+                    ))}
+                </div>
+
+                <div className="flex flex-col gap-3">
+                    <ColumnHeading>Legal</ColumnHeading>
+                    {LEGAL_LINKS.map((link) => (
+                        <FooterLink key={link.href} {...link} />
+                    ))}
+                </div>
+            </div>
+
+            <div className="mx-auto w-full max-w-[1320px] px-6 pb-10 font-mono text-[11.5px] text-faint md:px-10">
+                &copy; {new Date().getFullYear()} Genuine Optimum
             </div>
         </footer>
     );

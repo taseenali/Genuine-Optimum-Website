@@ -11,17 +11,17 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans w-full">
+        <div className="relative min-h-screen bg-bg text-white font-sans w-full">
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-32 pb-24 px-6">
+                <main className="flex-grow pt-16 pb-24 px-6">
                     <Breadcrumbs items={[{ label: "Privacy Policy", href: "/privacy" }]} />
                     <div className="max-w-3xl mx-auto">
                         <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Privacy Policy</h1>
-                        <p className="text-gray-500 text-sm mb-12">Last updated: July 2026</p>
+                        <p className="text-dim text-sm mb-12">Last updated: July 2026</p>
 
-                        <div className="space-y-10 text-gray-300 leading-relaxed">
+                        <div className="space-y-10 text-muted leading-relaxed">
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-3">1. Introduction</h2>
                                 <p>
@@ -35,14 +35,14 @@ export default function PrivacyPage() {
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-3">2. Information We Collect</h2>
                                 <p className="mb-3">We collect information in the following ways:</p>
-                                <ul className="list-disc list-inside space-y-2 text-gray-400">
+                                <ul className="list-disc list-inside space-y-2 text-muted">
                                     <li>
-                                        <span className="text-gray-300">Information you provide directly:</span> when you
+                                        <span className="text-muted">Information you provide directly:</span> when you
                                         submit our contact form, we collect your name, email address, phone number
                                         (optional), the service(s) you&apos;re interested in, and any message you write.
                                     </li>
                                     <li>
-                                        <span className="text-gray-300">Automatically collected information:</span> like
+                                        <span className="text-muted">Automatically collected information:</span> like
                                         most websites, our hosting and analytics providers may collect standard technical
                                         data such as IP address, browser type, device type, and pages visited, used only
                                         in aggregate to understand site performance.
@@ -53,7 +53,7 @@ export default function PrivacyPage() {
                             <section>
                                 <h2 className="text-xl font-bold text-white mb-3">3. How We Use Information</h2>
                                 <p className="mb-3">We use the information we collect to:</p>
-                                <ul className="list-disc list-inside space-y-2 text-gray-400">
+                                <ul className="list-disc list-inside space-y-2 text-muted">
                                     <li>Respond to your inquiry and follow up about the services you asked about</li>
                                     <li>Operate, maintain, and improve the Site</li>
                                     <li>Understand aggregate traffic and performance trends</li>
@@ -117,7 +117,7 @@ export default function PrivacyPage() {
                                 <p>
                                     If you have questions about this Privacy Policy or how we handle your information,
                                     please reach out through our{" "}
-                                    <a href="/contact" className="text-purple-400 hover:text-purple-300 underline">
+                                    <a href="/contact" className="text-accent hover:text-accent-hi underline">
                                         contact page
                                     </a>.
                                 </p>

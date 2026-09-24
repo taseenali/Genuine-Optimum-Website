@@ -54,7 +54,7 @@ export default async function BlogPostPage({
     );
 
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans w-full">
+        <div className="relative min-h-screen bg-bg text-white font-sans w-full">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -62,7 +62,7 @@ export default async function BlogPostPage({
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-32 pb-24 px-6">
+                <main className="flex-grow pt-16 pb-24 px-6">
                     <Breadcrumbs
                         items={[
                             { label: "Blog", href: "/blog" },
@@ -72,7 +72,7 @@ export default async function BlogPostPage({
 
                     <article className="max-w-3xl mx-auto blog-article">
                         <h1>{post.meta.title}</h1>
-                        <p className="text-gray-500 text-sm">{post.meta.date}</p>
+                        <p className="text-dim text-sm">{post.meta.date}</p>
                         <MDXRemote source={post.content} />
                     </article>
                 </main>

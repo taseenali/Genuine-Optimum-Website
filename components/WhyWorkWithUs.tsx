@@ -1,12 +1,6 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Quantico } from "next/font/google";
-
-const quantico = Quantico({
-    weight: ["400", "700"],
-    subsets: ["latin"],
-});
 
 const reasons = [
     {
@@ -52,14 +46,14 @@ export default function WhyWorkWithUs() {
     const prefersReducedMotion = useReducedMotion();
 
     return (
-        <section className="px-6 py-24 max-w-7xl mx-auto">
+        <section className="px-6 py-24 max-w-[1320px] mx-auto">
             <div className="mb-16 inline-block">
-                <h2 className={`text-3xl md:text-4xl font-bold text-white mb-3 ${quantico.className}`}>
+                <h2 className={`text-3xl md:text-4xl font-bold text-white mb-3`}>
                     Why Work With Us
                 </h2>
-                <div className="w-full h-1 bg-white/20 relative rounded-full overflow-hidden">
+                <div className="w-full h-1 bg-panel-hover relative rounded-full overflow-hidden">
                     <motion.div
-                        className="absolute top-0 bottom-0 w-20 bg-purple-600 rounded-full"
+                        className="absolute top-0 bottom-0 w-20 bg-accent rounded-full"
                         animate={prefersReducedMotion ? { left: "0%", x: "0%" } : {
                             left: ["0%", "100%"],
                             x: ["0%", "-100%"]
@@ -85,13 +79,13 @@ export default function WhyWorkWithUs() {
                     <motion.div 
                         key={index}
                         variants={itemVariants}
-                        className="flex gap-6 items-start relative border-l border-white/10 pl-6"
+                        className="flex gap-6 items-start relative border-l border-line pl-6"
                     >
                         <div className="flex-grow">
-                            <h3 className={`text-lg md:text-xl font-bold text-white mb-1.5 ${quantico.className}`}>
+                            <h3 className={`text-lg md:text-xl font-bold text-white mb-1.5`}>
                                 {reason.title}
                             </h3>
-                            <p className="text-gray-400 leading-relaxed text-sm md:text-base max-w-2xl">
+                            <p className="text-muted leading-relaxed text-sm md:text-base max-w-2xl">
                                 {reason.description}
                             </p>
                         </div>

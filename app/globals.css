@@ -1,75 +1,262 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Genuine Optimum design system
+
+   Structure, typography and layout come from the "Graphite &
+   Signal" canvas direction: flat panels, hairline rules, a
+   1320px measure, and one accent that does all the pointing.
+
+   Every colour resolves through the tokens below, so the whole
+   scheme is one block.
+
+   THREE PALETTES ARE KEPT HERE. The live one is on :root; the
+   others switch on with a data-palette attribute on <html> in
+   app/layout.tsx, so trying one is a one-word change and nothing
+   is thrown away:
+
+     <html lang="en" data-palette="slate">    previous
+     <html lang="en" data-palette="violet">   original
+
+   The hero canvas follows automatically - it samples --accent and
+   --dim at runtime. Open Graph images and the PWA manifest cannot
+   read CSS, so their copies live in lib/palette.ts and switch
+   there.
+   ============================================================ */
+
+/* ── Electric Lime · ACTIVE ───────────────────────────────────
+   #ccff00 on a green-leaning graphite. The ground is tinted
+   toward the accent rather than left neutral, so the lime reads
+   as part of the scheme instead of sitting on top of it. */
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  /* Surfaces, darkest to lightest */
+  --bg: #0e0f0c;
+  --bg-alt: #131410;
+  --panel: #191b15;
+  --panel-hover: #1f2119;
+
+  /* Hairlines. --line is the default rule; the others step up
+     for interactive borders and hover states. */
+  --line: #26291f;
+  --line-2: #31352a;
+  --line-3: #3f4436;
+
+  /* Text, brightest to faintest */
+  --text: #f0f2e8;
+  --muted: #9ba08d;
+  --dim: #787e6b;
+  --faint: #4d5244;
+
+  /* Accent. #ccff00 is near-white in luminance, so dark text on
+     the fill clears AA at about 16:1 - white on it would be
+     unreadable. Same bright-accent/dark-text pattern as before. */
+  --accent: #ccff00;
+  --accent-hi: #ddff4d;
+  --on-accent: #0e0f0c;
+}
+
+/* ── Slate & Signal · previous ────────────────────────────── */
+:root[data-palette="slate"] {
+  --bg: #0d1117;
+  --bg-alt: #12181f;
+  --panel: #161d26;
+  --panel-hover: #1c2531;
+
+  --line: #232c38;
+  --line-2: #2e3a49;
+  --line-3: #3b4a5c;
+
+  --text: #e9edf2;
+  --muted: #94a3b4;
+  --dim: #6b7889;
+  --faint: #4a5461;
+
+  --accent: #4d9af7;
+  --accent-hi: #7db8ff;
+  --on-accent: #05121f;
+}
+
+/* ── Violet · the original site ───────────────────────────── */
+:root[data-palette="violet"] {
+  --bg: #101013;
+  --bg-alt: #16161a;
+  --panel: #1b1b21;
+  --panel-hover: #212129;
+
+  --line: #26262e;
+  --line-2: #2f2f39;
+  --line-3: #3a3a46;
+
+  --text: #f2f2f5;
+  --muted: #9a9aa6;
+  --dim: #6e6e7b;
+  --faint: #4e4e59;
+
+  --accent: #a855f7;
+  --accent-hi: #c084fc;
+  --on-accent: #0b0b0f;
+}
+
+/* Shape, not colour, so it sits outside the palettes. Corner
+   softening on controls only - buttons, inputs, chips and badges.
+   Panels, cards and section edges stay square, which is what
+   keeps the hairline grid reading as a grid. */
+:root {
+  --control-radius: 4px;
+
+  --background: var(--bg);
+  --foreground: var(--text);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-alt: var(--bg-alt);
+  --color-panel: var(--panel);
+  --color-panel-hover: var(--panel-hover);
 
-  /* Brand tokens. #a855f7 (Tailwind purple-500) is the real brand
-     primary, used 15+ times across every page. #6600ff is a one-off
-     shimmer-effect accent (Navbar logo shine only), not a foundation
-     color, kept as a literal prop value rather than a token. */
-  --color-brand-primary: #a855f7;
-  --color-brand-primary-dim: #a855f733;
-  --color-surface: #0a0a0a;
-  --color-surface-raised: rgba(255, 255, 255, 0.05);
-  --color-border-subtle: rgba(255, 255, 255, 0.1);
+  --color-line: var(--line);
+  --color-line-2: var(--line-2);
+  --color-line-3: var(--line-3);
 
-  /* Motion scale, matching durations already used across components */
-  --duration-fast: 0.3s;
-  --duration-base: 0.6s;
-  --duration-slow: 0.8s;
-  --ease-out-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-dim: var(--dim);
+  --color-faint: var(--faint);
 
-  /* Radius scale, matching the 2xl/3xl/full sizes already in use */
-  --radius-card: 1.5rem;
-  --radius-panel: 2rem;
+  --color-accent: var(--accent);
+  --color-accent-hi: var(--accent-hi);
+  --color-on-accent: var(--on-accent);
+
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
+
+  /* Generates the `rounded-control` utility. */
+  --radius-control: var(--control-radius);
+
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Minimal MDX blog-post typography (no @tailwindcss/typography dependency) */
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Headings run tight and slightly negative-tracked at every size;
+   this is most of what separates the new type from the old. */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+/* Keyboard focus has to stay visible against a dark ground, and
+   the accent is the only thing bright enough to read at 2px. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------
+   Utilities used across page sections
+   ------------------------------------------------------------ */
+
+/* The eyebrow label above almost every section heading. */
+.eyebrow {
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+/* Placeholder fill for media that has not been supplied yet:
+   demo videos, screenshots, product shots. Reads clearly as an
+   empty slot rather than as a broken image. */
+.slot {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--panel) 0 10px,
+    #202028 10px 20px
+  );
+}
+
+/* ------------------------------------------------------------
+   MDX blog typography (no @tailwindcss/typography dependency)
+   ------------------------------------------------------------ */
 .blog-article {
-  color: #d1d5db;
+  color: var(--muted);
   line-height: 1.75;
 }
 .blog-article h1 {
   font-size: 2.5rem;
-  font-weight: 800;
-  color: #fff;
+  font-weight: 500;
+  color: var(--text);
   margin-bottom: 0.5rem;
 }
 .blog-article h2 {
   font-size: 1.75rem;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 500;
+  color: var(--text);
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 .blog-article h3 {
   font-size: 1.375rem;
-  font-weight: 700;
-  color: #fff;
+  font-weight: 500;
+  color: var(--text);
   margin-top: 2rem;
   margin-bottom: 0.75rem;
+}
+.blog-article h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
 }
 .blog-article p {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
 .blog-article a {
-  color: var(--color-brand-primary);
+  color: var(--accent);
   text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.blog-article a:hover {
+  color: var(--accent-hi);
 }
 .blog-article ul,
 .blog-article ol {
@@ -80,40 +267,32 @@ body {
   margin: 0.5rem 0;
 }
 .blog-article code {
-  background: rgba(255, 255, 255, 0.08);
+  font-family: var(--font-plex-mono), ui-monospace, monospace;
+  background: var(--panel);
+  border: 1px solid var(--line);
   padding: 0.15rem 0.4rem;
-  border-radius: 0.25rem;
   font-size: 0.9em;
 }
 .blog-article pre {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.75rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
   padding: 1rem;
   overflow-x: auto;
   margin: 1.5rem 0;
 }
 .blog-article blockquote {
-  border-left: 2px solid var(--color-brand-primary);
+  border-left: 2px solid var(--accent);
   padding-left: 1rem;
-  color: #9ca3af;
-  font-style: italic;
+  color: var(--dim);
   margin: 1.5rem 0;
-}
-.blog-article h4 {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #fff;
-  margin-top: 1.75rem;
-  margin-bottom: 0.5rem;
 }
 .blog-article hr {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--line);
   margin: 2.5rem 0;
 }
 .blog-article strong {
-  color: #fff;
+  color: var(--text);
   font-weight: 600;
 }
 .blog-article table {
@@ -125,14 +304,14 @@ body {
 .blog-article th {
   text-align: left;
   font-weight: 600;
-  color: #fff;
+  color: var(--text);
   padding: 0.6rem 0.9rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid var(--line-2);
   white-space: nowrap;
 }
 .blog-article td {
   padding: 0.6rem 0.9rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
 .blog-article tr:last-child td {

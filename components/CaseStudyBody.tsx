@@ -16,20 +16,20 @@ export default function CaseStudyBody({ meta, content }: { meta: CaseStudyMeta; 
             <div className="mb-10">
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm mb-4">
                     {meta.kind === "product" && (
-                        <span className="text-xs uppercase tracking-wider text-purple-300 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1">
+                        <span className="text-xs uppercase tracking-wider text-accent bg-accent/20 border border-line-2 rounded-full px-3 py-1">
                             Our Product
                         </span>
                     )}
-                    {clientLabel && <span className="text-gray-400">{clientLabel}</span>}
-                    {meta.industry && <span className="text-gray-600">· {meta.industry}</span>}
-                    {meta.region && <span className="text-gray-600">· {meta.region}</span>}
+                    {clientLabel && <span className="text-muted">{clientLabel}</span>}
+                    {meta.industry && <span className="text-dim">· {meta.industry}</span>}
+                    {meta.region && <span className="text-dim">· {meta.region}</span>}
                 </div>
                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">{meta.title}</h1>
                 <div className="flex flex-wrap gap-2">
                     {meta.services.map((slug) => (
                         <span
                             key={slug}
-                            className="text-xs uppercase tracking-wider text-purple-300 bg-purple-500/10 border border-purple-500/20 rounded-full px-3 py-1"
+                            className="text-xs uppercase tracking-wider text-accent bg-accent/20 border border-line-2 rounded-full px-3 py-1"
                         >
                             {serviceLabel(slug)}
                         </span>
@@ -40,7 +40,7 @@ export default function CaseStudyBody({ meta, content }: { meta: CaseStudyMeta; 
             {meta.outcomes && meta.outcomes.length > 0 && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
                     {meta.outcomes.map((outcome, i) => (
-                        <div key={i} className="rounded-xl border border-white/10 bg-white/5 p-5">
+                        <div key={i} className="border border-line bg-panel p-5">
                             <p className="text-white text-base leading-snug">{outcome}</p>
                         </div>
                     ))}
@@ -52,10 +52,10 @@ export default function CaseStudyBody({ meta, content }: { meta: CaseStudyMeta; 
             </div>
 
             {meta.testimonial && (
-                <blockquote className="mt-12 border-l-2 border-purple-500 pl-6 py-2">
+                <blockquote className="mt-12 border-l-2 border-accent pl-6 py-2">
                     <p className="text-xl text-gray-200 italic leading-relaxed">&ldquo;{meta.testimonial.quote}&rdquo;</p>
                     {meta.testimonial.author && (
-                        <footer className="mt-3 text-sm text-gray-500">{meta.testimonial.author}</footer>
+                        <footer className="mt-3 text-sm text-dim">{meta.testimonial.author}</footer>
                     )}
                 </blockquote>
             )}

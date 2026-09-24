@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { ACTIVE } from "./palette";
 
 export const OG_SIZE = { width: 1200, height: 630 };
 
@@ -17,9 +18,9 @@ export function buildOgImage(title: string, eyebrow?: string) {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    backgroundColor: "#0a0a0a",
+                    backgroundColor: ACTIVE.bg,
                     backgroundImage:
-                        "radial-gradient(circle at 15% 15%, rgba(168,85,247,0.25), transparent 60%)",
+                        `radial-gradient(circle at 15% 15%, ${ACTIVE.accentWash}, transparent 60%)`,
                     padding: "80px",
                     fontFamily: "sans-serif",
                 }}
@@ -31,7 +32,7 @@ export function buildOgImage(title: string, eyebrow?: string) {
                         gap: "14px",
                         fontSize: 30,
                         fontWeight: 700,
-                        color: "#ffffff",
+                        color: ACTIVE.text,
                         letterSpacing: "-0.01em",
                     }}
                 >
@@ -39,8 +40,8 @@ export function buildOgImage(title: string, eyebrow?: string) {
                         style={{
                             width: 14,
                             height: 14,
-                            borderRadius: 999,
-                            backgroundColor: "#a855f7",
+                            
+                            backgroundColor: ACTIVE.accent,
                         }}
                     />
                     Genuine Optimum
@@ -54,7 +55,7 @@ export function buildOgImage(title: string, eyebrow?: string) {
                                 fontWeight: 700,
                                 textTransform: "uppercase",
                                 letterSpacing: "0.15em",
-                                color: "#a855f7",
+                                color: ACTIVE.accent,
                             }}
                         >
                             {eyebrow}
@@ -63,8 +64,8 @@ export function buildOgImage(title: string, eyebrow?: string) {
                     <div
                         style={{
                             fontSize: 64,
-                            fontWeight: 800,
-                            color: "#ffffff",
+                            fontWeight: 600,
+                            color: ACTIVE.text,
                             lineHeight: 1.1,
                             letterSpacing: "-0.02em",
                             maxWidth: "1000px",

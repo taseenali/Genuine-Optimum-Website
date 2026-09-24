@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { ACTIVE } from "@/lib/palette";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
@@ -7,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
         description: "Digital engineering and growth systems for modern businesses.",
         start_url: "/",
         display: "standalone",
-        background_color: "#0a0a0a",
-        theme_color: "#0a0a0a",
+        background_color: ACTIVE.bg,
+        theme_color: ACTIVE.bg,
         icons: [
             {
                 src: "/icon.png",

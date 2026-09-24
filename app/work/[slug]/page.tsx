@@ -56,7 +56,7 @@ export default async function CaseStudyPage({
     // differently-styled full page underneath it.
     if (meta.standaloneHtml) {
         return (
-            <div className="relative min-h-screen bg-black text-white font-sans w-full">
+            <div className="relative min-h-screen bg-bg text-white font-sans w-full">
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -72,7 +72,7 @@ export default async function CaseStudyPage({
     }
 
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans w-full">
+        <div className="relative min-h-screen bg-bg text-white font-sans w-full">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -80,7 +80,7 @@ export default async function CaseStudyPage({
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-32 pb-24 px-6">
+                <main className="flex-grow pt-16 pb-24 px-6">
                     <Breadcrumbs
                         items={[
                             { label: "Work", href: "/work" },
