@@ -37,7 +37,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 export default function Footer() {
     return (
         <footer className="border-t border-line bg-bg-alt">
-            <div className="mx-auto grid w-full max-w-[1320px] grid-cols-1 gap-12 px-6 py-14 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
+            <div className="mx-auto grid w-full max-w-[var(--page-max)] grid-cols-1 gap-12 px-6 py-14 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
 
                 <div className="flex flex-col gap-3">
                     <div className="text-[16.5px] font-bold tracking-[-0.015em] text-text">
@@ -47,10 +47,10 @@ export default function Footer() {
                         Applied AI and data systems, with the software built around them.
                     </p>
                     <a
-                        href="mailto:hello@genuineoptimum.com"
+                        href="mailto:contact@genuineoptimum.com"
                         className="pt-1 font-mono text-[12.5px] text-accent transition-colors hover:text-accent-hi"
                     >
-                        hello@genuineoptimum.com
+                        contact@genuineoptimum.com
                     </a>
                 </div>
 
@@ -80,7 +80,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="mx-auto w-full max-w-[1320px] px-6 pb-10 font-mono text-[11.5px] text-faint md:px-10">
+            <div className="mx-auto w-full max-w-[var(--page-max)] px-6 pb-10 font-mono text-[11.5px] text-faint md:px-10">
                 &copy; {new Date().getFullYear()} Genuine Optimum
             </div>
         </footer>

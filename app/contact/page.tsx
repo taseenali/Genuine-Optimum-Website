@@ -92,10 +92,10 @@ export default function ContactPage() {
                                     Direct
                                 </div>
                                 <a
-                                    href="mailto:hello@genuineoptimum.com"
+                                    href="mailto:contact@genuineoptimum.com"
                                     className="text-[17px] text-accent transition-colors hover:text-accent-hi"
                                 >
-                                    hello@genuineoptimum.com
+                                    contact@genuineoptimum.com
                                 </a>
                                 <p className="text-[14.5px] leading-relaxed text-muted">
                                     Prefer to skip the form? Email us with the same detail

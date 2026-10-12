@@ -29,6 +29,9 @@ import {
 } from "react-icons/si";
 
 export interface Capability {
+    /** Stable id. Anything that attaches to a capability (the home grid
+     *  glyphs) keys on this, so reordering and renumbering are safe. */
+    slug: string;
     /** Two-digit marker shown in the accent colour. */
     number: string;
     title: string;
@@ -52,6 +55,7 @@ export interface Capability {
  */
 export const CAPABILITIES: Capability[] = [
     {
+        slug: "ai-agents",
         number: "01",
         title: "AI models & agents",
         description:
@@ -62,7 +66,30 @@ export const CAPABILITIES: Capability[] = [
         tags: ["RAG", "fine-tuning", "evals", "speech"],
     },
     {
+        slug: "ai-engineering",
         number: "02",
+        title: "AI engineering",
+        description:
+            "Taking a model from a working notebook to a dependable product: serving, latency and cost budgets, monitoring, and the plumbing that keeps it running after launch.",
+        short:
+            "Taking a model from notebook to dependable product: serving, cost, monitoring.",
+        featured: true,
+        tags: ["model serving", "LLM ops", "monitoring"],
+    },
+    {
+        slug: "harness-engineering",
+        number: "03",
+        title: "Harness engineering",
+        description:
+            "The scaffolding around a model that makes it usable: tool calling, sandboxes, context handling, guardrails, and the test harnesses that show whether it is actually improving.",
+        short:
+            "The tools, guardrails and test scaffolding that make a model dependable.",
+        featured: true,
+        tags: ["tool use", "sandboxes", "guardrails", "eval harnesses"],
+    },
+    {
+        slug: "data-systems",
+        number: "04",
         title: "Data systems",
         description:
             "Ingestion, pipelines, warehouses, and the modelling layer on top. Getting operational data into one place, then making it answer questions.",
@@ -72,7 +99,8 @@ export const CAPABILITIES: Capability[] = [
         tags: ["ETL", "warehousing", "streaming"],
     },
     {
-        number: "03",
+        slug: "web",
+        number: "05",
         title: "Web development",
         description:
             "Marketing sites and web applications on modern frameworks, handed over with the tooling and documentation to keep changing them.",
@@ -82,7 +110,8 @@ export const CAPABILITIES: Capability[] = [
         tags: ["SSR", "technical SEO", "performance"],
     },
     {
-        number: "04",
+        slug: "apps",
+        number: "06",
         title: "App development",
         description:
             "Cross-platform mobile apps and desktop tools, including offline-first builds for field and site teams who lose signal.",
@@ -92,7 +121,8 @@ export const CAPABILITIES: Capability[] = [
         tags: ["iOS / Android", "offline sync"],
     },
     {
-        number: "05",
+        slug: "cms-internal",
+        number: "07",
         title: "CMS & internal software",
         description:
             "Content systems, admin panels, and back-office tools shaped around how your team actually works instead of a generic template.",
@@ -102,7 +132,8 @@ export const CAPABILITIES: Capability[] = [
         tags: ["headless CMS", "roles & permissions"],
     },
     {
-        number: "06",
+        slug: "dashboards",
+        number: "08",
         title: "Dashboards & BI",
         description:
             "Operational dashboards and reporting built on your live data, with the metric definitions agreed once rather than argued about monthly.",
@@ -112,7 +143,8 @@ export const CAPABILITIES: Capability[] = [
         tags: ["real-time", "forecasting"],
     },
     {
-        number: "07",
+        slug: "automation",
+        number: "09",
         title: "Automation & integration",
         description:
             "Connecting the tools you already pay for, and replacing the manual steps between them with workflows that run unattended.",
@@ -122,14 +154,26 @@ export const CAPABILITIES: Capability[] = [
         tags: ["APIs", "webhooks", "queues"],
     },
     {
-        number: "08",
-        title: "Cloud & DevOps",
+        slug: "cloud",
+        number: "10",
+        title: "Cloud engineering",
         description:
-            "Deployment, monitoring, and cost control. Included in the build rather than quoted as an afterthought.",
+            "Designing and running the infrastructure your software sits on: networks, environments, storage and scaling, with cost kept visible from the start.",
         short:
-            "Deployment, monitoring, and cost control, included in the build.",
-        featured: false,
-        tags: ["CI/CD", "observability"],
+            "The infrastructure your software runs on, designed for scale and cost.",
+        featured: true,
+        tags: ["AWS", "infrastructure as code", "cost control"],
+    },
+    {
+        slug: "devops",
+        number: "11",
+        title: "DevOps",
+        description:
+            "The delivery pipeline: automated builds, tests and releases, plus the monitoring that tells you something is wrong before your users do.",
+        short:
+            "Automated builds, tests and releases, with monitoring that warns you first.",
+        featured: true,
+        tags: ["CI/CD", "observability", "release automation"],
     },
 ];
 

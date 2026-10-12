@@ -18,13 +18,16 @@ export default function StackGrid() {
                     <div className="font-mono text-[11px] uppercase tracking-[0.14em] text-faint">
                         {group.label}
                     </div>
-                    <div className="grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
+                    {/* Cell borders rather than a 1px gap over a coloured bed: groups
+                        rarely fill their last row, and with a bed the empty
+                        slots would show up as solid blocks. */}
+                    <div className="grid grid-cols-2 border-l border-t border-line sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
                         {group.items.map((item) => {
                             const Icon = item.icon;
                             return (
                                 <div
                                     key={item.name}
-                                    className="group flex items-center gap-3 bg-panel px-5 py-5 transition-colors hover:bg-panel-hover"
+                                    className="group flex items-center gap-3 border-b border-r border-line bg-panel px-5 py-5 transition-colors hover:bg-panel-hover"
                                 >
                                     {Icon ? (
                                         <Icon

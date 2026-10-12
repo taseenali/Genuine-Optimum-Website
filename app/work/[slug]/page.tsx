@@ -80,7 +80,7 @@ export default async function CaseStudyPage({
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-24 px-6">
+                <main className="flex-grow pb-24">
                     <Breadcrumbs
                         items={[
                             { label: "Work", href: "/work" },
@@ -88,7 +88,7 @@ export default async function CaseStudyPage({
                         ]}
                     />
 
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-3xl mx-auto px-6">
                         <CaseStudyBody meta={meta} content={content} />
                     </div>
                 </main>

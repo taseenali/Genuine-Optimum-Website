@@ -13,7 +13,7 @@ export default function AboutPage() {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-20 relative z-10">
+                <main className="flex-grow pb-20 relative z-10">
                     <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
                     <div className="max-w-4xl mx-auto px-6">
                         <motion.div

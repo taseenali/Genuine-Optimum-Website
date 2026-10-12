@@ -12,14 +12,23 @@ import {
     PrimaryLink,
     SecondaryLink,
 } from "@/components/ui";
-import { PRODUCTS } from "@/lib/products";
 import { CAPABILITIES } from "@/lib/capabilities";
 
-/** The four facts in the bar above the headline. The last one carries the accent. */
-const STATUS_BAR = [
-    "Software house — est. 2023",
-    "AI & data systems · product engineering",
-    "Clients in US, UK & EU",
+/** What the home page says about the products, without naming any of
+ *  them, so the section stays true as the range grows. */
+const PRODUCT_POINTS = [
+    {
+        title: "Built around one industry",
+        body: "Each product starts from a real workflow in a specific trade, not from a generic template with the labels changed.",
+    },
+    {
+        title: "Meet it before you call",
+        body: "Every product has its own page with a short introductory video, so you can get a feel for what it does before you talk to anyone.",
+    },
+    {
+        title: "Close, but not exact?",
+        body: "If a product fits most of what you need, we can adapt it or build the missing part around it.",
+    },
 ];
 
 export default function Home() {
@@ -40,20 +49,6 @@ export default function Home() {
                     <ConstellationField />
 
                     <Container className="relative z-10">
-                        <div className="grid grid-cols-1 border-b border-line sm:grid-cols-2 lg:grid-cols-4">
-                            {STATUS_BAR.map((item) => (
-                                <div
-                                    key={item}
-                                    className="py-4 font-mono text-[11px] uppercase tracking-[0.08em] text-dim"
-                                >
-                                    {item}
-                                </div>
-                            ))}
-                            <div className="py-4 font-mono text-[11px] uppercase tracking-[0.08em] text-accent">
-                                Open for new work
-                            </div>
-                        </div>
-
                         <Reveal>
                             <h1 className="max-w-[16ch] py-14 text-[clamp(2.75rem,8vw,5.75rem)] leading-[0.94] tracking-[-0.045em] md:py-[72px]">
                                 We build the models,{" "}
@@ -68,13 +63,13 @@ export default function Home() {
                                     Genuine Optimum is a software house working on applied
                                     AI and data infrastructure. We take on the whole
                                     system: the model, the data it runs on, and the
-                                    product people use it through. Three of them we built
-                                    for ourselves.
+                                    product people use it through. Some of those products
+                                    we build and run for ourselves.
                                 </p>
                                 <div className="flex flex-wrap gap-3">
                                     <PrimaryLink href="/contact">Start a project</PrimaryLink>
-                                    <SecondaryLink href={`/products/${PRODUCTS[0].slug}`}>
-                                        See a demo
+                                    <SecondaryLink href="/products">
+                                        Explore products
                                     </SecondaryLink>
                                 </div>
                             </Reveal>
@@ -106,57 +101,56 @@ export default function Home() {
 
                     {/* Full-bleed reel cutting across all three products. */}
                     <div className="border-t border-line bg-bg-alt">
+                        {/* 16:9 footage shown whole. The height cap keeps it from
+                            filling a tall monitor; spare width becomes page-coloured
+                            bars rather than cropping the picture. */}
                         <DemoVideo
-                            label="Screen capture across Dispatch OS, AI Voice Agent, and Construction Finance Suite. Expected at /public/videos/reel.mp4"
-                            aspect="24 / 9"
+                            src="/videos/GO_reel_v4.webm"
+                            label="Genuine Optimum product reel"
+                            aspect="16 / 9"
+                            fit="contain"
+                            maxHeight="78vh"
+                            showControl={false}
+                            ambient
+                            bleed
                         />
                     </div>
                 </section>
 
                 {/* ── Products ─────────────────────────────────────── */}
                 <section>
-                    <Container className="py-24 md:py-28">
-                        <Reveal>
-                            <div className="flex flex-wrap items-end justify-between gap-10 pb-10">
-                                <div className="flex flex-col gap-3.5">
-                                    <div className="eyebrow">Our products</div>
-                                    <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.06]">
-                                        Three systems we own and run
-                                    </h2>
-                                </div>
-                                <p className="max-w-[34ch] font-mono text-xs leading-relaxed text-dim">
-                                    Each has its own page with a demo you can watch.
-                                </p>
+                    <Container className="grid grid-cols-1 items-start gap-14 py-24 md:py-28 lg:grid-cols-[minmax(0,460px)_1fr]">
+                        <Reveal className="flex flex-col gap-5">
+                            <div className="eyebrow">Our products</div>
+                            <h2 className="text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.06]">
+                                Software we build for the way different businesses work
+                            </h2>
+                            <p className="max-w-[44ch] text-base leading-relaxed text-muted">
+                                Alongside client projects, we build and run our own
+                                products for specific industries. The range keeps
+                                growing, and every product has its own page with an
+                                introductory video.
+                            </p>
+                            <div className="pt-2">
+                                <PrimaryLink href="/products">Browse our products</PrimaryLink>
                             </div>
                         </Reveal>
 
-                        <div className="flex flex-col border-t border-line">
-                            {PRODUCTS.map((product, i) => (
-                                <Reveal key={product.slug} delay={i * 0.05}>
-                                    <Link
-                                        href={`/products/${product.slug}`}
-                                        className="group grid grid-cols-1 items-center gap-6 border-b border-line px-1 py-8 transition-colors hover:bg-panel lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)_auto] lg:gap-10"
+                        <Reveal delay={0.08}>
+                            <ul className="m-0 flex list-none flex-col border-t border-line p-0">
+                                {PRODUCT_POINTS.map((point) => (
+                                    <li
+                                        key={point.title}
+                                        className="grid grid-cols-1 gap-2 border-b border-line py-7 sm:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] sm:gap-10"
                                     >
-                                        <div className="flex flex-wrap items-baseline gap-3.5">
-                                            <span className="text-[28px] leading-tight tracking-[-0.02em]">
-                                                {product.name}
-                                            </span>
-                                            {product.flagship ? (
-                                                <span className="rounded-control bg-accent px-1.5 py-0.5 font-mono text-[10px] tracking-[0.12em] text-on-accent">
-                                                    FLAGSHIP
-                                                </span>
-                                            ) : null}
-                                        </div>
-                                        <p className="text-[15.5px] leading-relaxed text-muted">
-                                            {product.summary}
+                                        <h3 className="text-[19px]">{point.title}</h3>
+                                        <p className="text-[15px] leading-relaxed text-muted">
+                                            {point.body}
                                         </p>
-                                        <span className="font-mono text-[12.5px] text-accent transition-transform duration-200 lg:justify-self-end lg:group-hover:translate-x-0.5">
-                                            View product &rarr;
-                                        </span>
-                                    </Link>
-                                </Reveal>
-                            ))}
-                        </div>
+                                    </li>
+                                ))}
+                            </ul>
+                        </Reveal>
                     </Container>
                 </section>
 

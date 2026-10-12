@@ -25,7 +25,7 @@ export default function RelatedServices({ currentSlug }: { currentSlug: string }
     const related = SERVICES.filter((service) => service.slug !== currentSlug);
 
     return (
-        <section className="px-6 mb-32 max-w-[1320px] mx-auto">
+        <section className="px-6 mb-32 max-w-[var(--page-max)] mx-auto">
             <div className="mb-12 text-center">
                 <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold mb-4">One Connected System</p>
                 <h2 className={`text-2xl md:text-3xl font-bold text-white`}>

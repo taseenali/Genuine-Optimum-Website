@@ -46,7 +46,7 @@ export default function WhyWorkWithUs() {
     const prefersReducedMotion = useReducedMotion();
 
     return (
-        <section className="px-6 py-24 max-w-[1320px] mx-auto">
+        <section className="px-6 py-24 max-w-[var(--page-max)] mx-auto">
             <div className="mb-16 inline-block">
                 <h2 className={`text-3xl md:text-4xl font-bold text-white mb-3`}>
                     Why Work With Us

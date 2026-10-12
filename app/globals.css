@@ -102,6 +102,12 @@
    Panels, cards and section edges stay square, which is what
    keeps the hairline grid reading as a grid. */
 :root {
+  /* Content width cap for every page, navbar and footer. `none` makes
+     the layout fill the window with the side gutters, so a wide
+     monitor shows the same composition as a laptop instead of a
+     centred column. Set a length (e.g. 1320px) to cap it again. */
+  --page-max: none;
+
   --control-radius: 4px;
 
   --background: var(--bg);

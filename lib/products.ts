@@ -7,6 +7,8 @@
  * file and nothing else.
  */
 
+import type { VideoCover } from "@/components/DemoVideo";
+
 export interface ProductSection {
     /** Mono kicker above the section heading. */
     eyebrow: string;
@@ -27,22 +29,11 @@ export interface ProductStep {
     description: string;
 }
 
-export interface DemoClip {
-    /** Caption under the clip. */
-    label: string;
-    /** File under /public/videos. Absent until the capture exists. */
-    src?: string;
-    /** Poster frame under /public. Absent until the capture exists. */
-    poster?: string;
-}
-
 export interface Product {
     slug: string;
     name: string;
     /** Mono line above the product title: sector and scope. */
     context: string;
-    /** Set on the one product that leads the range. */
-    flagship?: boolean;
     /** One line, used in the nav dropdown and footer. */
     tagline: string;
     /** Two or three lines, used on the home page list. */
@@ -52,15 +43,16 @@ export interface Product {
     /** Who it is for, shown opposite the lead. */
     audience: string;
     primaryCta: string;
-    /** Main demo recording. Absent until the capture exists. */
+    /** Introductory video. These are overview films, not walkthroughs of
+     *  the interface. Absent until the file exists. */
     demo: {
         heading: string;
         /** Chrome label above the video, e.g. a sandbox URL. */
         chrome: string;
         src?: string;
         poster?: string;
-        /** Shorter supporting clips under the main demo. */
-        clips: DemoClip[];
+        /** Hides a label burned into the footage. See VideoCover. */
+        cover?: VideoCover;
     };
     features: { section: ProductSection; items: ProductFeature[] };
     mechanics: { section: ProductSection; steps: ProductStep[] };
@@ -72,101 +64,95 @@ export const PRODUCTS: Product[] = [
         slug: "dispatch-os",
         name: "Dispatch OS",
         context: "Logistics · United States",
-        flagship: true,
-        tagline: "Load, driver, and document board for US truck dispatchers.",
+        tagline: "Ratecon extraction, earnings and invoices for US truck dispatchers.",
         summary:
-            "Loads, drivers, and documents on one board for US truck dispatchers, with routine coordination handled by agents.",
+            "Upload a ratecon and the load, the money and the records fill themselves in. Carrier profiles, earnings and invoices for US truck dispatchers, all in one place.",
         lead:
-            "One board for loads, drivers, and paperwork, with the routine coordination handled by agents instead of phone calls.",
+            "Everything a dispatcher keeps track of, in one place. Upload a ratecon and the load details and earnings fill themselves in.",
         audience:
-            "Built for small and mid-size US carriers and dispatch offices moving 20 to 500 loads a week. Runs alongside your existing TMS or replaces it.",
-        primaryCta: "Watch the demo",
+            "Built for dispatchers in the US who work with trucking companies and drivers, and who today spread the back office across documents, spreadsheets and separate invoicing tools. Finding, calling on and booking loads stay outside it.",
+        primaryCta: "Watch the intro",
         demo: {
-            heading: "See it running",
-            chrome: "app.dispatchos.io — sandbox account, no signup",
-            clips: [
-                { label: "Booking a load and assigning a driver" },
-                { label: "Rate confirmations and BOLs read automatically" },
-                { label: "Agent check calls and status updates" },
-            ],
+            heading: "Introduction",
+            chrome: "Dispatch OS — introduction",
         },
         features: {
             section: {
                 eyebrow: "What's inside",
-                heading: "The parts a dispatcher touches",
+                heading: "One platform for the whole dispatch back office",
             },
             items: [
                 {
-                    title: "Load board",
+                    title: "Ratecon extraction",
                     description:
-                        "Every load from tender to invoice in one view, with margin visible per lane.",
+                        "Upload a ratecon and Dispatch OS reads the load details, the rate and what the driver made straight into the right fields. No retyping, no copying between tools.",
                 },
                 {
-                    title: "Driver comms",
+                    title: "Carrier profiles",
                     description:
-                        "SMS and voice threads attached to the load, not scattered across phones.",
+                        "A complete file for every carrier you dispatch for: company details, documents and full load history, kept together in one profile.",
                 },
                 {
-                    title: "Document capture",
+                    title: "Gross revenue tracking",
                     description:
-                        "Rate cons, BOLs, and PODs read on arrival and filed against the right load.",
+                        "Gross for every truck and carrier by week, month and year, with previous months and years always on hand to compare.",
                 },
                 {
-                    title: "Agent check calls",
+                    title: "Automatic dispatch fees",
                     description:
-                        "Automated status calls to drivers and shippers, logged as structured updates.",
+                        "Set your percentage for each company and the dispatch fee is calculated on every load, so what you earn and what you charge the driver is always worked out.",
                 },
                 {
-                    title: "Settlements",
+                    title: "Broker invoicing",
                     description:
-                        "Driver pay, accessorials, and deductions calculated from the load record.",
+                        "Generate the invoice a driver sends to a broker to get paid for a load, straight from the load record.",
                 },
                 {
-                    title: "Reporting",
+                    title: "Driver invoicing",
                     description:
-                        "Revenue per truck, deadhead, and on-time percentage, refreshed live.",
+                        "Generate your own invoice to the driver for your dispatch fee, from the same load record.",
                 },
             ],
         },
         mechanics: {
             section: {
-                eyebrow: "Under the hood",
-                heading: "How it works",
+                eyebrow: "How it works",
+                heading: "From ratecon to paid invoice",
                 intro:
-                    "Nothing about the AI is magic, and none of it acts without a record you can audit.",
+                    "One upload does most of the work. After that, the numbers and the paperwork follow from it.",
             },
             steps: [
                 {
                     marker: "01",
-                    title: "Documents in",
+                    title: "Upload the ratecon",
                     description:
-                        "Email, fax, and photo uploads are parsed into structured load data, with low-confidence fields flagged for a human.",
+                        "Drop in the rate confirmation the broker sent. That upload is the only data entry.",
                 },
                 {
                     marker: "02",
-                    title: "One record per load",
+                    title: "Data extraction",
                     description:
-                        "Calls, messages, documents, and status changes all attach to the same load, so nothing lives only in someone's inbox.",
+                        "The rate, what the driver made and the rest of the load details are pulled out and filed in the right fields, against the right truck and carrier.",
                 },
                 {
                     marker: "03",
-                    title: "Agents handle the routine",
+                    title: "Gross and fees update automatically",
                     description:
-                        "Check calls, ETA confirmations, and document chasing run automatically. Anything unusual escalates to a dispatcher with the context attached.",
+                        "Each truck's gross, your dispatch fee, and the week, month and year totals update as soon as the load is in.",
                 },
                 {
                     marker: "04",
-                    title: "Integrations",
+                    title: "Invoices generated",
                     description:
-                        "ELD, load boards, QuickBooks, and factoring providers connect through the API, so Dispatch OS can sit next to what you already run.",
+                        "Create the broker invoice for the driver and your own dispatch-fee invoice to the driver from the same load record.",
                 },
             ],
         },
         cta: {
-            heading: "Walk your own loads through it.",
+            heading: "Put the back office in one place.",
             body:
-                "Send a week of real paperwork and we'll set up a sandbox with your data before you commit to anything.",
-            action: "Request a walkthrough",
+                "Tell us how you run your dispatch work today and we'll tell you how Dispatch OS would fit.",
+            action: "Get in touch",
         },
     },
     {
@@ -180,15 +166,11 @@ export const PRODUCTS: Product[] = [
             "Answers the phone in natural speech, qualifies the caller, books the appointment, and hands to a human the moment it should.",
         audience:
             "Deployed for clinics, home services, and dispatch offices where missed calls are lost revenue. Runs on your existing number.",
-        primaryCta: "Hear a call",
+        primaryCta: "Watch the intro",
         demo: {
-            heading: "A real call, start to finish",
-            chrome: "recorded with consent",
-            clips: [
-                { label: "Booking an urgent appointment" },
-                { label: "Handing off to a human mid-call" },
-                { label: "Outbound reminder and confirmation" },
-            ],
+            heading: "Introduction",
+            chrome: "AI Voice Agent — introduction",
+            src: "/videos/ai_voice_agent.webm",
         },
         features: {
             section: { eyebrow: "What it does", heading: "On every call" },
@@ -271,15 +253,16 @@ export const PRODUCTS: Product[] = [
             "Budgets against actuals, expenses, inventory, and approvals across every project, instead of a spreadsheet per site.",
         audience:
             "Built for contractors and developers running several builds at once, where cost overruns are found weeks after they happen.",
-        primaryCta: "Watch the demo",
+        primaryCta: "Watch the intro",
         demo: {
-            heading: "See it running",
-            chrome: "demo project — Harbour Point, 42 units",
-            clips: [
-                { label: "Committed, spent, and remaining per cost code" },
-                { label: "Receipt photographed on site, coded and approved" },
-                { label: "Material stock and transfers between sites" },
-            ],
+            heading: "Introduction",
+            chrome: "Construction Finance Suite — introduction",
+            src: "/videos/construction_app.webm",
+            // The clip has "LEAD_CAPTURE" (top left) and a "DEMO · SELF-BUILT"
+            // tag (top right) burned in at 9-13% down, on every frame. The
+            // background there is a flat rgb(12,12,12), so a matching strip
+            // hides both. Remove this once the video is re-exported without them.
+            cover: { top: 7, height: 10, background: "#0c0c0c" },
         },
         features: {
             section: { eyebrow: "Modules", heading: "What it covers" },

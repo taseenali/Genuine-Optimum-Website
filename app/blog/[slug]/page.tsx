@@ -62,7 +62,7 @@ export default async function BlogPostPage({
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-24 px-6">
+                <main className="flex-grow pb-24">
                     <Breadcrumbs
                         items={[
                             { label: "Blog", href: "/blog" },
@@ -70,7 +70,7 @@ export default async function BlogPostPage({
                         ]}
                     />
 
-                    <article className="max-w-3xl mx-auto blog-article">
+                    <article className="max-w-3xl mx-auto px-6 blog-article">
                         <h1>{post.meta.title}</h1>
                         <p className="text-dim text-sm">{post.meta.date}</p>
                         <MDXRemote source={post.content} />

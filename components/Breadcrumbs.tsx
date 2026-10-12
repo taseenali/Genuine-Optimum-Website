@@ -36,10 +36,13 @@ export default function Breadcrumbs({
     const row = (
         <nav aria-label="Breadcrumb">
             <ol className="flex flex-wrap items-center gap-2.5 font-mono text-[11px] text-dim">
-                {trail.map((item, index) => (
+                {/* Home is left out of the visible trail (the logo already
+                    goes there) but stays in the JSON-LD above, which is
+                    what search engines read. */}
+                {items.map((item, index) => (
                     <li key={item.href} className="flex items-center gap-2.5">
                         {index > 0 && <span aria-hidden>/</span>}
-                        {index === trail.length - 1 ? (
+                        {index === items.length - 1 ? (
                             <span className="text-text" aria-current="page">
                                 {item.label}
                             </span>
@@ -66,8 +69,10 @@ export default function Breadcrumbs({
             {bare ? (
                 row
             ) : (
-                <div className="mx-auto mb-8 w-full max-w-[1320px] px-6 md:px-10">
-                    {row}
+                // Same row as pages that place the trail themselves: inside
+                // the page measure, with a rule underneath.
+                <div className="mx-auto mb-12 w-full max-w-[var(--page-max)] px-6 md:px-10">
+                    <div className="border-b border-line py-4">{row}</div>
                 </div>
             )}
         </>

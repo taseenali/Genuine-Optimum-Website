@@ -35,11 +35,11 @@ export default function ServicesPage() {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-20">
+                <main className="flex-grow pb-20">
                     <Breadcrumbs items={[{ label: "Services", href: "/services" }]} />
 
                     {/* Hero */}
-                    <section className="px-6 mb-24 max-w-[1320px] mx-auto">
+                    <section className="px-6 mb-24 max-w-[var(--page-max)] mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function ServicesPage() {
                     </section>
 
                     {/* Service Cards */}
-                    <section className="px-6 mb-32 max-w-[1320px] mx-auto">
+                    <section className="px-6 mb-32 max-w-[var(--page-max)] mx-auto">
                         <motion.div
                             variants={containerVariants}
                             initial="hidden"

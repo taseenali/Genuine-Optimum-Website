@@ -9,7 +9,6 @@ const NAV_LINKS = [
     { href: "/capabilities", label: "Capabilities" },
     { href: "/work", label: "Work" },
     { href: "/about", label: "About" },
-    { href: "/blog", label: "Blog" },
 ];
 
 export default function Navbar() {
@@ -42,7 +41,7 @@ export default function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 border-b border-line bg-bg/90 backdrop-blur-xl">
-            <div className="mx-auto flex h-[66px] w-full max-w-[1320px] items-center justify-between gap-8 px-6 md:px-10">
+            <div className="mx-auto flex h-[66px] w-full max-w-[var(--page-max)] items-center justify-between gap-8 px-6 md:px-10">
 
                 <Link
                     href="/"
@@ -75,11 +74,12 @@ export default function Navbar() {
                         onMouseEnter={() => setProductsOpen(true)}
                         onMouseLeave={() => setProductsOpen(false)}
                     >
-                        <button
-                            type="button"
+                        <Link
+                            href="/products"
                             aria-expanded={productsOpen}
                             aria-haspopup="true"
-                            onClick={() => setProductsOpen((v) => !v)}
+                            onClick={() => setProductsOpen(false)}
+                            onFocus={() => setProductsOpen(true)}
                             className="flex items-center gap-1.5 py-[22px] text-muted transition-colors hover:text-text"
                         >
                             Products
@@ -97,7 +97,7 @@ export default function Navbar() {
                                     strokeLinejoin="round"
                                 />
                             </svg>
-                        </button>
+                        </Link>
 
                         {productsOpen ? (
                             <div className="absolute left-[-20px] top-full w-[400px] border border-line-2 bg-panel shadow-[0_24px_48px_rgba(0,0,0,0.5)]">
@@ -112,11 +112,6 @@ export default function Navbar() {
                                             <span className="text-[15px] font-medium text-text">
                                                 {product.name}
                                             </span>
-                                            {product.flagship ? (
-                                                <span className="font-mono text-[10px] tracking-[0.12em] text-accent">
-                                                    FLAGSHIP
-                                                </span>
-                                            ) : null}
                                         </span>
                                         <span className="mt-1.5 block text-[13px] leading-relaxed text-muted">
                                             {product.tagline}
@@ -205,6 +200,13 @@ export default function Navbar() {
                             </button>
                             {mobileProductsOpen ? (
                                 <div className="flex flex-col gap-1 pb-4 pl-4">
+                                    <Link
+                                        href="/products"
+                                        onClick={() => setMobileOpen(false)}
+                                        className="py-2.5 text-sm text-text"
+                                    >
+                                        All products
+                                    </Link>
                                     {PRODUCTS.map((product) => (
                                         <Link
                                             key={product.slug}

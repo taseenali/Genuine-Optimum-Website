@@ -31,10 +31,10 @@ export default function BlogIndexPage() {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-24 px-6">
+                <main className="flex-grow pb-24">
                     <Breadcrumbs items={[{ label: "Blog", href: "/blog" }]} />
 
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-3xl mx-auto px-6">
                         <div className="text-center mb-16">
                             <p className="text-sm uppercase tracking-[0.3em] text-accent font-bold mb-4">Insights</p>
                             <h1 className="text-4xl md:text-5xl font-bold text-white">Blog</h1>

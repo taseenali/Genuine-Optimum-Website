@@ -58,11 +58,11 @@ export default function CustomAppsPage() {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-20">
+                <main className="flex-grow pb-20">
                     <Breadcrumbs items={[{ label: "Services", href: "/services" }, { label: "Custom Applications", href: "/services/custom-applications" }]} />
 
                     {/* Hero Section */}
-                    <section className="px-6 mb-24 max-w-[1320px] mx-auto">
+                    <section className="px-6 mb-24 max-w-[var(--page-max)] mx-auto">
                         <motion.div
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function CustomAppsPage() {
                     </section>
 
                     {/* Systems Section */}
-                    <section className="px-6 mb-32 max-w-[1320px] mx-auto">
+                    <section className="px-6 mb-32 max-w-[var(--page-max)] mx-auto">
                         <div className="mb-16 inline-block">
                             <h2 className={`text-3xl md:text-4xl font-bold text-white mb-3`}>
                                 Systems We Build

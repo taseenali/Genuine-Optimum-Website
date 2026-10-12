@@ -90,7 +90,7 @@ export default async function ProductPage({
                             <Breadcrumbs
                                 bare
                                 items={[
-                                    { label: "Products", href: "/#products" },
+                                    { label: "Products", href: "/products" },
                                     {
                                         label: product.name,
                                         href: `/products/${product.slug}`,
@@ -102,11 +102,6 @@ export default async function ProductPage({
                         <div className="grid grid-cols-1 items-end gap-14 py-16 lg:grid-cols-2">
                             <Reveal className="flex flex-col gap-5">
                                 <div className="flex flex-wrap items-center gap-3">
-                                    {product.flagship ? (
-                                        <span className="rounded-control bg-accent px-2 py-1 font-mono text-[10.5px] uppercase tracking-[0.12em] text-on-accent">
-                                            Flagship
-                                        </span>
-                                    ) : null}
                                     <span className="font-mono text-[11.5px] text-dim">
                                         {product.context}
                                     </span>
@@ -124,7 +119,7 @@ export default async function ProductPage({
                                     {product.audience}
                                 </p>
                                 <div className="flex flex-wrap gap-3">
-                                    <PrimaryLink href="#demo">
+                                    <PrimaryLink href="#intro">
                                         {product.primaryCta}
                                     </PrimaryLink>
                                     <SecondaryLink href={`/contact?product=${product.slug}`}>
@@ -136,8 +131,8 @@ export default async function ProductPage({
                     </Container>
                 </section>
 
-                {/* ── Demo ─────────────────────────────────────────── */}
-                <section id="demo" className="border-b border-line bg-bg-alt">
+                {/* ── Introduction ─────────────────────────────────────────── */}
+                <section id="intro" className="border-b border-line bg-bg-alt">
                     <Container className="py-20">
                         <Reveal>
                             <h2 className="pb-6 text-[clamp(1.5rem,2.6vw,2rem)] tracking-[-0.025em]">
@@ -145,31 +140,29 @@ export default async function ProductPage({
                             </h2>
                         </Reveal>
 
+                        {/* The frame hugs the video: its width is the height cap
+                            (78vh) times 16/9, so a 16:9 clip fills it exactly, with
+                            no bars, no crop and no fill. It centres when the page is
+                            wider than that, and uses the full width when narrower. */}
                         <Reveal>
-                            <DemoVideo
-                                src={product.demo.src}
-                                poster={product.demo.poster}
-                                chrome={product.demo.chrome}
-                                label={`${product.name} demo. Expected at /public/videos/${product.slug}.mp4`}
-                            />
+                            <div
+                                className="mx-auto w-full"
+                                style={{ maxWidth: "calc(78vh * 16 / 9)" }}
+                            >
+                                <DemoVideo
+                                    src={product.demo.src}
+                                    poster={product.demo.poster}
+                                    cover={product.demo.cover}
+                                    chrome={product.demo.chrome}
+                                    label={
+                                        product.demo.src
+                                            ? `${product.name} introduction`
+                                            : `${product.name} introduction. Expected in /public/videos, then set demo.src in lib/products.ts`
+                                    }
+                                />
+                            </div>
                         </Reveal>
 
-                        <div className="grid grid-cols-1 gap-5 pt-5 sm:grid-cols-2 lg:grid-cols-3">
-                            {product.demo.clips.map((clip, i) => (
-                                <Reveal key={clip.label} delay={i * 0.05}>
-                                    <div className="flex h-full flex-col border border-line bg-panel">
-                                        <div className="slot flex aspect-video items-center justify-center p-4">
-                                            <span className="text-center font-mono text-[11.5px] text-dim">
-                                                [ clip {String(i + 1).padStart(2, "0")} ]
-                                            </span>
-                                        </div>
-                                        <p className="p-4.5 text-[14.5px] leading-relaxed text-muted">
-                                            {clip.label}
-                                        </p>
-                                    </div>
-                                </Reveal>
-                            ))}
-                        </div>
                     </Container>
                 </section>
 

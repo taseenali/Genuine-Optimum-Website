@@ -15,9 +15,9 @@ export default function TermsPage() {
             <div className="relative z-10 flex flex-col min-h-screen">
                 <Navbar />
 
-                <main className="flex-grow pt-16 pb-24 px-6">
+                <main className="flex-grow pb-24">
                     <Breadcrumbs items={[{ label: "Terms of Service", href: "/terms" }]} />
-                    <div className="max-w-3xl mx-auto">
+                    <div className="max-w-3xl mx-auto px-6">
                         <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">Terms of Service</h1>
                         <p className="text-dim text-sm mb-12">Last updated: July 2026</p>
 

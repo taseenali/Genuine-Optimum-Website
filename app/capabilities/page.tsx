@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -51,7 +52,7 @@ export default function CapabilitiesPage() {
                             </Reveal>
                             <Reveal delay={0.08}>
                                 <p className="max-w-[48ch] text-[17px] leading-relaxed text-muted">
-                                    Eight things we do regularly. Most projects combine
+                                    The things we do regularly. Most projects combine
                                     three or four of them, because a model without a
                                     pipeline and an interface is not a system anyone can
                                     use.
@@ -61,7 +62,7 @@ export default function CapabilitiesPage() {
                     </Container>
                 </section>
 
-                {/* ── The eight ────────────────────────────────────── */}
+                {/* ── The disciplines ────────────────────────────────────── */}
                 <section>
                     <Container className="py-16">
                         <div className="grid grid-cols-1 gap-px border border-line bg-line lg:grid-cols-2">
@@ -87,6 +88,28 @@ export default function CapabilitiesPage() {
                                     </div>
                                 </Reveal>
                             ))}
+
+                            {/* Closing cell. With an odd number of disciplines the
+                                last row of the two-column grid would otherwise
+                                leave a hole showing the divider colour. */}
+                            <Reveal>
+                                <Link
+                                    href="/contact"
+                                    className="group flex h-full min-h-[200px] flex-col justify-between gap-6 bg-bg p-8 transition-colors hover:bg-panel md:p-9"
+                                >
+                                    <span className="font-mono text-[11px] uppercase tracking-[0.14em] text-dim">
+                                        Not on the list?
+                                    </span>
+                                    <span className="flex flex-col gap-3">
+                                        <span className="text-2xl tracking-[-0.02em]">
+                                            Describe the problem instead
+                                        </span>
+                                        <span className="font-mono text-[12.5px] text-accent transition-transform duration-200 group-hover:translate-x-0.5">
+                                            Get in touch &rarr;
+                                        </span>
+                                    </span>
+                                </Link>
+                            </Reveal>
                         </div>
                     </Container>
                 </section>
