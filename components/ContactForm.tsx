@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
 import { PRODUCTS } from "@/lib/products";
 import { CAPABILITIES } from "@/lib/capabilities";
@@ -72,7 +72,9 @@ function Chip({
 export default function ContactForm() {
     const searchParams = useSearchParams();
 
-    const [product, setProduct] = useState<string | null>(null);
+    // The visitor's own choice. `undefined` means they have not touched the
+    // picker, in which case the product named in the URL (if any) applies.
+    const [chosenProduct, setChosenProduct] = useState<string | null | undefined>(undefined);
     const [services, setServices] = useState<string[]>([]);
     const [formData, setFormData] = useState({
         name: "",
@@ -90,12 +92,13 @@ export default function ContactForm() {
     const [errorMessage, setErrorMessage] = useState("");
 
     // A visitor arriving from a product page's CTA lands with that product
-    // already selected, so the referral signal is not lost.
-    useEffect(() => {
-        const slug = searchParams.get("product");
-        const match = PRODUCTS.find((p) => p.slug === slug);
-        if (match) setProduct(match.name);
-    }, [searchParams]);
+    // already selected, so the referral signal is not lost. It is derived from
+    // the URL rather than copied into state, so there is nothing to keep in sync.
+    const urlProduct =
+        PRODUCTS.find((p) => p.slug === searchParams.get("product"))?.name ?? null;
+    const product = chosenProduct === undefined ? urlProduct : chosenProduct;
+    const setProduct = (next: string | null | ((current: string | null) => string | null)) =>
+        setChosenProduct(typeof next === "function" ? next(product) : next);
 
     const handleChange = (
         e: React.ChangeEvent<
@@ -140,7 +143,7 @@ export default function ContactForm() {
                 budget: "",
                 website: "",
             });
-            setProduct(null);
+            setChosenProduct(null);
             setServices([]);
         } catch (error) {
             setStatus("error");

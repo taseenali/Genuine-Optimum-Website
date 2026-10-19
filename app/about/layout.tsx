@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 const TITLE = "About Us | Genuine Optimum";
 const DESCRIPTION =
-    "How Genuine Optimum works: an engineering-first approach that treats web development, SEO, and custom software as one connected system, judged on real business outcomes rather than vanity metrics.";
+    "How Genuine Optimum works: an engineering-first approach that treats web, SEO and custom software as one connected system, judged on real outcomes.";
 
 export const metadata: Metadata = {
     title: TITLE,
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
-        url: "https://genuineoptimum.com/about",
+        url: "https://www.genuineoptimum.com/about",
         siteName: "Genuine Optimum",
         type: "website",
     },

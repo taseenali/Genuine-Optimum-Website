@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
+import Reveal from "@/components/Reveal";
 import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import WhyWorkWithUs from "@/components/WhyWorkWithUs";
@@ -16,12 +16,7 @@ export default function AboutPage() {
                 <main className="flex-grow pb-20 relative z-10">
                     <Breadcrumbs items={[{ label: "About", href: "/about" }]} />
                     <div className="max-w-4xl mx-auto px-6">
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-center mb-16"
-                        >
+                        <div className="text-center mb-16">
                             <h1 className={`text-4xl md:text-6xl font-medium text-accent mb-8 tracking-tight`}>
                                 About Genuine Optimum
                             </h1>
@@ -33,17 +28,11 @@ export default function AboutPage() {
                                     We specialize in web development, SEO, and custom software. Rather than treating these as separate services, we treat them as one connected approach to a business problem. Every project is judged on whether it actually improves performance, simplifies operations, and holds up long-term.
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
 
                         <div className={`mt-32 space-y-32`}>
                             {/* What We Do */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="flex flex-col md:flex-row gap-8 md:gap-16 items-start"
-                            >
+                            <Reveal from="left" className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                                 <div className="md:w-1/3">
                                     <h2 className={`text-4xl md:text-5xl text-accent tracking-tight sticky top-24`}>
                                         What We Do
@@ -60,16 +49,10 @@ export default function AboutPage() {
                                         <p>Custom software that automates and streamlines operations</p>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </Reveal>
 
                             {/* Our Approach */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-start md:text-right"
-                            >
+                            <Reveal from="right" className="flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-start md:text-right">
                                 <div className="md:w-1/3 flex md:justify-end">
                                     <h2 className={`text-4xl md:text-5xl text-accent tracking-tight sticky top-24`}>
                                         Our Approach
@@ -87,16 +70,10 @@ export default function AboutPage() {
                                     </div>
                                     <p className="text-white mt-8 text-2xl">We keep things simple, efficient, and results-driven.</p>
                                 </div>
-                            </motion.div>
+                            </Reveal>
 
                             {/* Why Choose Us */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -40 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="flex flex-col md:flex-row gap-8 md:gap-16 items-start"
-                            >
+                            <Reveal from="left" className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
                                 <div className="md:w-1/3">
                                     <h2 className={`text-4xl md:text-5xl text-accent tracking-tight sticky top-24`}>
                                         Why Choose Us
@@ -122,23 +99,17 @@ export default function AboutPage() {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </Reveal>
 
                             {/* Our Goal */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 40 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true, margin: "-100px" }}
-                                transition={{ duration: 0.8 }}
-                                className="text-center pt-24 pb-16 relative"
-                            >
+                            <Reveal className="text-center pt-24 pb-16 relative">
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
                                 <h2 className={`text-4xl md:text-5xl text-accent mb-12 tracking-tight`}>Our Goal</h2>
                                 <p className="text-2xl md:text-4xl leading-relaxed text-white max-w-4xl mx-auto font-light">
                                     To help businesses move from fragmented tools and slow processes <br className="hidden md:block"/>
                                     to connected systems that <span className="text-accent font-bold">drive real growth</span>.
                                 </p>
-                            </motion.div>
+                            </Reveal>
                         </div>
                     </div>
 

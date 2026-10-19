@@ -11,7 +11,7 @@ import { SITE_URL } from "@/lib/seo";
 
 const TITLE = "Capabilities | Genuine Optimum";
 const DESCRIPTION =
-    "What Genuine Optimum builds: AI models and agents, data systems, web and app development, CMS and internal software, dashboards and BI, automation, and cloud infrastructure.";
+    "What Genuine Optimum builds: AI models and agents, data systems, web and app development, internal software, dashboards, automation, cloud and DevOps.";
 
 export const metadata: Metadata = {
     title: TITLE,

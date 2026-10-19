@@ -7,8 +7,6 @@
  * file and nothing else.
  */
 
-import type { VideoCover } from "@/components/DemoVideo";
-
 export interface ProductSection {
     /** Mono kicker above the section heading. */
     eyebrow: string;
@@ -43,6 +41,8 @@ export interface Product {
     /** Who it is for, shown opposite the lead. */
     audience: string;
     primaryCta: string;
+    /** Slug of this product's case study under /work, when one exists. */
+    caseStudy?: string;
     /** Introductory video. These are overview films, not walkthroughs of
      *  the interface. Absent until the file exists. */
     demo: {
@@ -51,8 +51,6 @@ export interface Product {
         chrome: string;
         src?: string;
         poster?: string;
-        /** Hides a label burned into the footage. See VideoCover. */
-        cover?: VideoCover;
     };
     features: { section: ProductSection; items: ProductFeature[] };
     mechanics: { section: ProductSection; steps: ProductStep[] };
@@ -75,6 +73,8 @@ export const PRODUCTS: Product[] = [
         demo: {
             heading: "Introduction",
             chrome: "Dispatch OS — introduction",
+            src: "/videos/dispatchos-reel.webm",
+            poster: "/videos/posters/dispatch-os.jpg",
         },
         features: {
             section: {
@@ -157,8 +157,9 @@ export const PRODUCTS: Product[] = [
     },
     {
         slug: "ai-voice-agent",
+        caseStudy: "ai-voice-receptionist-platform",
         name: "AI Voice Agent",
-        context: "Voice AI · inbound & outbound",
+        context: "Voice AI · inbound calls",
         tagline: "Answers, qualifies, and books calls in natural speech.",
         summary:
             "Answers the phone, qualifies the caller, books the appointment, and hands off to a human with full context.",
@@ -171,6 +172,7 @@ export const PRODUCTS: Product[] = [
             heading: "Introduction",
             chrome: "AI Voice Agent — introduction",
             src: "/videos/ai_voice_agent.webm",
+            poster: "/videos/posters/ai-voice-agent.jpg",
         },
         features: {
             section: { eyebrow: "What it does", heading: "On every call" },
@@ -196,9 +198,9 @@ export const PRODUCTS: Product[] = [
                         "Transfers with a summary when the caller asks, or when confidence drops.",
                 },
                 {
-                    title: "Outbound follow-up",
+                    title: "Overflow cover",
                     description:
-                        "Reminder, confirmation, and no-show recovery calls on a schedule you set.",
+                        "Answers the calls your team can't get to, on your existing number, so a missed call stops being lost revenue.",
                 },
                 {
                     title: "Logged and reviewable",
@@ -244,6 +246,7 @@ export const PRODUCTS: Product[] = [
     },
     {
         slug: "construction-finance-suite",
+        caseStudy: "construction-expense-finance-system",
         name: "Construction Finance Suite",
         context: "Construction · finance & operations",
         tagline: "Budgets, expenses, and inventory across build projects.",
@@ -257,12 +260,8 @@ export const PRODUCTS: Product[] = [
         demo: {
             heading: "Introduction",
             chrome: "Construction Finance Suite — introduction",
-            src: "/videos/construction_app.webm",
-            // The clip has "LEAD_CAPTURE" (top left) and a "DEMO · SELF-BUILT"
-            // tag (top right) burned in at 9-13% down, on every frame. The
-            // background there is a flat rgb(12,12,12), so a matching strip
-            // hides both. Remove this once the video is re-exported without them.
-            cover: { top: 7, height: 10, background: "#0c0c0c" },
+            src: "/videos/construction-finance-reel.webm",
+            poster: "/videos/posters/construction-finance.jpg",
         },
         features: {
             section: { eyebrow: "Modules", heading: "What it covers" },
@@ -336,10 +335,4 @@ export const PRODUCTS: Product[] = [
 
 export function getProduct(slug: string): Product | undefined {
     return PRODUCTS.find((p) => p.slug === slug);
-}
-
-/** The product after this one, for the "Next:" link at the foot of each product page. */
-export function getNextProduct(slug: string): Product {
-    const i = PRODUCTS.findIndex((p) => p.slug === slug);
-    return PRODUCTS[(i + 1) % PRODUCTS.length];
 }

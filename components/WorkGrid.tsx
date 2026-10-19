@@ -15,6 +15,7 @@ export interface WorkCard {
     clientLabel?: string;
     standaloneHtml?: string;
     coverImage?: string;
+    coverPosition?: string;
 }
 
 function serviceLabel(slug: string): string {
@@ -54,22 +55,26 @@ export default function WorkGrid({ templates }: { templates: WorkCard[] }) {
 
     return (
         <>
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
+            {/* One case study per row, each a wide horizontal card: the
+                preview on the left, the write-up on the right. Stacks to
+                preview-over-text below the lg breakpoint. */}
+            <div className="flex w-full flex-col gap-4 lg:w-[80%]">
                 {templates.map((study) => (
                     <Link
                         key={study.slug}
                         href={`/work/${study.slug}`}
                         onClick={(e) => handleClick(e, study)}
-                        className="group flex flex-col border border-line transition-colors hover:border-line-3"
+                        className="group grid grid-cols-1 border border-line transition-colors hover:border-line-3 lg:h-[200px] lg:grid-cols-[minmax(0,1.35fr)_minmax(0,1fr)]"
                     >
-                        <div className="relative aspect-16/11 overflow-hidden bg-bg">
+                        <div className="relative aspect-21/9 overflow-hidden bg-bg lg:aspect-auto lg:h-full">
                             {study.coverImage ? (
                                 <Image
                                     src={study.coverImage}
                                     alt=""
                                     fill
-                                    sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                                    className="object-cover object-top transition-opacity duration-300 group-hover:opacity-90"
+                                    sizes="(max-width: 1024px) 100vw, 58vw"
+                                    className="object-cover transition-opacity duration-300 group-hover:opacity-90"
+                                    style={{ objectPosition: study.coverPosition ?? "50% 34%" }}
                                 />
                             ) : (
                                 <div className="slot flex size-full items-center justify-center">
@@ -80,14 +85,8 @@ export default function WorkGrid({ templates }: { templates: WorkCard[] }) {
                             )}
                         </div>
 
-                        <div className="flex flex-1 flex-col gap-2 border-t border-line bg-panel p-5">
-                            <h3 className="text-[15.5px] font-medium text-text">
-                                {study.title}
-                            </h3>
-                            <p className="text-[13.5px] leading-relaxed text-dim">
-                                {study.summary}
-                            </p>
-                            <div className="mt-auto flex flex-wrap items-center gap-x-3 gap-y-1 pt-2 font-mono text-[11px] text-faint">
+                        <div className="flex flex-col justify-center gap-2.5 border-t border-line bg-panel p-5 transition-colors group-hover:bg-panel-hover lg:min-h-0 lg:overflow-hidden lg:border-l lg:border-t-0 lg:px-7 lg:py-5">
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-faint">
                                 {study.clientLabel ? (
                                     <span>{study.clientLabel}</span>
                                 ) : null}
@@ -97,6 +96,15 @@ export default function WorkGrid({ templates }: { templates: WorkCard[] }) {
                                     </span>
                                 ))}
                             </div>
+                            <h3 className="text-[19px] leading-[1.2] tracking-[-0.02em] text-text">
+                                {study.title}
+                            </h3>
+                            <p className="line-clamp-2 max-w-[52ch] text-[14px] leading-relaxed text-muted">
+                                {study.summary}
+                            </p>
+                            <span className="font-mono text-[12px] text-accent transition-transform duration-200 group-hover:translate-x-0.5">
+                                Open case study &rarr;
+                            </span>
                         </div>
                     </Link>
                 ))}

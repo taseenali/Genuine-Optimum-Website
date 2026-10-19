@@ -1,6 +1,6 @@
 "use client";
 
-import { STACK } from "@/lib/capabilities";
+import { STACK } from "@/lib/stack";
 
 /**
  * The tools grid on the capabilities page.

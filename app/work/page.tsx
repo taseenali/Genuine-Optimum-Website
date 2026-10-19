@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Reveal from "@/components/Reveal";
 import WorkGrid, { WorkCard } from "@/components/WorkGrid";
+import KitBuilderCard from "@/components/KitBuilderCard";
 import { Container, CtaBand } from "@/components/ui";
 import { getAllCaseStudies, resolveClientLabel } from "@/lib/caseStudies";
 import { SITE_URL } from "@/lib/seo";
@@ -26,23 +27,12 @@ export const metadata: Metadata = {
     alternates: { canonical: "/work" },
 };
 
-/** Facts shown beside the kit builder write-up. */
-const KIT_BUILDER_META = [
-    { label: "Role", value: "Design & build" },
-    { label: "Stack", value: "Three.js, React" },
-    { label: "Output", value: "Print-ready artwork" },
-];
-
-/**
- * Slots for past work that has no write-up yet. Filling in `title`
- * and `description` is all it takes to publish one.
- */
-const ALSO_SHIPPED = [
-    { number: "01", title: "Project slot", description: "Add a title and two lines." },
-    { number: "02", title: "Project slot", description: "Add a title and two lines." },
-    { number: "03", title: "Project slot", description: "Add a title and two lines." },
-    { number: "04", title: "Project slot", description: "Add a title and two lines." },
-];
+/** The kit builder catalogue: the original PDF, and one image per page for the viewer. */
+const KIT_BUILDER_CATALOGUE = "/case-study-html/custom-kit-builder-portfolio-v4.pdf";
+const KIT_BUILDER_PAGES = Array.from(
+    { length: 6 },
+    (_, i) => `/case-study-html/kit-builder-catalogue/page-${i + 1}.jpg`
+);
 
 function toCard(study: ReturnType<typeof getAllCaseStudies>[number]): WorkCard {
     return {
@@ -53,6 +43,7 @@ function toCard(study: ReturnType<typeof getAllCaseStudies>[number]): WorkCard {
         clientLabel: resolveClientLabel(study),
         standaloneHtml: study.standaloneHtml,
         coverImage: study.coverImage,
+        coverPosition: study.coverPosition,
     };
 }
 
@@ -79,14 +70,14 @@ export default function WorkPage() {
                             <Reveal className="flex flex-col gap-5">
                                 <div className="eyebrow">Work</div>
                                 <h1 className="text-[clamp(2.25rem,6vw,4.125rem)] leading-[1] tracking-[-0.04em]">
-                                    Things we built for other people
+                                    Featured Work
                                 </h1>
                             </Reveal>
                             <Reveal delay={0.08}>
                                 <p className="max-w-[48ch] text-[17px] leading-relaxed text-muted">
-                                    Client projects across configurators, storefronts,
-                                    marketing sites, and internal tools. Each entry says
-                                    what the problem was and what we shipped.
+                                    A selection of what we&apos;ve designed and built, from
+                                    a 3D configurator to storefronts and marketing sites.
+                                    Each entry covers the problem and what we shipped.
                                 </p>
                             </Reveal>
                         </div>
@@ -95,67 +86,42 @@ export default function WorkPage() {
 
                 {/* ── Kit builder ──────────────────────────────────── */}
                 <section id="kit-builder" className="scroll-mt-[66px] border-b border-line">
-                    <Container className="py-20">
-                        <div className="grid grid-cols-1 items-start gap-11 lg:grid-cols-2">
-                            <Reveal>
-                                <figure className="m-0 border border-line-2 bg-panel">
-                                    <div className="flex items-center gap-2.5 border-b border-line px-4 py-3">
-                                        <span
-                                            aria-hidden
-                                            className="size-2 shrink-0 rounded-full bg-accent"
-                                        />
-                                        <span className="font-mono text-[11px] text-dim">
-                                            kit configurator — live 3D
-                                        </span>
-                                    </div>
-                                    <div className="slot flex aspect-4/3 items-center justify-center p-6">
-                                        <p className="text-center font-mono text-[12.5px] leading-relaxed text-dim">
-                                            [ product shot or short loop ]
-                                            <br />
-                                            3D jersey with colours applied
-                                        </p>
-                                    </div>
-                                </figure>
-                            </Reveal>
-
-                            <Reveal delay={0.08} className="flex flex-col gap-5">
-                                <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] text-dim">
+                    <Container className="py-16">
+                        {/* The same horizontal card as the storefront entries below:
+                            preview on the left, write-up on the right, 80% wide and
+                            left-aligned. Height follows the copy here, since this one
+                            has two paragraphs. */}
+                        <Reveal>
+                            <KitBuilderCard
+                                pdfHref={KIT_BUILDER_CATALOGUE}
+                                thumbnail="/case-study-html/thumbnails/custom-kit-builder-portfolio.jpg"
+                                pages={KIT_BUILDER_PAGES}
+                            >
+                                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] text-dim">
                                     <span>Sportswear</span>
                                     <span aria-hidden>·</span>
                                     <span>Web app &amp; 3D</span>
+                                    <span aria-hidden>·</span>
+                                    <span>Design &amp; build</span>
                                 </div>
-                                <h2 className="text-[clamp(1.75rem,3.4vw,2.5rem)] leading-[1.05]">
+                                <h2 className="text-[19px] leading-[1.2] tracking-[-0.02em]">
                                     3D sports kit builder
                                 </h2>
-                                <p className="max-w-[60ch] text-[16.5px] leading-relaxed text-muted">
+                                <p className="max-w-[56ch] text-[14px] leading-relaxed text-muted">
                                     A browser configurator for designing team kits on a
                                     live 3D model. Customers pick a base pattern, set
                                     colours per panel, add sponsor placements and player
                                     names, and rotate the garment to check it before
                                     ordering.
                                 </p>
-                                <p className="max-w-[60ch] text-[16.5px] leading-relaxed text-muted">
+                                <p className="max-w-[56ch] text-[14px] leading-relaxed text-muted">
                                     The output is not just a picture: each configuration
                                     exports as production-ready artwork with the correct
                                     panel separations, which removed the back-and-forth
                                     between the sales team and the print floor.
                                 </p>
-
-                                <div className="mt-1 grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-3">
-                                    {KIT_BUILDER_META.map((item) => (
-                                        <div
-                                            key={item.label}
-                                            className="flex flex-col gap-1.5 bg-panel p-5"
-                                        >
-                                            <div className="font-mono text-[10.5px] uppercase tracking-[0.12em] text-dim">
-                                                {item.label}
-                                            </div>
-                                            <div className="text-[14.5px]">{item.value}</div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </Reveal>
-                        </div>
+                            </KitBuilderCard>
+                        </Reveal>
                     </Container>
                 </section>
 
@@ -203,38 +169,6 @@ export default function WorkPage() {
                                 </p>
                             </div>
                         )}
-                    </Container>
-                </section>
-
-                {/* ── Also shipped ─────────────────────────────────── */}
-                <section className="border-b border-line">
-                    <Container className="py-20">
-                        <Reveal>
-                            <div className="flex flex-wrap items-end justify-between gap-8 pb-8">
-                                <h2 className="text-[clamp(1.5rem,2.8vw,2.125rem)] tracking-[-0.03em]">
-                                    Also shipped
-                                </h2>
-                                <p className="max-w-[34ch] font-mono text-[11.5px] leading-relaxed text-dim">
-                                    Slots ready for the rest of the back catalogue.
-                                </p>
-                            </div>
-                        </Reveal>
-
-                        <div className="grid grid-cols-1 gap-px border border-line bg-line sm:grid-cols-2 xl:grid-cols-4">
-                            {ALSO_SHIPPED.map((item, i) => (
-                                <Reveal key={item.number} delay={i * 0.04}>
-                                    <div className="flex h-full min-h-[150px] flex-col gap-2.5 bg-panel p-7">
-                                        <div className="font-mono text-[11px] text-accent">
-                                            {item.number}
-                                        </div>
-                                        <div className="text-lg">{item.title}</div>
-                                        <p className="text-[14.5px] leading-relaxed text-dim">
-                                            {item.description}
-                                        </p>
-                                    </div>
-                                </Reveal>
-                            ))}
-                        </div>
                     </Container>
                 </section>
 

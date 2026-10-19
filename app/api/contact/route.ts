@@ -11,6 +11,12 @@ import { isRateLimited } from '@/lib/rateLimit';
 // system/instruction prompt, since a submitter can embed text like
 // "ignore previous instructions and..." aimed at hijacking that
 // downstream model call (indirect prompt injection).
+// Where enquiries are delivered. This is the public contact address shown on
+// the site, and it is independent of which mailbox the server logs in to: the
+// login (EMAIL_USER) only has to be a mailbox that can send. Override with
+// CONTACT_TO_EMAIL to route enquiries elsewhere without touching code.
+const DEFAULT_CONTACT_TO = "contact@genuineoptimum.com";
+
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MAX_LENGTHS = {
   name: 100,
@@ -113,14 +119,28 @@ export async function POST(request: Request) {
         : "None";
     const safeMessage = sanitize(message);
 
-    // Initialize the Nodemailer Hostinger SMTP Transporter
+    const smtpUser = process.env.EMAIL_USER;
+    const smtpPass = process.env.EMAIL_PASS;
+    if (!smtpUser || !smtpPass) {
+      // Fail loudly rather than let nodemailer fail obscurely: a form that
+      // accepts messages it cannot deliver loses real enquiries.
+      throw Object.assign(
+        new Error('Contact form mail is not configured: EMAIL_USER and EMAIL_PASS must be set.'),
+        { code: 'MAIL_NOT_CONFIGURED' }
+      );
+    }
+    const contactTo = process.env.CONTACT_TO_EMAIL || DEFAULT_CONTACT_TO;
+
+    // Hostinger SMTP by default. SMTP_HOST / SMTP_PORT / SMTP_SECURE exist so
+    // another provider (or a local test server) can be used without a code change.
+    const smtpPort = Number(process.env.SMTP_PORT) || 587;
     const transporter = nodemailer.createTransport({
-      host: 'smtp.hostinger.com',
-      port: 587,
-      secure: false, // true for 465, false for other ports
+      host: process.env.SMTP_HOST || 'smtp.hostinger.com',
+      port: smtpPort,
+      secure: process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : smtpPort === 465,
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
+        user: smtpUser,
+        pass: smtpPass,
       },
     });
 
@@ -136,8 +156,8 @@ export async function POST(request: Request) {
     }
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Send to the admin
+      from: { name: 'Genuine Optimum website', address: smtpUser },
+      to: contactTo,
       replyTo: safeEmail,         // Set reply address to the sender
       subject: `New enquiry from ${safeName}${safeProduct !== "Not provided" ? ` — ${safeProduct}` : ""}`,
       text: `

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
-        url: "https://genuineoptimum.com/services",
+        url: "https://www.genuineoptimum.com/services",
         siteName: "Genuine Optimum",
         type: "website",
     },

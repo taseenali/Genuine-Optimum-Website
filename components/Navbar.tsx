@@ -52,6 +52,9 @@ export default function Navbar() {
                             src="/gologo.webp"
                             alt=""
                             fill
+                            // The logo box is size-8 (32px), so tell Next.js that
+                            // instead of letting it assume a full-width image.
+                            sizes="32px"
                             className="object-contain"
                             priority
                         />

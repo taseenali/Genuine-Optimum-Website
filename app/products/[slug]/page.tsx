@@ -10,8 +10,9 @@ import {
     PrimaryLink,
     SecondaryLink,
     SectionHead,
+    ArrowLink,
 } from "@/components/ui";
-import { PRODUCTS, getProduct, getNextProduct } from "@/lib/products";
+import { PRODUCTS, getProduct } from "@/lib/products";
 import { SITE_URL } from "@/lib/seo";
 
 export function generateStaticParams() {
@@ -56,8 +57,6 @@ export default async function ProductPage({
     const product = getProduct(slug);
     if (!product) notFound();
 
-    const next = getNextProduct(slug);
-
     // SoftwareApplication rather than Product: these are systems we
     // operate, not catalogue items with a price and stock.
     const jsonLd = {
@@ -69,6 +68,7 @@ export default async function ProductPage({
         applicationCategory: "BusinessApplication",
         publisher: {
             "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
             name: "Genuine Optimum",
             url: SITE_URL,
         },
@@ -152,7 +152,6 @@ export default async function ProductPage({
                                 <DemoVideo
                                     src={product.demo.src}
                                     poster={product.demo.poster}
-                                    cover={product.demo.cover}
                                     chrome={product.demo.chrome}
                                     label={
                                         product.demo.src
@@ -238,10 +237,12 @@ export default async function ProductPage({
                             <PrimaryLink href={`/contact?product=${product.slug}`}>
                                 {product.cta.action}
                             </PrimaryLink>
-                            <SecondaryLink href={`/products/${next.slug}`}>
-                                Next: {next.name} &rarr;
-                            </SecondaryLink>
                         </div>
+                        {product.caseStudy ? (
+                            <ArrowLink href={`/work/${product.caseStudy}`}>
+                                Read the full case study
+                            </ArrowLink>
+                        ) : null}
                     </Container>
                 </section>
             </main>

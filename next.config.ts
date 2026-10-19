@@ -92,9 +92,30 @@ const caseStudyEmbedHeaders = securityHeaders.map((header) => {
   return header;
 });
 
+// Videos and the case-study images are large and rarely change, but their
+// file names are not content-hashed like the app's own JavaScript, so they
+// cannot be cached forever. A day in the browser, then a week of serving the
+// old copy while a fresh one is fetched, keeps repeat visits off the network
+// and still picks up a replaced file within a day. Next's default for files
+// in /public is max-age=0, which makes the browser ask again every time.
+const assetCacheHeaders = [
+  { key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" },
+];
+
 const nextConfig: NextConfig = {
+  // Do not advertise the framework in a response header.
+  poweredByHeader: false,
+  // Put the (small, 10 KB gzipped) stylesheet in the page itself instead of
+  // as a separate render-blocking request, so the first paint does not wait
+  // for a CSS round trip.
   async headers() {
     return [
+      { source: "/videos/:path*", headers: assetCacheHeaders },
+      { source: "/gologo.webp", headers: assetCacheHeaders },
+      { source: "/icon-:size.png", headers: assetCacheHeaders },
+      { source: "/icon-maskable-:size.png", headers: assetCacheHeaders },
+      { source: "/case-study-html/thumbnails/:path*", headers: assetCacheHeaders },
+      { source: "/case-study-html/kit-builder-catalogue/:path*", headers: assetCacheHeaders },
       {
         source: "/case-study-html/:path*",
         headers: caseStudyEmbedHeaders,

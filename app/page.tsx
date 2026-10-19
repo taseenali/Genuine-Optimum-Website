@@ -106,6 +106,7 @@ export default function Home() {
                             bars rather than cropping the picture. */}
                         <DemoVideo
                             src="/videos/GO_reel_v4.webm"
+                            poster="/videos/posters/go-reel.jpg"
                             label="Genuine Optimum product reel"
                             aspect="16 / 9"
                             fit="contain"

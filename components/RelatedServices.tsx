@@ -1,25 +1,8 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
 import Link from "next/link";
+import Reveal from "@/components/Reveal";
 import { SERVICES } from "@/lib/services";
-
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.12 },
-    },
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, ease: "easeOut" },
-    },
-};
 
 export default function RelatedServices({ currentSlug }: { currentSlug: string }) {
     const related = SERVICES.filter((service) => service.slug !== currentSlug);
@@ -33,15 +16,9 @@ export default function RelatedServices({ currentSlug }: { currentSlug: string }
                 </h2>
             </div>
 
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-                className="grid gap-6 grid-cols-1 md:grid-cols-3"
-            >
-                {related.map((service) => (
-                    <motion.div key={service.slug} variants={itemVariants}>
+            <div className="grid gap-6 grid-cols-1 md:grid-cols-3">
+                {related.map((service, serviceIndex) => (
+                    <Reveal delay={serviceIndex * 0.1} key={service.slug}>
                         <Link
                             href={`/services/${service.slug}`}
                             className="group relative block h-full border border-line bg-panel p-7 transition-all duration-300 hover:border-line-3 hover:bg-panel-hover"
@@ -59,9 +36,9 @@ export default function RelatedServices({ currentSlug }: { currentSlug: string }
                                 </svg>
                             </span>
                         </Link>
-                    </motion.div>
+                    </Reveal>
                 ))}
-            </motion.div>
+            </div>
         </section>
     );
 }

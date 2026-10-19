@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 const TITLE = "Frequently Asked Questions | Genuine Optimum";
 const DESCRIPTION =
     "Answers to common questions about working with Genuine Optimum: process, timelines, industries served, and how engagements start.";
-const SITE_URL = "https://genuineoptimum.com";
+const SITE_URL = "https://www.genuineoptimum.com";
 
 export const metadata: Metadata = {
     title: TITLE,

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PRODUCTS } from "@/lib/products";
+import { SERVICES } from "@/lib/services";
 
 const COMPANY_LINKS = [
     { href: "/capabilities", label: "Capabilities" },
@@ -37,7 +38,7 @@ function FooterLink({ href, label }: { href: string; label: string }) {
 export default function Footer() {
     return (
         <footer className="border-t border-line bg-bg-alt">
-            <div className="mx-auto grid w-full max-w-[var(--page-max)] grid-cols-1 gap-12 px-6 py-14 sm:grid-cols-2 md:px-10 lg:grid-cols-4">
+            <div className="mx-auto grid w-full max-w-[var(--page-max)] grid-cols-1 gap-12 px-6 py-14 sm:grid-cols-2 md:px-10 lg:grid-cols-5">
 
                 <div className="flex flex-col gap-3">
                     <div className="text-[16.5px] font-bold tracking-[-0.015em] text-text">
@@ -61,6 +62,18 @@ export default function Footer() {
                             key={product.slug}
                             href={`/products/${product.slug}`}
                             label={product.name}
+                        />
+                    ))}
+                </div>
+
+                <div className="flex flex-col gap-3">
+                    <ColumnHeading>Services</ColumnHeading>
+                    <FooterLink href="/services" label="All services" />
+                    {SERVICES.map((service) => (
+                        <FooterLink
+                            key={service.slug}
+                            href={`/services/${service.slug}`}
+                            label={service.shortTitle}
                         />
                     ))}
                 </div>

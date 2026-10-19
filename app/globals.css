@@ -41,11 +41,14 @@
   --line-2: #31352a;
   --line-3: #3f4436;
 
-  /* Text, brightest to faintest */
+  /* Text, brightest to faintest. Every step clears 4.5:1 (WCAG AA for
+     small text) on all four surfaces below, including a hovered panel.
+     The earlier --dim reached only 3.87:1 on a hovered panel and --faint
+     about 2:1, which Lighthouse flagged on every page. */
   --text: #f0f2e8;
-  --muted: #9ba08d;
-  --dim: #787e6b;
-  --faint: #4d5244;
+  --muted: #a6ac98;
+  --dim: #8f9581;
+  --faint: #848a73;
 
   /* Accent. #ccff00 is near-white in luminance, so dark text on
      the fill clears AA at about 16:1 - white on it would be
@@ -192,6 +195,55 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* Scroll reveal (see components/Reveal.tsx). Content is visible by
+   default; only elements below the fold get data-reveal="hidden" once the
+   page is live, and fade in when they scroll into view. Reveal removes the
+   attribute again after the fade, so a revealed element carries none of
+   this. prefers-reduced-motion shortens the transition to nothing, above. */
+[data-reveal] {
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+[data-reveal="hidden"][data-reveal-from="left"] {
+  transform: translateX(-40px);
+}
+[data-reveal="hidden"][data-reveal-from="right"] {
+  transform: translateX(40px);
+}
+[data-reveal="hidden"][data-reveal-from="scale"] {
+  transform: scale(0.95);
+}
+[data-reveal="hidden"][data-reveal-from="fade"] {
+  transform: none;
+}
+[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+}
+
+/* The thin progress bar under a few section headings: a short bar that
+   sweeps back and forth. At rest (and for reduced motion, where the
+   animation is cut to one instant) it sits at the left end. */
+@keyframes bar-sweep {
+  from {
+    left: 0%;
+    transform: translateX(0%);
+  }
+  to {
+    left: 100%;
+    transform: translateX(-100%);
+  }
+}
+.bar-sweep {
+  left: 0;
+  animation: bar-sweep 3s ease-in-out infinite alternate;
 }
 
 /* ------------------------------------------------------------

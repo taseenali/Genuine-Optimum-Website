@@ -3,16 +3,15 @@ import { getAllPosts } from "@/lib/blog";
 import { getAllCaseStudies } from "@/lib/caseStudies";
 import { PRODUCTS } from "@/lib/products";
 
-const BASE_URL = "https://genuineoptimum.com";
+const BASE_URL = "https://www.genuineoptimum.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const now = new Date();
-
     const staticRoutes = [
         "",
         "/about",
         "/contact",
-        "/blog",
+        // The blog index only goes in once it has posts; an empty one is noindex.
+        ...(getAllPosts().length > 0 ? ["/blog"] : []),
         "/privacy",
         "/terms",
         "/capabilities",
@@ -27,9 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         "/work",
     ];
 
+    // No lastModified on these: they were stamped with the build time, which
+    // changed on every deploy whether or not the page did. A date that is
+    // always "now" tells a crawler nothing, so it is left out until there is
+    // a real per-page date to give.
     const staticEntries: MetadataRoute.Sitemap = staticRoutes.map((route) => ({
         url: `${BASE_URL}${route}`,
-        lastModified: now,
         changeFrequency: route === "" ? "weekly" : "monthly",
         priority: route === "" ? 1 : 0.7,
     }));
@@ -38,7 +40,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // want ranking, ahead of the marketing and content routes.
     const productEntries: MetadataRoute.Sitemap = PRODUCTS.map((product) => ({
         url: `${BASE_URL}/products/${product.slug}`,
-        lastModified: now,
         changeFrequency: "monthly",
         priority: 0.9,
     }));

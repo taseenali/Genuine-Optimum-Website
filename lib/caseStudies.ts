@@ -33,6 +33,10 @@ export interface CaseStudyMeta {
     outcomes?: string[];
     testimonial?: CaseStudyTestimonial;
     coverImage?: string;
+    /** CSS object-position for the cover crop on the work page, e.g. "50% 8%".
+     *  The cards are a short band, so which slice of the preview shows matters;
+     *  the default centres a little above the middle. */
+    coverPosition?: string;
     /** Path under /public to a self-contained HTML document (fonts/colors/layout as authored) embedded via iframe instead of the MDX body. */
     standaloneHtml?: string;
 }
@@ -62,6 +66,7 @@ function parseMeta(slug: string, data: Record<string, unknown>): CaseStudyMeta {
         outcomes: data.outcomes as string[] | undefined,
         testimonial: data.testimonial as CaseStudyTestimonial | undefined,
         coverImage: data.coverImage as string | undefined,
+        coverPosition: data.coverPosition as string | undefined,
         standaloneHtml: data.standaloneHtml as string | undefined,
     };
 }

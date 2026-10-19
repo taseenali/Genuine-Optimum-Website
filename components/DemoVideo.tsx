@@ -2,16 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 
-/** A strip painted over part of the picture, positioned in percent of it. */
-export interface VideoCover {
-    /** Distance from the top of the picture, in percent. */
-    top: number;
-    /** Height of the strip, in percent of the picture. */
-    height: number;
-    /** CSS background. Pick a colour that matches the footage beneath it. */
-    background: string;
-}
-
 /** Width in pixels of the tiny canvas the ambient backdrop is painted into. */
 const AMBIENT_WIDTH = 96;
 /** Minimum milliseconds between ambient repaints, about 20 per second. */
@@ -30,7 +20,10 @@ const AMBIENT_INTERVAL = 50;
  * 2. Continuously moving content longer than five seconds should offer a
  *    way to stop it (WCAG 2.2.2), so there is a pause control by default,
  *    and playback does not auto-start for anyone who has asked for
- *    reduced motion.
+ *    reduced motion. The video is also not downloaded until the player
+ *    is within a screen or so of being visible, so a 6 MB clip lower
+ *    down the page costs nothing to a visitor who never scrolls to it.
+ *    Until then the poster image stands in for it.
  * 3. Footage that does not match the slot's shape has to go somewhere.
  *    `fit="contain"` keeps the whole picture, and `ambient` fills the
  *    leftover space with a blurred, scaled-up copy of the video's own
@@ -48,7 +41,6 @@ export default function DemoVideo({
     bleed = false,
     ambient = false,
     videoAspect = "16 / 9",
-    cover,
 }: {
     src?: string;
     poster?: string;
@@ -82,14 +74,6 @@ export default function DemoVideo({
     /** The footage's own shape. With `ambient`, the video element is sized
      *  to exactly this so the edge fade lands on the picture's real edges. */
     videoAspect?: string;
-    /**
-     * Hides something burned into the footage, such as a stray label, by
-     * painting a strip over it. Only valid when the video fills the box
-     * exactly (matching `aspect`, `fit="cover"`), since the strip is placed
-     * in percent of the box. It is a patch over the picture, not an edit of
-     * the file: re-export the video without the label and drop this.
-     */
-    cover?: VideoCover;
 }) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -98,6 +82,28 @@ export default function DemoVideo({
     // video's own play/pause events drive this, so autoplay being
     // blocked by the browser still leaves the button label correct.
     const [playing, setPlaying] = useState(true);
+    // Flips to true once, when the player is about to scroll into view.
+    const [nearViewport, setNearViewport] = useState(false);
+
+    useEffect(() => {
+        const box = boxRef.current;
+        if (!box || !src) return;
+        if (typeof IntersectionObserver === "undefined") {
+            // No observer support: load straight away rather than never.
+            const id = requestAnimationFrame(() => setNearViewport(true));
+            return () => cancelAnimationFrame(id);
+        }
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (!entry.isIntersecting) return;
+                setNearViewport(true);
+                observer.disconnect();
+            },
+            { rootMargin: "400px 0px" }
+        );
+        observer.observe(box);
+        return () => observer.disconnect();
+    }, [src]);
 
     useEffect(() => {
         const video = videoRef.current;
@@ -288,33 +294,17 @@ export default function DemoVideo({
                                 maskImage: feather,
                                 WebkitMaskImage: feather,
                             }}
-                            src={src}
+                            src={nearViewport ? src : undefined}
                             poster={poster}
                             autoPlay
                             muted
                             loop
                             playsInline
-                            preload="metadata"
+                            preload={nearViewport ? "metadata" : "none"}
                             aria-label={label}
                             onPlay={() => setPlaying(true)}
                             onPause={() => setPlaying(false)}
                         />
-                        {cover ? (
-                            <div
-                                aria-hidden
-                                className="pointer-events-none absolute inset-x-0"
-                                // Faded at both ends so the patch has no hard side edges.
-                                style={{
-                                    top: `${cover.top}%`,
-                                    height: `${cover.height}%`,
-                                    background: cover.background,
-                                    maskImage:
-                                        "linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%)",
-                                    WebkitMaskImage:
-                                        "linear-gradient(to right, transparent 0%, #000 4%, #000 96%, transparent 100%)",
-                                }}
-                            />
-                        ) : null}
                         {showControl ? (
                             <button
                                 type="button"

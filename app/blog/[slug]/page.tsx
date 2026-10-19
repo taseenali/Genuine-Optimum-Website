@@ -27,7 +27,7 @@ export async function generateMetadata({
         openGraph: {
             title,
             description: post.meta.description,
-            url: `https://genuineoptimum.com/blog/${slug}`,
+            url: `https://www.genuineoptimum.com/blog/${slug}`,
             siteName: "Genuine Optimum",
             type: "article",
         },

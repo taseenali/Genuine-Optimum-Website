@@ -1,7 +1,7 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
 import Navbar from "../../../components/Navbar";
+import Reveal from "@/components/Reveal";
 import Footer from "../../../components/Footer";
 import MagneticButton from "../../../components/MagneticButton";
 import RelatedServices from "../../../components/RelatedServices";
@@ -31,28 +31,6 @@ const solutions = [
     },
 ];
 
-const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.15,
-        },
-    },
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-            ease: "easeOut",
-        },
-    },
-};
-
 export default function AIDataPage() {
     const router = useRouter();
 
@@ -67,34 +45,23 @@ export default function AIDataPage() {
 
                     {/* Hero Section */}
                     <section className="px-6 mb-24 max-w-[var(--page-max)] mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            className="text-center"
-                        >
+                        <div className="text-center">
                             <h1 className={`text-4xl md:text-7xl font-medium text-accent mb-6`}>
                                 AI & DATA SYSTEMS
                             </h1>
                             <p className={`text-xl md:text-2xl text-muted font-medium tracking-wide max-w-3xl mx-auto`}>
                                 Smarter decision-making powered by intelligent systems.
                             </p>
-                        </motion.div>
+                        </div>
                     </section>
 
                     {/* Intro Section */}
                     <section className="px-6 mb-32 relative">
                         <div className="absolute inset-0 bg-transparent border-y border-line pointer-events-none -z-10"></div>
                         <div className="max-w-4xl mx-auto py-16 text-center">
-                            <motion.p
-                                initial={{ opacity: 0 }}
-                                whileInView={{ opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1 }}
-                                className="text-lg md:text-xl text-muted leading-relaxed"
-                            >
+                            <Reveal as="p" className="text-lg md:text-xl text-muted leading-relaxed">
                                 We integrate artificial intelligence and data systems into business operations, giving you automation, real insight, and workflows that actually think.
-                            </motion.p>
+                            </Reveal>
                         </div>
                     </section>
 
@@ -105,44 +72,22 @@ export default function AIDataPage() {
                                 Our Solutions
                             </h2>
                             <div className="w-full h-1 bg-panel-hover relative rounded-full overflow-hidden">
-                                <motion.div 
-                                    className="absolute top-0 bottom-0 w-20 bg-accent rounded-full"
-                                    animate={{ 
-                                        left: ["0%", "100%"],
-                                        x: ["0%", "-100%"]
-                                    }}
-                                    transition={{
-                                        duration: 3,
-                                        repeat: Infinity,
-                                        repeatType: "reverse",
-                                        ease: "easeInOut"
-                                    }}
-                                />
+                                <div className="absolute top-0 bottom-0 w-20 bg-accent rounded-full bar-sweep" />
                             </div>
                         </div>
 
-                        <motion.div
-                            variants={containerVariants}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
-                            className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
-                        >
+                        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
                             {solutions.map((solution, index) => (
-                                <motion.div
-                                    key={index}
-                                    variants={itemVariants}
-                                    className="relative border border-line bg-panel p-8 transition-all duration-300 flex flex-col h-full"
-                                >
+                                <Reveal delay={index * 0.1} key={index} className="relative border border-line bg-panel p-8 transition-all duration-300 flex flex-col h-full">
                                     <h3 className={`text-xl font-bold text-white mb-4 relative z-10`}>
                                         {solution.title}
                                     </h3>
                                     <p className="text-muted leading-relaxed relative z-10">
                                         {solution.description}
                                     </p>
-                                </motion.div>
+                                </Reveal>
                             ))}
-                        </motion.div>
+                        </div>
                     </section>
 
                     <RelatedServices currentSlug="ai-data-systems" />
@@ -152,13 +97,7 @@ export default function AIDataPage() {
                         {/* Background glow drop */}
                         <div className="absolute inset-0 bg-accent/20 hidden rounded-full -z-10 pointer-events-none transition-opacity duration-700"></div>
 
-                        <motion.div
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, type: "spring", bounce: 0.4 }}
-                            className="relative group p-[1px] overflow-hidden"
-                        >
+                        <Reveal className="relative group p-[1px] overflow-hidden">
                             {/* Animated gradient border */}
                             <span className="absolute inset-0 w-full h-full bg-gradient-to-br from-accent via-transparent to-accent opacity-40 group-hover:opacity-100 transition-opacity duration-700"></span>
 
@@ -170,12 +109,7 @@ export default function AIDataPage() {
                                 {/* Inner animated glow */}
                                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-accent/10 to-accent/10 rounded-full hidden -z-10 group-hover:from-accent/20 group-hover:to-accent/20 transition-all duration-700"></div>
 
-                                <motion.div
-                                    initial={{ opacity: 0, scale: 0.95 }}
-                                    whileInView={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.8, delay: 0.1 }}
-                                    className="relative z-10"
-                                >
+                                <Reveal from="scale" delay={0.1} className="relative z-10">
                                     <h2 className="text-lg md:text-xl font-light mb-6 leading-relaxed tracking-wide text-white">
                                         Our AI systems help organizations move from reactive decision-making to data-driven strategy.
                                     </h2>
@@ -195,9 +129,9 @@ export default function AIDataPage() {
                                             <div className="absolute inset-0 bg-gradient-to-r from-accent to-accent-hi opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300"></div>
                                         </MagneticButton>
                                     </div>
-                                </motion.div>
+                                </Reveal>
                             </div>
-                        </motion.div>
+                        </Reveal>
                     </section>
                 </main>
 

@@ -46,3 +46,6 @@ next-env.d.ts
 
 # local Claude Code tooling config, not project source
 /.claude/
+
+# Kit-GO: a separate kit with its own git repository, kept beside the site, not part of it
+/Kit-GO/

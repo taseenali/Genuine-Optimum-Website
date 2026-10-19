@@ -9,19 +9,25 @@ const TITLE = "Blog | Genuine Optimum";
 const DESCRIPTION =
     "Insights on web development, SEO, and building connected digital systems, from the Genuine Optimum team.";
 
-export const metadata: Metadata = {
+// An empty index (no posts yet) is a thin page, so it asks not to be indexed
+// until there is something on it. Links on it are still followed.
+export function generateMetadata(): Metadata {
+    const hasPosts = getAllPosts().length > 0;
+    return {
     title: TITLE,
     description: DESCRIPTION,
+    ...(hasPosts ? {} : { robots: { index: false, follow: true } }),
     openGraph: {
         title: TITLE,
         description: DESCRIPTION,
-        url: "https://genuineoptimum.com/blog",
+        url: "https://www.genuineoptimum.com/blog",
         siteName: "Genuine Optimum",
         type: "website",
     },
     twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
     alternates: { canonical: "/blog" },
-};
+    };
+}
 
 export default function BlogIndexPage() {
     const posts = getAllPosts();

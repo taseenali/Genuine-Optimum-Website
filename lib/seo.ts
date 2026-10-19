@@ -1,4 +1,4 @@
-export const SITE_URL = "https://genuineoptimum.com";
+export const SITE_URL = "https://www.genuineoptimum.com";
 export const SITE_NAME = "Genuine Optimum";
 
 export function serviceJsonLd(serviceType: string, description: string, slug: string) {

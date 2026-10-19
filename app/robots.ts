@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://genuineoptimum.com";
+const BASE_URL = "https://www.genuineoptimum.com";
 
 export default function robots(): MetadataRoute.Robots {
     return {
@@ -21,6 +21,8 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: "*",
             allow: "/",
+            // The contact form's POST endpoint: nothing there for a crawler to index.
+            disallow: ["/api/"],
         },
         sitemap: `${BASE_URL}/sitemap.xml`,
     };
