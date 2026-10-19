@@ -18,6 +18,13 @@ jobs:
           cache: npm
 
       - run: npm ci
-      - run: npm audit --audit-level=high
+      # Blocks on what ships to visitors. A flaw in development-only tooling
+      # (the linter chain, for example) cannot reach production, and when no
+      # patched release exists a gate on it can only fail forever. The full
+      # audit below still runs and is shown, but does not block.
+      - run: npm audit --omit=dev --audit-level=high
+      - name: Full audit, including dev tooling (informational)
+        run: npm audit --audit-level=high
+        continue-on-error: true
       - run: npm run lint
       - run: npm run build
