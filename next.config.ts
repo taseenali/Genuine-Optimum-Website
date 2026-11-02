@@ -113,7 +113,6 @@ const nextConfig: NextConfig = {
       { source: "/videos/:path*", headers: assetCacheHeaders },
       { source: "/gologo.webp", headers: assetCacheHeaders },
       { source: "/icon-:size.png", headers: assetCacheHeaders },
-      { source: "/icon-maskable-:size.png", headers: assetCacheHeaders },
       { source: "/case-study-html/thumbnails/:path*", headers: assetCacheHeaders },
       { source: "/case-study-html/kit-builder-catalogue/:path*", headers: assetCacheHeaders },
       {

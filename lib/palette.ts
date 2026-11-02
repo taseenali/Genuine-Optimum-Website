@@ -1,7 +1,7 @@
 /**
  * Literal palette values for the two places that cannot read CSS
  * custom properties: the Open Graph image template (rendered by
- * Satori) and the PWA manifest.
+ * Satori) and the browser theme colour.
  *
  * These mirror the palettes in app/globals.css. When switching the
  * site's palette there, switch ACTIVE here to match, or the social

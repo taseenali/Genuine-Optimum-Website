@@ -19,7 +19,7 @@
      <html lang="en" data-palette="violet">   original
 
    The hero canvas follows automatically - it samples --accent and
-   --dim at runtime. Open Graph images and the PWA manifest cannot
+   --dim at runtime. Open Graph images cannot
    read CSS, so their copies live in lib/palette.ts and switch
    there.
    ============================================================ */
